@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3-ansible Ad-Hoc命令集 | DaGuang</title><meta name="keywords" content="Ad-Hoc命令集"><meta name="author" content="DaGuang"><meta name="copyright" content="DaGuang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="清单配置详解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3-ansible Ad-Hoc命令集">
+<meta property="og:url" content="http://example.com/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:description" content="清单配置详解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg">
+<meta property="article:published_time" content="2021-07-13T13:18:33.000Z">
+<meta property="article:modified_time" content="2021-09-26T01:31:14.101Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="Ad-Hoc命令集">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '3-ansible Ad-Hoc命令集',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-09-26 09:31:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">DaGuang</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">3-ansible Ad-Hoc命令集</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-07-13T13:18:33.000Z" title="发表于 2021-07-13 21:18:33">2021-07-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-26T01:31:14.101Z" title="更新于 2021-09-26 09:31:14">2021-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ansible/">ansible</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="3-ansible Ad-Hoc命令集"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/ansible.jpg" alt="ansible"><br>清单配置详解</p>
+<span id="more"></span>
+<p>ansible有两种完成任务的方式：  </p>
+<ol>
+<li>Ad-Hoc：也就是ansible命令，相当于linux命令  </li>
+<li>ansible-playbook：ansible-playbook命令，相当于shell脚本  </li>
+</ol>
+<h1 id="Ad-Hoc用法"><a href="#Ad-Hoc用法" class="headerlink" title="Ad-Hoc用法"></a>Ad-Hoc用法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible &lt;host-pattern&gt; [options]</span><br></pre></td></tr></table></figure>
+<p><strong>[options]</strong>  </p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>-v</strong></td>
+<td align="left">输出详细信息，-vvv输出更加详细的信息</td>
+</tr>
+<tr>
+<td align="left"><strong>-i PATH</strong></td>
+<td align="left">指定inventory配置文件，默认是/etc/ansible/hosts</td>
+</tr>
+<tr>
+<td align="left"><strong>-f NUM</strong></td>
+<td align="left">指定并发数，默认是使用的ansible.cfg中forks=5</td>
+</tr>
+<tr>
+<td align="left"><strong>-m NAME</strong></td>
+<td align="left">指定使用的模块名</td>
+</tr>
+<tr>
+<td align="left"><strong>-M PATH</strong></td>
+<td align="left">指定模块的存放路径</td>
+</tr>
+<tr>
+<td align="left"><strong>-a ‘xxxxx’</strong></td>
+<td align="left">模块参数</td>
+</tr>
+<tr>
+<td align="left"><strong>-k ：</strong></td>
+<td align="left">认证密码</td>
+</tr>
+<tr>
+<td align="left"><strong>-K ：</strong></td>
+<td align="left">sudo时使用的密码</td>
+</tr>
+<tr>
+<td align="left"><strong>-o ：</strong></td>
+<td align="left">标准输出至一行</td>
+</tr>
+<tr>
+<td align="left"><strong>-b ：</strong></td>
+<td align="left">相当于sudo命令</td>
+</tr>
+<tr>
+<td align="left"><strong>-t PATH</strong></td>
+<td align="left">将输出信息保存在PATH目录下，文件名为远程主机名</td>
+</tr>
+<tr>
+<td align="left"><strong>-T seconds</strong></td>
+<td align="left">设置最大超时时间，单位秒</td>
+</tr>
+<tr>
+<td align="left"><strong>-B seconds</strong></td>
+<td align="left">后台执行命令，超过指定秒后终止运行的命令</td>
+</tr>
+<tr>
+<td align="left"><strong>-P seconds</strong></td>
+<td align="left">定期返回后台任务进度</td>
+</tr>
+<tr>
+<td align="left"><strong>-u USERNAME</strong></td>
+<td align="left">指定以哪一个远程主机的用户进行远程</td>
+</tr>
+<tr>
+<td align="left"><strong>-U USERNAME</strong></td>
+<td align="left">相当于远程主机后执行sudo USERNAME</td>
+</tr>
+<tr>
+<td align="left"><strong>–list-hosts</strong></td>
+<td align="left">列出符合条件的所有主机列表</td>
+</tr>
+</tbody></table>
+<p>当命令执行多台主机时，执行的主机是没有固定先后顺序的，且受并发数（默认5）限制，同一时间输出主机信息小于等于5都是正常的。  </p>
+<ul>
+<li><p>示例1<br>查看主机内存情况  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#command、script、shell，都可以实现远程shell命令运行</span><br><span class="line">ansible test3 -m command -a &#x27;free -m&#x27;    #command运行远程权限范围所有的shell命令</span><br><span class="line">ansible test3 -m shell -a &#x27;free -m&#x27;      #shell模块还可以执行远程主机的shell脚本文件，执行脚本时`-a`参数后跟脚本的路径</span><br><span class="line">ansible test3 -m script -a &#x27;free -m&#x27;     #script模块可以在远程主机执行主控端存储的shell脚本文件，相当于scp+shell组合，执行脚本时`-a`参数后跟脚本的路径</span><br></pre></td></tr></table></figure></li>
+<li><p>示例2<br>使用yum安装指定软件  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible test3 -m yum -a &#x27;name=vim state=installed&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>name</strong>：后跟要操作的包名<br><strong>state</strong>：表示对包执行的操作，installed（安装）、latest（更新或者安装最新）、removed（卸载）  </p>
+<ul>
+<li>示例3<br>启动某一项服务，并设置开机启动  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible test3 -m service -a&#x27;name=xxxx state=started enabled=yes&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="常用模块"><a href="#常用模块" class="headerlink" title="常用模块"></a>常用模块</h1><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
+<li>fetch<br>将远程主机的文件拉取到ansible主机。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible test3 -m fetch -a&#x27;src=/etc/fstab dest=/home/test&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>src</strong>：表示要拉取的远程主机的文件或目录路径<br><strong>dest</strong>：表示将文件存放在ansible的路径<br>拉取到ansible主机的fstab文件路径是/home/test/test3/etc/fstab,说明在指定dest路径下会自动创一个主机的文件夹（/home/test/test3），然后在该主机文件夹下也会自动创建拉取的文件在远程主机中的路径结构以及文件。  </p>
+<ul>
+<li>copy<br>将ansible主机上的文件拷贝到远程主机上。  </li>
+</ul>
+<p><strong>src</strong>：用于指定需要copy的文件或目录<br><strong>dest</strong>：用于指定文件将被拷贝到远程主机的哪个目录中，dest为必须参数<br><strong>content</strong>：当不使用src指定拷贝的文件时，可以使用content直接指定文件内容，src与content两个参数必有其一，否则会报错。<br><strong>force</strong> ：当远程主机的目标路径中已经存在同名文件，并且与ansible主机中的文件内容不同时，是否强制覆盖，可选值有yes和no，默认值为yes，表示覆盖，如果设置为no，则不会执行覆盖拷贝操作，远程主机中的文件保持不变。<br><strong>backup</strong>：当远程主机的目标路径中已经存在同名文件，并且与ansible主机中的文件内容不同时，是否对远程主机的文件进行备份，可选值有yes和no，当设置为yes时，会先备份远程主机中的文件，然后再将ansible主机中的文件拷贝到远程主机。<br><strong>owner</strong> ：指定文件拷贝到远程主机后的属主，但是远程主机上必须有对应的用户，否则会报错。<br><strong>group</strong> ：指定文件拷贝到远程主机后的属组，但是远程主机上必须有对应的组，否则会报错。<br><strong>mode</strong> ：指定文件拷贝到远程主机后的权限，如果你想将权限设置为”rw-r–r–”，则可以使用mode=0644表示，如果你想要在user对应的权限位上添加执行权限，则可以使用mode=u+x表示。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#将ansible主机中/home/yyg/test.txt复制到test3的/home/yyg下</span><br><span class="line">ansible test3 -m copy -a&#x27;src=/home/yyg/test.txt dest=/home/yyg&#x27;</span><br><span class="line"></span><br><span class="line">#在远程主机的/home/yyg/目录下生成文件test2.txt，改文件有两行第一行123第二行456</span><br><span class="line">ansible test3 -m copy -a&#x27;content=&quot;123\n456\n&quot; dest=/home/yyg/test2.txt&#x27;   #使用content时，dest必须是一个文件</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>file<br>对文件的基本操作：创建文件或目录、删除文件或目录、修改文件权限等  </li>
+</ul>
+<p><strong>path</strong>：指定要操作的文件或目录【必须参数】<br><strong>state</strong>：可选参数  </p>
+<ul>
+<li>directory：指定的path为一个目录，并创建目录；若目录存在则不进行操作  </li>
+<li>touch：指定的path是文件，并创建文件；若存在则更新文件的时间戳  </li>
+<li>link：指定的path是软连接  </li>
+<li>hard：指定的path是硬连接  </li>
+<li>absent：删除目录或者文件</li>
+</ul>
+<p>  <strong>src</strong>:当state是link或者hard时，还参数指向的是链接源<br>  <strong>owner</strong>:用于指定被操作文件的属主，属主对应的用户必须在远程主机中存在，否则会报错。<br>  <strong>group</strong>:用于指定被操作文件的属组，属组对应的组必须在远程主机中存在，否则会报错。<br>  <strong>mode</strong>：设置文件的权限，例如mode=777<br>  <strong>recurse</strong>：当要操作目录时，recurse=yes表示递归操作  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#在test3上创建一个/home/yyg/test.txt文件  </span><br><span class="line">ansible test3 -m file -a&#x27;path=/home/yyg/test.txt state=touch&#x27;</span><br><span class="line"></span><br><span class="line">#在test3上创建一个/home/yyg/dd 目录</span><br><span class="line">ansible test3 -m file -a&#x27;path=/home/yyg/dd state=directory&#x27;</span><br><span class="line"></span><br><span class="line">#为test3上/home/yyg/test.txt创建一个/home/yyg/test.link软连接</span><br><span class="line">ansible test3 -m file -a&#x27;path=/home/yyg/test.link state=link src=/home/yyg/test.txt&#x27;</span><br><span class="line"></span><br><span class="line">#为test3上/home/yyg/test.txt创建一个/home/yyg/test.hard软连接</span><br><span class="line">ansible test3 -m file -a&#x27;path=/home/yyg/test.hard state=hard src=/home/yyg/test.txt&#x27;</span><br><span class="line"></span><br><span class="line">#删除test3上的/home/yyg/test.hard</span><br><span class="line">ansible test3 -m file -a&#x27;path=/home/yyg/test.hard state=absent&#x27;</span><br><span class="line"></span><br><span class="line">#将test3上的/home/yyg/test.txt文件，属主为yyg、属组为yyg、权限改为777</span><br><span class="line">ansible test3 -m file -a&#x27;path=/home/yyg/test.txt owner=yyg group=yyg mode=777&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>blockinfile<br>向指定的文件（默认尾部）插入文本，并自动插入标记  </li>
+</ul>
+<p><strong>path</strong>:指定操作的文件<br><strong>block</strong>:要插入的文本<br><strong>marker</strong>：自定义标记，默认会在插入的文本上行和下行插入<code># BEGIN ANSIBLE MANAGED BLOCK</code>、<code># END ANSIBLE MANAGED BLOCK</code>。当marker=marker=”{mark} 2020-04-20”，标记就会变成<code>BEGIN 2020-04-20</code>、<code>END 2020-04-20</code>，当然也可以不加{mark}<br><strong>state</strong>：默认参数为present表示更新标记的文本；当state=absent时，表示删除标记的文本<br><strong>backup</strong>:表示修改文件之前是否进行备份。<br><strong>insertbefore</strong>：可以与正则表达式一起使用，表示将文本添加在正则匹配的行后（有多行可以匹配时，以最后一个满足正则的行为准）<br><strong>insertafter</strong>：可以与正则表达式一起使用，表示将文本添加在正则匹配的行前（有多行可以匹配时，以最后一个满足正则的行为准）；当insertafter=BOF时表示将文本插入在文件开头。<br><strong>create</strong>: 操作的文件不存在时是否进行创建，默认create=no  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#向test3的/home/yyg/test.txt插入两行数字</span><br><span class="line">ansible test3 -m blockinfile -a &#x27;path=/home/yyg/test.txt block=&quot;123\n456\n&quot;&#x27;</span><br><span class="line"></span><br><span class="line">[root@test3 yyg]# more /home/yyg/test.txt </span><br><span class="line"># BEGIN ANSIBLE MANAGED BLOCK      </span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line"># END ANSIBLE MANAGED BLOCK</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#向test3的/home/yyg/test.txt插入三行数字并自定义标记</span><br><span class="line">ansible test3 -m blockinfile -a &#x27;path=/home/yyg/test.txt marker=&quot;&#123;mark&#125; 2020-04-20&quot;  block=&quot;123\n456\n789\n&quot;&#x27;</span><br><span class="line"></span><br><span class="line">[root@test3 yyg]# more /home/yyg/test.txt </span><br><span class="line"># BEGIN ANSIBLE MANAGED BLOCK</span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line"># END ANSIBLE MANAGED BLOCK</span><br><span class="line">BEGIN 2020-04-20</span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line">789</span><br><span class="line">END 2020-04-20</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#对test3下/home/yyg/test.txt默认标记的文本进行修改</span><br><span class="line">ansible test3 -m blockinfile -a&#x27;path=/home/yyg/test.txt block=&quot;789\n456\n123\n&quot;&#x27;</span><br><span class="line">#可以查出这次的操作是针对默认标记的文本进行的修改</span><br><span class="line">[root@test3 yyg]# more /home/yyg/test.txt </span><br><span class="line"># BEGIN ANSIBLE MANAGED BLOCK</span><br><span class="line">789</span><br><span class="line">456</span><br><span class="line">123</span><br><span class="line"># END ANSIBLE MANAGED BLOCK</span><br><span class="line">BEGIN 2020-04-20</span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line">789</span><br><span class="line">END 2020-04-20</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lineinfile<br>确保文件中有指定的一行；替换指定的一行；删除指定文本  </li>
+</ul>
+<p><strong>path</strong>:指定要操作的文件<br><strong>line</strong>:指定要操作的文本或者替换为的文本<br><strong>state</strong>:默认是present，absent为删除指定的文本<br><strong>regexp</strong>:使用正则表达式匹配对应的行,当替换文本时，如果有多行文本都能被匹配，则只有最后面被匹配到的那行文本才会被替换;当删除文本时，如果有多行文本都能被匹配，这么这些行都会被删除。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@test3 yyg]# more linefile </span><br><span class="line">test test 11111</span><br><span class="line"></span><br><span class="line">#确保/home/yyg/linefile有`test test`这一行</span><br><span class="line">ansible test3 -m lineinfile -a&#x27;path=/home/yyg/linefile line=&quot;test test&quot;&#x27;</span><br><span class="line"></span><br><span class="line">#若是linefile中有test test这一行则linefile文件不会有改变</span><br><span class="line">#【注意这里是匹配的整行，所以才会在文件尾加了test test】</span><br><span class="line">[root@test3 yyg]# more linefile </span><br><span class="line">test test 11111</span><br><span class="line">test test</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@test3 yyg]# more linefile1 </span><br><span class="line">1test</span><br><span class="line">2test</span><br><span class="line">3test</span><br><span class="line">3test</span><br><span class="line">4test</span><br><span class="line"></span><br><span class="line">#替换/home/yyg/linefile1中`3test`这一行为linefile</span><br><span class="line">ansible test3 -m lineinfile -a&#x27;path=/home/yyg/linefile1 regexp=&quot;^3&quot; line=&quot;linefile&quot;&#x27;</span><br><span class="line"></span><br><span class="line">#【注意只对匹配的最后一行进行替换，若没有匹配的行则会在文件尾添加 linefile 】</span><br><span class="line">#【若想要在没有匹配行时不再文件尾添加文本 则需要在lineinfile模块参数中加上backrefs=yes】</span><br><span class="line">[root@qweasdzxc yyg]# more linefile1 </span><br><span class="line">1test</span><br><span class="line">2test</span><br><span class="line">3test</span><br><span class="line">linefile</span><br><span class="line">4test</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@qweasdzxc yyg]# more linefile2</span><br><span class="line">1test</span><br><span class="line">2test</span><br><span class="line">3test123</span><br><span class="line">3test</span><br><span class="line">3test</span><br><span class="line">4test</span><br><span class="line"></span><br><span class="line">#删除test3下/home/yyg/linefile2中是&quot;3test&quot;的行</span><br><span class="line">ansible test3 -m lineinfile -a&#x27;path=/home/yyg/linefile2 line=&quot;3test&quot; state=absent&#x27;</span><br><span class="line"></span><br><span class="line">#会将所有&quot;3test&quot;行删除，3test123则不会被删除</span><br><span class="line">[root@qweasdzxc yyg]# more linefile2</span><br><span class="line">1test</span><br><span class="line">2test</span><br><span class="line">3test123</span><br><span class="line">4test</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@qweasdzxc yyg]# more linefile3</span><br><span class="line">1test</span><br><span class="line">2test</span><br><span class="line">3test123</span><br><span class="line">3test</span><br><span class="line">3test</span><br><span class="line">4test</span><br><span class="line"></span><br><span class="line">#删除test3下/home/yyg/linefile3中有&quot;3test&quot;字符的行</span><br><span class="line">ansible test3 -m lineinfile -a&#x27;path=/home/yyg/linefile3 regexp=&quot;.*3test.*&quot; state=absent&#x27;</span><br><span class="line"></span><br><span class="line">#【注意参数line和regexp的区别】</span><br><span class="line">[root@qweasdzxc yyg]# more linefile3</span><br><span class="line">1test</span><br><span class="line">2test</span><br><span class="line">4test</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>find<br>在远程主机中查找符合条件的文件。  </li>
+</ul>
+<p><strong>path</strong>：必须参数，指定在那个路径下查找文件（不会在子目录中查找），可以有多个路径，路径之间用逗号隔开<br><strong>recurse</strong>：默认是no，递归查找path下的子目录时需设定为yes<br><strong>hidden</strong>：默认no，设置为yes时查找隐藏文件<br><strong>file_type</strong>：默认情况下只会查找“文件”，当需要查找其他类型时，需进行指定：any、dierctory、file、link<br><strong>patterns</strong>：指定查找的文件名，可以使用通配符。<br><strong>use_regex</strong>：当patterns需使用正则表达式时，需设置为yes<br><strong>contains</strong>：指定一个正则表达式搜索文件中的内容<br><strong>age</strong>:根据文件mtime时间进行查找，单位有秒(s)、分(m)、时(h)、天(d)、星期(w)。age=3d（mtime在3天前的文件）、age=-3d（mtime在进3天内的文件）<br><strong>age_stamp</strong>：指定搜索的是文件的什么时间atime、ctime、mtime<br><strong>size</strong>:根据文件的大小进行查找（单位t、g、m、k、b），size=3m（大于3m的文件）、size=-3m（小于等于3m的文件）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">在test3主机的/home/yyg目录中查找文件内容中包含abc字符串的文件，隐藏文件会被忽略，不会进行递归查找。</span><br><span class="line">[root@zabbix ~]# ansible test3 -m find -a&#x27;paths=/home/yyg contains=&quot;.*abc.*&quot;&#x27;</span><br><span class="line">test3 | SUCCESS =&gt; &#123;</span><br><span class="line">    &quot;ansible_facts&quot;: &#123;</span><br><span class="line">        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python&quot;</span><br><span class="line">    &#125;, </span><br><span class="line">    &quot;changed&quot;: false, </span><br><span class="line">    &quot;examined&quot;: 14, </span><br><span class="line">    &quot;files&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;atime&quot;: 1587594438.3750508, </span><br><span class="line">            &quot;ctime&quot;: 1587594438.3750508, </span><br><span class="line">            &quot;dev&quot;: 64768, </span><br><span class="line">            &quot;gid&quot;: 0, </span><br><span class="line">            &quot;gr_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;inode&quot;: 50780728, </span><br><span class="line">            &quot;isblk&quot;: false, </span><br><span class="line">            &quot;ischr&quot;: false, </span><br><span class="line">            &quot;isdir&quot;: false, </span><br><span class="line">            &quot;isfifo&quot;: false, </span><br><span class="line">            &quot;isgid&quot;: false, </span><br><span class="line">            &quot;islnk&quot;: false, </span><br><span class="line">            &quot;isreg&quot;: true, </span><br><span class="line">            &quot;issock&quot;: false, </span><br><span class="line">            &quot;isuid&quot;: false, </span><br><span class="line">            &quot;mode&quot;: &quot;0644&quot;, </span><br><span class="line">            &quot;mtime&quot;: 1587594438.3750508, </span><br><span class="line">            &quot;nlink&quot;: 1, </span><br><span class="line">            &quot;path&quot;: &quot;/home/yyg/find.txt&quot;, </span><br><span class="line">            &quot;pw_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;rgrp&quot;: true, </span><br><span class="line">            &quot;roth&quot;: true, </span><br><span class="line">            &quot;rusr&quot;: true, </span><br><span class="line">            &quot;size&quot;: 8, </span><br><span class="line">            &quot;uid&quot;: 0, </span><br><span class="line">            &quot;wgrp&quot;: false, </span><br><span class="line">            &quot;woth&quot;: false, </span><br><span class="line">            &quot;wusr&quot;: true, </span><br><span class="line">            &quot;xgrp&quot;: false, </span><br><span class="line">            &quot;xoth&quot;: false, </span><br><span class="line">            &quot;xusr&quot;: false</span><br><span class="line">        &#125;</span><br><span class="line">    ], </span><br><span class="line">    &quot;matched&quot;: 1, </span><br><span class="line">    &quot;msg&quot;: &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">在test3主机的/home/yyg目录以及其子目录中查找文件内容中包含abc字符串的文件，隐藏文件会被忽略。</span><br><span class="line">[root@zabbix ~]# ansible test3 -m find -a&#x27;paths=/home/yyg recurse=yes contains=&quot;.*abc.*&quot;&#x27;</span><br><span class="line">test3 | SUCCESS =&gt; &#123;</span><br><span class="line">    &quot;ansible_facts&quot;: &#123;</span><br><span class="line">        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python&quot;</span><br><span class="line">    &#125;, </span><br><span class="line">    &quot;changed&quot;: false, </span><br><span class="line">    &quot;examined&quot;: 16, </span><br><span class="line">    &quot;files&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;atime&quot;: 1587594661.6363747, </span><br><span class="line">            &quot;ctime&quot;: 1587594438.3750508, </span><br><span class="line">            &quot;dev&quot;: 64768, </span><br><span class="line">            &quot;gid&quot;: 0, </span><br><span class="line">            &quot;gr_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;inode&quot;: 50780728, </span><br><span class="line">            &quot;isblk&quot;: false, </span><br><span class="line">            &quot;ischr&quot;: false, </span><br><span class="line">            &quot;isdir&quot;: false, </span><br><span class="line">            &quot;isfifo&quot;: false, </span><br><span class="line">            &quot;isgid&quot;: false, </span><br><span class="line">            &quot;islnk&quot;: false, </span><br><span class="line">            &quot;isreg&quot;: true, </span><br><span class="line">            &quot;issock&quot;: false, </span><br><span class="line">            &quot;isuid&quot;: false, </span><br><span class="line">            &quot;mode&quot;: &quot;0644&quot;, </span><br><span class="line">            &quot;mtime&quot;: 1587594438.3750508, </span><br><span class="line">            &quot;nlink&quot;: 1, </span><br><span class="line">            &quot;path&quot;: &quot;/home/yyg/find.txt&quot;, </span><br><span class="line">            &quot;pw_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;rgrp&quot;: true, </span><br><span class="line">            &quot;roth&quot;: true, </span><br><span class="line">            &quot;rusr&quot;: true, </span><br><span class="line">            &quot;size&quot;: 8, </span><br><span class="line">            &quot;uid&quot;: 0, </span><br><span class="line">            &quot;wgrp&quot;: false, </span><br><span class="line">            &quot;woth&quot;: false, </span><br><span class="line">            &quot;wusr&quot;: true, </span><br><span class="line">            &quot;xgrp&quot;: false, </span><br><span class="line">            &quot;xoth&quot;: false, </span><br><span class="line">            &quot;xusr&quot;: false</span><br><span class="line">        &#125;, </span><br><span class="line">        &#123;</span><br><span class="line">            &quot;atime&quot;: 1587594824.9962718, </span><br><span class="line">            &quot;ctime&quot;: 1587594824.9962718, </span><br><span class="line">            &quot;dev&quot;: 64768, </span><br><span class="line">            &quot;gid&quot;: 0, </span><br><span class="line">            &quot;gr_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;inode&quot;: 50780729, </span><br><span class="line">            &quot;isblk&quot;: false, </span><br><span class="line">            &quot;ischr&quot;: false, </span><br><span class="line">            &quot;isdir&quot;: false, </span><br><span class="line">            &quot;isfifo&quot;: false, </span><br><span class="line">            &quot;isgid&quot;: false, </span><br><span class="line">            &quot;islnk&quot;: false, </span><br><span class="line">            &quot;isreg&quot;: true, </span><br><span class="line">            &quot;issock&quot;: false, </span><br><span class="line">            &quot;isuid&quot;: false, </span><br><span class="line">            &quot;mode&quot;: &quot;0644&quot;, </span><br><span class="line">            &quot;mtime&quot;: 1587594824.9962718, </span><br><span class="line">            &quot;nlink&quot;: 1, </span><br><span class="line">            &quot;path&quot;: &quot;/home/yyg/find/find.txt&quot;, </span><br><span class="line">            &quot;pw_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;rgrp&quot;: true, </span><br><span class="line">            &quot;roth&quot;: true, </span><br><span class="line">            &quot;rusr&quot;: true, </span><br><span class="line">            &quot;size&quot;: 8, </span><br><span class="line">            &quot;uid&quot;: 0, </span><br><span class="line">            &quot;wgrp&quot;: false, </span><br><span class="line">            &quot;woth&quot;: false, </span><br><span class="line">            &quot;wusr&quot;: true, </span><br><span class="line">            &quot;xgrp&quot;: false, </span><br><span class="line">            &quot;xoth&quot;: false, </span><br><span class="line">            &quot;xusr&quot;: false</span><br><span class="line">        &#125;</span><br><span class="line">    ], </span><br><span class="line">    &quot;matched&quot;: 2, </span><br><span class="line">    &quot;msg&quot;: &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">在test3主机的/home/yyg目录中查找以.sh结尾的文件，包括隐藏文件，但是不包括目录或其他文件类型，不会进行递归查找。</span><br><span class="line">[root@zabbix ~]# ansible test3 -m find -a&#x27;paths=/home/yyg patterns=&quot;*.sh&quot; hidden=yes&#x27;</span><br><span class="line">test3 | SUCCESS =&gt; &#123;</span><br><span class="line">    &quot;ansible_facts&quot;: &#123;</span><br><span class="line">        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python&quot;</span><br><span class="line">    &#125;, </span><br><span class="line">    &quot;changed&quot;: false, </span><br><span class="line">    &quot;examined&quot;: 17, </span><br><span class="line">    &quot;files&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;atime&quot;: 1587595005.4002025, </span><br><span class="line">            &quot;ctime&quot;: 1587595005.4002025, </span><br><span class="line">            &quot;dev&quot;: 64768, </span><br><span class="line">            &quot;gid&quot;: 0, </span><br><span class="line">            &quot;gr_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;inode&quot;: 50780730, </span><br><span class="line">            &quot;isblk&quot;: false, </span><br><span class="line">            &quot;ischr&quot;: false, </span><br><span class="line">            &quot;isdir&quot;: false, </span><br><span class="line">            &quot;isfifo&quot;: false, </span><br><span class="line">            &quot;isgid&quot;: false, </span><br><span class="line">            &quot;islnk&quot;: false, </span><br><span class="line">            &quot;isreg&quot;: true, </span><br><span class="line">            &quot;issock&quot;: false, </span><br><span class="line">            &quot;isuid&quot;: false, </span><br><span class="line">            &quot;mode&quot;: &quot;0644&quot;, </span><br><span class="line">            &quot;mtime&quot;: 1587595005.4002025, </span><br><span class="line">            &quot;nlink&quot;: 1, </span><br><span class="line">            &quot;path&quot;: &quot;/home/yyg/find.sh&quot;, </span><br><span class="line">            &quot;pw_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;rgrp&quot;: true, </span><br><span class="line">            &quot;roth&quot;: true, </span><br><span class="line">            &quot;rusr&quot;: true, </span><br><span class="line">            &quot;size&quot;: 0, </span><br><span class="line">            &quot;uid&quot;: 0, </span><br><span class="line">            &quot;wgrp&quot;: false, </span><br><span class="line">            &quot;woth&quot;: false, </span><br><span class="line">            &quot;wusr&quot;: true, </span><br><span class="line">            &quot;xgrp&quot;: false, </span><br><span class="line">            &quot;xoth&quot;: false, </span><br><span class="line">            &quot;xusr&quot;: false</span><br><span class="line">        &#125;, </span><br><span class="line">        &#123;</span><br><span class="line">            &quot;atime&quot;: 1587595141.808884, </span><br><span class="line">            &quot;ctime&quot;: 1587595141.808884, </span><br><span class="line">            &quot;dev&quot;: 64768, </span><br><span class="line">            &quot;gid&quot;: 0, </span><br><span class="line">            &quot;gr_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;inode&quot;: 50780731, </span><br><span class="line">            &quot;isblk&quot;: false, </span><br><span class="line">            &quot;ischr&quot;: false, </span><br><span class="line">            &quot;isdir&quot;: false, </span><br><span class="line">            &quot;isfifo&quot;: false, </span><br><span class="line">            &quot;isgid&quot;: false, </span><br><span class="line">            &quot;islnk&quot;: false, </span><br><span class="line">            &quot;isreg&quot;: true, </span><br><span class="line">            &quot;issock&quot;: false, </span><br><span class="line">            &quot;isuid&quot;: false, </span><br><span class="line">            &quot;mode&quot;: &quot;0644&quot;, </span><br><span class="line">            &quot;mtime&quot;: 1587595141.808884, </span><br><span class="line">            &quot;nlink&quot;: 1, </span><br><span class="line">            &quot;path&quot;: &quot;/home/yyg/.find.sh&quot;, </span><br><span class="line">            &quot;pw_name&quot;: &quot;root&quot;, </span><br><span class="line">            &quot;rgrp&quot;: true, </span><br><span class="line">            &quot;roth&quot;: true, </span><br><span class="line">            &quot;rusr&quot;: true, </span><br><span class="line">            &quot;size&quot;: 0, </span><br><span class="line">            &quot;uid&quot;: 0, </span><br><span class="line">            &quot;wgrp&quot;: false, </span><br><span class="line">            &quot;woth&quot;: false, </span><br><span class="line">            &quot;wusr&quot;: true, </span><br><span class="line">            &quot;xgrp&quot;: false, </span><br><span class="line">            &quot;xoth&quot;: false, </span><br><span class="line">            &quot;xusr&quot;: false</span><br><span class="line">        &#125;</span><br><span class="line">    ], </span><br><span class="line">    &quot;matched&quot;: 2, </span><br><span class="line">    &quot;msg&quot;: &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>replace<br>根据指定的正则表达式替换文件中所有匹配的内容。  </li>
+</ul>
+<p><strong>path</strong>：必须参数，指定要操作的文件<br><strong>regexp</strong>：必须参数，指定一个表达式。<br><strong>replace</strong>：指定最终替换成的字符串<br><strong>backup</strong>：修改前是否进行备份  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@zabbix ~]# ansible test3 -m replace -a&#x27;path=/home/yyg/find.txt regexp=&quot;abc&quot; replace=&quot;ABC&quot;&#x27;</span><br><span class="line">test3 | CHANGED =&gt; &#123;</span><br><span class="line">    &quot;ansible_facts&quot;: &#123;</span><br><span class="line">        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python&quot;</span><br><span class="line">    &#125;, </span><br><span class="line">    &quot;changed&quot;: true, </span><br><span class="line">    &quot;msg&quot;: &quot;1 replacements made&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令模块"><a href="#命令模块" class="headerlink" title="命令模块"></a>命令模块</h2><ul>
+<li>command<br>在远程主机上执行命令，命令不会经过shell处理，例如指定的命令中含有重定向、管道等，这些字符就会失效。  </li>
+</ul>
+<p><strong>chdir</strong>：指定一个目录，命令会在该目录下执行<br><strong>creates</strong>：指定一个文件，当文件存在时不指定命令<br><strong>removes</strong>：指定一个文件，当文件不存在时执行命令  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">test3下/home/yyg目录下有testfile，当这个文件存在时，在/home/yyg目录下执行命令ll  </span><br><span class="line">[root@zabbix ~]# ansible test3 -m command -a&#x27;chdir=/home/yyg removes=testfile ls -l&#x27;</span><br><span class="line">test3 | CHANGED | rc=0 &gt;&gt;</span><br><span class="line">总用量 0</span><br><span class="line">-rw-r--r-- 1 root root 0 4月  23 06:58 testfile</span><br><span class="line"></span><br><span class="line">[root@zabbix ~]# ansible test3 -m command -a&#x27;chdir=/home/yyg creates=testfile ls -l&#x27;</span><br><span class="line">test3 | SUCCESS | rc=0 &gt;&gt;</span><br><span class="line">skipped, since testfile exists</span><br></pre></td></tr></table></figure>
+<ul>
+<li>shell<br>在远程主机上执行命令，shell模块在远程主机中执行命令时，会经过远程主机上的/bin/sh程序处理，所以可以使用管道、重定向  </li>
+</ul>
+<p><strong>chdir</strong>：指定一个目录，命令会在该目录下执行<br><strong>creates</strong>：指定一个文件，当文件存在时不指定命令<br><strong>removes</strong>：指定一个文件，当文件不存在时执行命令  </p>
+<ul>
+<li>script<br>在远程主机上执行ansible主机上的脚本，不需要手动拷贝到远程主机后再执行  </li>
+</ul>
+<p><strong>chdir</strong>：指定一个目录，命令会在该目录下执行<br><strong>creates</strong>：指定一个文件，当文件存在时不指定命令<br><strong>removes</strong>：指定一个文件，当文件不存在时执行命令  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在test3的/home/yyg 目录下执行ansible主机上的/home/script.sh</span><br><span class="line">ansible test3 -m script -a&#x27;/home/script.sh chdir=&quot;/home/yyg&quot;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="系统类型模块"><a href="#系统类型模块" class="headerlink" title="系统类型模块"></a>系统类型模块</h2><ul>
+<li>cron<br>相当于crontab命令。<br>【时间参数，默认情况下是*】</li>
+</ul>
+<p><strong>minute</strong>：定时执行中的分钟<br><strong>hour</strong>：小时<br><strong>day</strong>：日<br><strong>month</strong>：月<br><strong>weekday</strong>：星期  </p>
+<hr>
+<p><strong>special_time</strong>：特殊时间用以替换定时的时间，reboot(重启后)、yearly(每年)、annually(每年，与yearly相同)、monthly(每月)、weekly(每周)、daily(每天)、hourly(每时)<br><strong>user</strong>：执行定时任务的用户<br><strong>job</strong>：指定定时执行的命令或者脚本<br><strong>name</strong>：指定定时任务的名称，会在注释中显示<br><strong>state</strong>：当计划任务有名称时，我们可以根据名称修改或删除对应的任务，当删除计划任务时，需要将state的值设置为absent<br><strong>disabled</strong>：可以根据任务名将定时任务取消（即注释），也要将任务的job和设定的时间写准确，否则例如，当时间写错误时，被注释的任务时间将被改为写错的时间<br><strong>backup</strong>：参数yes、no（默认），在修改定时任务时备份原定时任务清单，在/tmp目录下创建备份文件。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在test3主机上创建计划任务，任务名称为&quot;test special time&quot;，任务将在重启时执行，任务内容为输出test字符</span><br><span class="line">ansible test3 -m cron -a&#x27;special_time=reboot name=&quot;test special time&quot; job=&quot;echo test&quot;&#x27;</span><br><span class="line"></span><br><span class="line">[root@test3 yyg]# crontab -l</span><br><span class="line">#Ansible: test special time</span><br><span class="line">@reboot echo test</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>service<br>管理远程主机上的服务。  </li>
+</ul>
+<p><strong>name</strong>：指定服务名<br><strong>state</strong>：要将服务设定的状态started、stopped、restarted、reloaded<br><strong>enabled</strong>：是否设置为开启启动，参数yes、no  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将test3上的firewalld服务关闭，并设置为开启不启动 </span><br><span class="line">ansible test3 -m service -a&#x27;name=firewalld state=stopped enabled=no&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户、组模块"><a href="#用户、组模块" class="headerlink" title="用户、组模块"></a>用户、组模块</h2><ul>
+<li>user<br>管理远程主机上的用户  </li>
+</ul>
+<p><strong>name</strong>：必须参数，指定用户名<br><strong>home</strong>：指定用户的家目录<br><strong>group</strong>：指定用户的数组<br><strong>groups</strong>：指定用户的附加组。当用户原已有附加组，需要在此基础上添加时需要配合append参数使用，否则将会将原附加组覆盖，而不是添加<br><strong>append</strong>：将groups参数提供的附加组，增添到用户的附加组中<br><strong>shell</strong>：指定用户的默认shell<br><strong>uid</strong>：指定用户的UID<br><strong>state</strong>：参数present（默认）、absent，absent表示将用户删除<br><strong>remove</strong>：当state=absent remove=yes时，表示将用户以及将用户的家目录进行删除  </p>
+<ul>
+<li>group<br>管理远程主机上的组  </li>
+</ul>
+<p><strong>name</strong>：必须参数，指定组<br><strong>state</strong>：present，absent，absent表示将组删除<br><strong>gid</strong>：用于指定组的gid  </p>
+<h2 id="包管理模块"><a href="#包管理模块" class="headerlink" title="包管理模块"></a>包管理模块</h2><ul>
+<li>yum_repository<br>管理远程主机上的yum仓库  </li>
+</ul>
+<p><strong>name</strong>:必须参数，用于指定要操作的唯一仓库的ID，也就是每个仓库对应的”中括号”内的仓库ID<br><strong>baseurl</strong>：用于设置yum仓库的baseurl<br><strong>description</strong>：此参数用于设置仓库的注释信息，也就是”.repo”配置文件中每个仓库对应的”name字段”对应的内容。<br><strong>file</strong>：此参数用于设置仓库的配置文件名称，即设置”.repo”配置文件的文件名前缀，在不使用此参数的情况下，默认以name参数的仓库ID作为”.repo”配置文件的文件名前缀，同一个’.repo’配置文件中可以存在多个yum源<br><strong>enabled</strong>：此参数用于设置是否激活对应的yum源，此参数默认值为yes，表示启用对应的yum源，设置为no表示不启用对应的yum源。<br><strong>gpgcheck</strong>：此参数用于设置是否开启rpm包验证功能，默认值为no，表示不启用包验证，设置为yes表示开启包验证功能。<br><strong>gpgcakey</strong>：当gpgcheck参数设置为yes时，需要使用此参数指定验证包所需的公钥<br><strong>state</strong>：默认值为present，当值设置为absent时，表示删除对应的yum源  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#使用如下命令在test3主机上设置ID为test的yum源，仓库配置文件路径为/etc/yum.repos.d/aliEpel.repo</span><br><span class="line">ansible test3 -m yum_repository -a&#x27;name=test description=test baseurl=http://mirrors.aliyun.com/centos/$releasever/os/$basearch/&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>yum<br>在远程主机上通过yum源管理软件包  </li>
+</ul>
+<p><strong>name</strong>:必须参数，用于指定需要管理的软件包<br><strong>state</strong>:指定软件包的状态；present（默认值）、installed、latest、absent、removed，其中installed与present等效，latest表示安装yum中最新的版本，absent和removed等效，表示删除对应的软件包  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#在test3上安装nginx</span><br><span class="line">ansible test3 -m yum -a&#x27;name=nginx&#x27;</span><br></pre></td></tr></table></figure>
+
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/">Ad-Hoc命令集</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/07/31/Linux/Linux%E5%AD%A6%E4%B9%A0/"><img class="prev-cover" src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux学习</div></div></a></div><div class="next-post pull-right"><a href="/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/"><img class="next-cover" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2-ansible基础元素介绍</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DaGuang</div><div class="author-info__description">学习！学习！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/daguangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1063745644@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://QQInterLive/?Cmd=2&amp;Uin=1063745644" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ad-Hoc%E7%94%A8%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Ad-Hoc用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">常用模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%9D%97"><span class="toc-number">2.2.</span> <span class="toc-text">命令模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B%E6%A8%A1%E5%9D%97"><span class="toc-number">2.3.</span> <span class="toc-text">系统类型模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E3%80%81%E7%BB%84%E6%A8%A1%E5%9D%97"><span class="toc-number">2.4.</span> <span class="toc-text">用户、组模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97"><span class="toc-number">2.5.</span> <span class="toc-text">包管理模块</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/09/23/Linux/Cobbler%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" title="Cobbler自动化部署"><img src="https://i.loli.net/2021/09/06/WhQmBarcpXFRkON.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cobbler自动化部署"/></a><div class="content"><a class="title" href="/2021/09/23/Linux/Cobbler%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" title="Cobbler自动化部署">Cobbler自动化部署</a><time datetime="2021-09-23T11:40:15.000Z" title="发表于 2021-09-23 19:40:15">2021-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/03/Linux/FTP%E6%9C%8D%E5%8A%A1/" title="FTP服务"><img src="https://i.loli.net/2021/09/03/DBRT1VIhEy4a7Oz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FTP服务"/></a><div class="content"><a class="title" href="/2021/09/03/Linux/FTP%E6%9C%8D%E5%8A%A1/" title="FTP服务">FTP服务</a><time datetime="2021-09-03T15:02:17.000Z" title="发表于 2021-09-03 23:02:17">2021-09-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/02/Linux/Supervisor%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4%E7%9B%91%E6%8E%A7/" title="Supervisor进程守护监控"><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Supervisor进程守护监控"/></a><div class="content"><a class="title" href="/2021/09/02/Linux/Supervisor%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4%E7%9B%91%E6%8E%A7/" title="Supervisor进程守护监控">Supervisor进程守护监控</a><time datetime="2021-09-02T13:55:50.000Z" title="发表于 2021-09-02 21:55:50">2021-09-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/01/Linux/Rsync/" title="Rsync+sersync实现实时同步"><img src="https://i.loli.net/2021/09/01/LOpNSBvsFx5kqzi.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rsync+sersync实现实时同步"/></a><div class="content"><a class="title" href="/2021/09/01/Linux/Rsync/" title="Rsync+sersync实现实时同步">Rsync+sersync实现实时同步</a><time datetime="2021-09-01T14:16:38.000Z" title="发表于 2021-09-01 22:16:38">2021-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/" title="8-过滤器"><img src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="8-过滤器"/></a><div class="content"><a class="title" href="/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/" title="8-过滤器">8-过滤器</a><time datetime="2021-08-20T14:14:39.000Z" title="发表于 2021-08-20 22:14:39">2021-08-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>function electric_clock_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>';
+                console.log('已挂载electric_clock')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            electric_clock_injector_config()
+        } </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax  src="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.js"></script><!-- hexo injector body_end end --></body></html>
