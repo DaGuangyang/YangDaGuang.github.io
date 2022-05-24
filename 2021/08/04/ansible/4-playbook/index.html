@@ -17,8 +17,9 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="article">
 <meta property="og:title" content="4-playbook快速入门">
@@ -26,10 +27,10 @@
 <meta property="og:site_name" content="DaGuang">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/08/04/ansible/4-playbook/ansible.jpg">
-<meta property="og:image" content="http://example.com/2021/08/04/ansible/4-playbook/4-playbook%5Cplaybook1.png">
-<meta property="og:image" content="http://example.com/ansible/4-playbook/--list-hosts.png">
+<meta property="og:image" content="http://example.com/2021/08/04/ansible/4-playbook/playbook1.png">
+<meta property="og:image" content="http://example.com/2021/08/04/ansible/4-playbook/--list-hosts.png">
 <meta property="article:published_time" content="2021-08-04T06:49:49.000Z">
-<meta property="article:modified_time" content="2021-09-26T01:31:18.516Z">
+<meta property="article:modified_time" content="2022-05-24T06:22:56.639Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="playbook">
 <meta name="twitter:card" content="summary">
@@ -81,6 +82,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -89,11 +91,37 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -119,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#playbook%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">playbook语法特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shell%E4%B8%8Eplaybook%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">shell与playbook的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#playbook%E4%B8%8Eshell%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">playbook与shell的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#playbook%E4%B8%AD%E5%A4%9A%E4%B8%AApaly"><span class="nav-number">3.</span> <span class="nav-text">playbook中多个paly</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7"><span class="nav-number">4.</span> <span class="nav-text">用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#task"><span class="nav-number">5.</span> <span class="nav-text">task</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ansible-playbook-%E6%89%A7%E8%A1%8C%E6%8A%80%E5%B7%A7"><span class="nav-number">6.</span> <span class="nav-text">ansible-playbook 执行技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%AE%9A%E6%89%A7%E8%A1%8C%E8%8C%83%E5%9B%B4"><span class="nav-number">6.1.</span> <span class="nav-text">限定执行范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.2.</span> <span class="nav-text">用户与权限设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="nav-number">6.3.</span> <span class="nav-text">其他常用选项</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#playbook%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">playbook语法特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shell%E4%B8%8Eplaybook%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">shell与playbook的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#playbook%E4%B8%8Eshell%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">playbook与shell的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#playbook%E4%B8%AD%E5%A4%9A%E4%B8%AApaly"><span class="nav-number">3.</span> <span class="nav-text">playbook中多个paly</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7"><span class="nav-number">4.</span> <span class="nav-text">用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ansible-playbook-%E6%89%A7%E8%A1%8C%E6%8A%80%E5%B7%A7"><span class="nav-number">5.</span> <span class="nav-text">ansible-playbook 执行技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%AE%9A%E6%89%A7%E8%A1%8C%E8%8C%83%E5%9B%B4"><span class="nav-number">5.1.</span> <span class="nav-text">限定执行范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.2.</span> <span class="nav-text">用户与权限设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="nav-number">5.3.</span> <span class="nav-text">其他常用选项</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -220,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-09-26 09:31:18" itemprop="dateModified" datetime="2021-09-26T09:31:18+08:00">2021-09-26</time>
+      <time title="修改时间：2022-05-24 14:22:56" itemprop="dateModified" datetime="2022-05-24T14:22:56+08:00">2022-05-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,7 +272,7 @@
     <div class="post-body" itemprop="articleBody">
         <p><img src="/2021/08/04/ansible/4-playbook/ansible.jpg" alt="ansible">  </p>
 <span id="more"></span>
-<p>ansible的任务配置文件是playbook，可以称为是“剧本”，playbook中包含一系列任务，每个任务被称为是“play、戏剧”。<br>学习playbook需要先学习 <a href="#">Post not found: YAML教程/YAML教程</a>。  </p>
+<p>ansible的任务配置文件是playbook，可以称为是“剧本”，playbook中包含一系列任务，每个任务被称为是“play、戏剧”。<br>学习playbook需要先学习 <a href="/2022/03/24/YAML/YAML%E5%9F%BA%E7%A1%80/" title="YAML基础">YAML基础</a>。  </p>
 <h1 id="playbook语法特性"><a href="#playbook语法特性" class="headerlink" title="playbook语法特性"></a>playbook语法特性</h1><ol>
 <li>需要以<code>---</code>开始，并顶行首写  </li>
 <li>次行开始正常写playbook的内容，建议首先将该playbook的作用标明  </li>
@@ -260,14 +288,14 @@
 
 <p>还可以使用ansible的模块进行编写playbook文件。  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---     # 开始字符，文件顶行写</span><br><span class="line">- hosts: test3  #指定远程操作的主机</span><br><span class="line">  remote_user: root #可以指定在进行远程操作时使用哪个用户进行操作,相当于sudo: yes</span><br><span class="line">  tasks: </span><br><span class="line">    - name: &quot;创建/home/playbook-test.txt文件&quot;     #为task数组的对象指定一个name</span><br><span class="line">      file:</span><br><span class="line">        path: /home/playbook-test.txt</span><br><span class="line">        state: touch </span><br><span class="line">    - name: &quot;在/home/playbook-test.txt文件中输入&#x27;playbook 学习&#x27;&quot;</span><br><span class="line">      lineinfile: </span><br><span class="line">        path: /home/playbook-test.txt</span><br><span class="line">        line: &quot;playbook 学习&quot;</span><br></pre></td></tr></table></figure>
-<p>每个task的name都会在playbook执行时展示执行情况，虽然在playbook中不添加name也可以，但是还是建议加上，以便于问题的排查。<br><img src="/2021/08/04/ansible/4-playbook/4-playbook%5Cplaybook1.png">  </p>
+<p>每个task的name都会在playbook执行时展示执行情况，虽然在playbook中不添加name也可以，但是还是建议加上，以便于问题的排查。<br><img src="/2021/08/04/ansible/4-playbook/playbook1.png">  </p>
 <h2 id="playbook与shell的区别"><a href="#playbook与shell的区别" class="headerlink" title="playbook与shell的区别"></a>playbook与shell的区别</h2><p>因为ansible有着“幂等性”的特性，所以执行一个playbook时，当ansible会发现系统现有的状态与playbook定义的状态是相同时，就会跳过该操作，所以当再次执行playbook时，执行速度会非常的快；但是shell脚本重复重复进行操作时，会将所有的步骤在执行一遍。  </p>
 <h1 id="playbook中多个paly"><a href="#playbook中多个paly" class="headerlink" title="playbook中多个paly"></a>playbook中多个paly</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">hosts :</span> <span class="string">test3</span></span><br><span class="line">  <span class="attr">tasks :</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name :</span> <span class="string">test1</span></span><br><span class="line">      <span class="attr">command :</span> <span class="string">ls</span> <span class="string">/home</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">hosts :</span> <span class="string">test3</span></span><br><span class="line">  <span class="attr">tasks :</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name :</span> <span class="string">test2</span></span><br><span class="line">      <span class="attr">command :</span> <span class="string">ls</span> <span class="string">/home/yyg</span></span><br></pre></td></tr></table></figure>
 <p>这样一个palybook中就包含了两个paly</p>
 <h1 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h1><p>remote_user: root 　　    #在远程主机上以哪个用户身份执行<br>become: yes                     #是否允许身份切换<br>become_method: sudo   #切换用户身份的方式，有sudo、su、pbrun等方式，默认为sudo<br>become_user: root          #切换成什么用户身份，默认为root<br>以上选项不仅可用于全局，也可用于各task中。<br>如果需要指定切换用户身份时的密码，可在执行ansible-playbook时使用选项<code>--ask-become-pass</code>或者<code>-K</code></p>
-<h1 id="task"><a href="#task" class="headerlink" title="task"></a>task</h1><h1 id="ansible-playbook-执行技巧"><a href="#ansible-playbook-执行技巧" class="headerlink" title="ansible-playbook 执行技巧"></a>ansible-playbook 执行技巧</h1><h2 id="限定执行范围"><a href="#限定执行范围" class="headerlink" title="限定执行范围"></a>限定执行范围</h2><ul>
+<h1 id="ansible-playbook-执行技巧"><a href="#ansible-playbook-执行技巧" class="headerlink" title="ansible-playbook 执行技巧"></a>ansible-playbook 执行技巧</h1><h2 id="限定执行范围"><a href="#限定执行范围" class="headerlink" title="限定执行范围"></a>限定执行范围</h2><ul>
 <li>limit<br>指定操作的主机范围可以在playbook中通过<code>hosts</code>进行限定<br>也可以在ansible-playbook命令来指定主机。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook XXX.yml -limit test3  #通过这种方式执行，及时playbook中是hosts: test3,test4,test5，也只会对test3进行操作</span><br></pre></td></tr></table></figure></li>
-<li>–list-hosts<br>该选项可以知道playbook会操作用在那些主机上，并不会执行playbook文件。<br><img src="/ansible/4-playbook/--list-hosts.png" alt="--list-hosts">  </li>
+<li>–list-hosts<br>该选项可以知道playbook会操作用在那些主机上，并不会执行playbook文件。<br><img src="/2021/08/04/ansible/4-playbook/--list-hosts.png" alt="--list-hosts">  </li>
 </ul>
 <h2 id="用户与权限设置"><a href="#用户与权限设置" class="headerlink" title="用户与权限设置"></a>用户与权限设置</h2><ul>
 <li><p>–remote-user<br>在playbook中，如果hosts字段下没有定义users，那么将会使用你在Inventory文件中定义的用户，如果Inventory文件中也没有定义用户，则会使用当前系统用户身份来ssh远程。<br>可以在ansible-playbook中使用–remote-user选项来指定用户。  </p>
@@ -342,12 +370,17 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   
