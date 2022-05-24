@@ -1,442 +1,1132 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DaGuang</title><meta name="author" content="DaGuang"><meta name="copyright" content="DaGuang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="学习！学习！">
-<meta property="og:type" content="website">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="website">
 <meta property="og:title" content="DaGuang">
 <meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="DaGuang">
-<meta property="og:description" content="学习！学习！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/avatar.jpeg">
 <meta property="article:author" content="DaGuang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'DaGuang',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2022-05-24 11:09:17'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+<link rel="canonical" href="http://example.com/page/2/">
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/2/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DaGuang</title>
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DaGuang</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
     
-    const detectApple = () => {
-      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">DaGuang</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">DaGuang</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/daguangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1063745644@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://QQInterLive/?Cmd=2&amp;Uin=1063745644" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/09/02/Linux/Supervisor%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4%E7%9B%91%E6%8E%A7/" title="Supervisor进程守护监控">     <img class="post_bg" src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Supervisor进程守护监控"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/02/Linux/Supervisor%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4%E7%9B%91%E6%8E%A7/" title="Supervisor进程守护监控">Supervisor进程守护监控</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-02T13:55:50.000Z" title="发表于 2021-09-02 21:55:50">2021-09-02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">SupervisorSupervisor官网  
-Supervisor简介Supervisor是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。它是通过fork/exec的方式把这些被管理的进程当作supervisor的子进程来启动，这样只要在supervisor的配置文件中，把要管理的进程的可执行文件的路径写进去即可。也实现当子进程挂掉的时候，父进程可以准确获取子进程挂掉的信息的，可以选择是否自己启动和报警。supervisor还提供了一个功能，可以为supervisord或者每个子进程，设置一个非root的user，这个user就可以管理它对应的进程。  
-安装方式
-通过pip安装  1pip install supervisor
-通过yum安装  1yum install -y supervisor
-通过apt安装  1apt-get install supervisor
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-介绍Supervisor
-supervisord运行 Supervisor 时会启动一个进程 supervisord，它负责启动 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/09/01/Linux/Rsync/" title="Rsync+sersync实现实时同步">     <img class="post_bg" src="https://i.loli.net/2021/09/01/LOpNSBvsFx5kqzi.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rsync+sersync实现实时同步"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/01/Linux/Rsync/" title="Rsync+sersync实现实时同步">Rsync+sersync实现实时同步</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-01T14:16:38.000Z" title="发表于 2021-09-01 22:16:38">2021-09-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">rsyncrsync介绍Rsync 是一种快速且非常通用的文件复制工具。它可以在本地、通过任何远程 shell 复制到另一台主机或从远程 rsync 守护程序复制到/从另一个主机复制。它提供了大量选项来控制其行为的各个方面，并允许非常灵活地指定要复制的文件集。它以其增量传输算法而闻名，该算法通过仅发送源文件与目标中现有文件之间的差异来减少通过网络发送的数据量。Rsync 广泛用于备份和镜像，并作为日常使用的改进复制命令。Rsync具有本地与远程两台主机之间的数据快速复制同步镜像、远程备份等功能，该功能类似scp，但是优于scp功能，还具有本地不同分区目录之间全量及增量复制数据。Rsync同步数据镜像时，通过“quick check”算法，仅同步大小或最后修改时间发生变化的文件或目录，当然也可以根据权限，属主等属性变化的同步，所以可以实现快速同步。rsync 具有如下的基本特性：  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-可以镜像保存整个目录树和文件系统
-可以很容易做到保持原来文件的权限、时间、软硬链接等
-无须特殊权限即可安装
-优化的流程，文件传输效率高
-可以使用 rsh、ssh 方式来传输文件，当然也可以通过直接的 so ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/" title="8-过滤器">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="8-过滤器"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/" title="8-过滤器">8-过滤器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-20T14:14:39.000Z" title="发表于 2021-08-20 22:14:39">2021-08-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">  
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
   
 
-字符串有关的过滤器1234567891011121314151617181920212223242526272829303132333435363738394041424344454647---- hosts : test3  vars :    testvar : &quot;abc123ABC 666&quot;    testvar1 : &quot;  abc  &quot;    testvar2 : &#x27;123456789&#x27;    testvar3 : &quot;1a2b,@#$%^&amp;&quot;  tasks :  - debug :      #将字符串转换成纯大写      msg : &quot;&#123;&#123; testvar | upper &#125;&#125;&quot;  - debug :      #将字符串转换成纯小写      msg : &quot;&#123;&#123; testvar | lower &#125;&#125;&quot;  - debug :      #将字符串变成首字母 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/08/16/ansible/7-playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" title="7-playbook条件判断">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7-playbook条件判断"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/16/ansible/7-playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" title="7-playbook条件判断">7-playbook条件判断</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-16T15:59:08.000Z" title="发表于 2021-08-16 23:59:08">2021-08-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">  
-
-
-whenansible playbook中使用when作为条件判断的关键字,在when使用时后面的变量不加 {{ &emsp; }}。  
-1234567--- - hosts : test3  tasks :    - name : 如果目标主机为centos则输出yes      when : ansible_distribution == &quot;CentOS&quot; #ansible_distribution表示目标主机系统的发行版      debug :        msg : &quot;yes&quot;
-表示若ansible_distribution为CentOS，则将会调用debug模块；若不是，则不会调用。  
-运算符比较运算符==:比较两个对象是否相等，相等为真!=:比较两个对象是否不等，不等为真&gt; :比较两个值的大小，如果左边的值大于右边的值，则为真&lt; :比较两个值的大小，如果左边的值小于右边的值，则为真&gt;=:比较两个值的大小，如果左边的值大于右边的值或左右相等，则为真&lt;=:比较两个值的大小，如果左边的值小于右边的值 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/08/15/ansible/6-playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" title="6-playbook流程控制">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="6-playbook流程控制"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/15/ansible/6-playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" title="6-playbook流程控制">6-playbook流程控制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-14T16:25:09.000Z" title="发表于 2021-08-15 00:25:09">2021-08-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">  
-
-循环with_items/home/ansible/hosts 配置清单
-123test3test4192.168.27.7
-当想要获取第二条主机名时可以使用&#123;&#123;groups.ungrouped[1]&#125;&#125;来进行获取。可以在playbook中使用with_items进行循环
-12345678--- - hosts : test3  tasks :     - name : 输出未分组的主机的主机名      #关键字with_items会将&#123;&#123;groups.ungrouped&#125;&#125;的列表信息进行处理，将每条信息单独放在&#123;&#123;item&#125;&#125;中，获取&#123;&#123;item&#125;&#125;的值时会循环获取列表中的每一条信息      with_items : &quot;&#123;&#123;groups.ungrouped&#125;&#125;&quot;       debug :         msg : &quot;&#123;&#123;i ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/08/12/ansible/5-playbook%E6%8B%93%E5%B1%95/" title="5-playbook拓展">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="5-playbook拓展"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/12/ansible/5-playbook%E6%8B%93%E5%B1%95/" title="5-playbook拓展">5-playbook拓展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-12T13:43:22.000Z" title="发表于 2021-08-12 21:43:22">2021-08-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">  
-
-Handlers首先我们设定以这个场景。想要将test3主机中/home/test.txt文件中的我们现在学习XXX修改为我们现在学习ansible，并打印修改后的结果。test.txt文本  
-1234567123我们现在学习XXX321
-编写的playbook为  
-12345678910--- - hosts : test3  tasks :    - name: 修改test3主机中/home/test.txt文件中的`我们现在学习XXX`修改为`我们现在学习ansible`     lineinfile :       path : /home/test.txt       regexp : &quot;我们现在学习XXX&quot;       line : &quot;我们现在学习ansible&quot;   - name : 将/home/test.txt中的内容输出到/home/test1.txt     shell: cat /home/test.txt &gt; /home/test1.txt
-可以看出两个任务都执行成功了。如果要再执行一次该playbo ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/08/04/ansible/4-playbook/" title="4-playbook快速入门">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="4-playbook快速入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/04/ansible/4-playbook/" title="4-playbook快速入门">4-playbook快速入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-04T06:49:49.000Z" title="发表于 2021-08-04 14:49:49">2021-08-04</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">  
-
-ansible的任务配置文件是playbook，可以称为是“剧本”，playbook中包含一系列任务，每个任务被称为是“play、戏剧”。学习playbook需要先学习 Post not found: YAML教程/YAML教程。  
-playbook语法特性
-需要以---开始，并顶行首写  
-次行开始正常写playbook的内容，建议首先将该playbook的作用标明  
-使用#表示注释  
-缩进必须要进行注意，同级别的缩进格数是一样的，不能使用Tab进行缩进  
-区分大小写  
-
-shell与playbook的转换ansible可以将shell脚本或者命令轻松的转换为playbook。  
-12touch /home/playbook-test.txtecho &quot;playbook 学习&quot; &gt; /home/playbook-test.txt
-简单的转换为playbook文件。  
-1234567---     # 开始字符，文件顶行写- hosts: test3  #指定远程操作的主机  tasks:     - name: &quot;创建/hom ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/08/02/Linux/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">     <img class="post_bg" src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/08/02/Linux/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-01T16:22:23.000Z" title="发表于 2021-08-02 00:22:23">2021-08-02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">
-
-正则表达式正则表达式的分类
-基本的正则表达式（Basic Regular Expression 又叫Basic RegEx 简称BREs）  
-扩展的正则表达式（Extended Regular Expression 又叫Extended RegEx 简称EREs）  
-Perl的正则表达式（Perl Regular Expression 又叫Perl RegEx 简称PREs）  
-
-基本组成部分
-
-
-正则表达式
-描述
-示例
-Basic RegEx
-Extended RegEx
-Python RegEx
-Perl regEx
-
-
-
-\
-转义符，将特殊字符进行转义，忽略其特殊意义
-a.b匹配a.b，但不能匹配ajb，.被转义为特殊意义
-\
-\
-\
-\
-
-
-^
-匹配行首，awk中，^则是匹配字符串的开始
-^tux匹配以tux开头的行
-^
-^
-^
-^
-
-
-$
-匹配行尾，awk中，$则是匹配字符串的结尾
-tux$匹配以tux结尾的行
-$
-$
-$
-$
-
-
-.
-匹配除换行符\n之外的任意单个字符，awk则中可以
-ab.匹配abc或bad，不可匹配abcd或abde，只能匹配单字符
-.
-.
-. ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/31/Linux/Linux%E5%AD%A6%E4%B9%A0/" title="Linux学习">     <img class="post_bg" src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux学习"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/31/Linux/Linux%E5%AD%A6%E4%B9%A0/" title="Linux学习">Linux学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-31T06:47:19.000Z" title="发表于 2021-07-31 14:47:19">2021-07-31</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">
-
-Linux命令查看网站Linux命令大全Linux命令手册Linux命令大全(手册)  
-Linux命令文件及目录管理命令mkdir作用：创建目录常用参数:  
-
-
-
-
-
-
-
-
--p
-递归创建多级目录
-
-
--m
-建立目录的同时设置目录的权限
-
-
--z
-设置安全上下文
-
-
--v
-显示目录的创建过程
-
-
-rm作用：删除常用参数:  
-
-
-
-
-
-
-
-
--f
-忽略不存在的文件，不会出现警告信息
-
-
--i
-删除前会询问用户是否操作
-
-
--r/R
-递归删除
-
-
--v
-显示指令的详细执行过程
-
-
-mv作用：移动文件、文件名重命名常用参数:  
-
-
-
-
-
-
-
-
--i
-若存在同名文件，则向用户询问是否覆盖
-
-
--f
-覆盖已有文件时，不进行任何提示
-
-
--b
-当文件存在时，覆盖前为其创建一个备份
-
-
--u
-当源文件比目标文件新，或者目标文件不存在时，才执行移动此操作
-
-
-cp作用：复制文件常用参数:  
-
-
-
-
-
-
-
-
--f
-若目标文件已存在，则会直接覆盖原文件
-
-
--i
-若目标文件已存在，则会询问是否覆盖
-
-
--p
-保留源文件或目录的所有属性
-
-
--r
-递归复制文件和目录
-
-
--d
-当复制符号连接时 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/" title="3-ansible Ad-Hoc命令集">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3-ansible Ad-Hoc命令集"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/" title="3-ansible Ad-Hoc命令集">3-ansible Ad-Hoc命令集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-13T13:18:33.000Z" title="发表于 2021-07-13 21:18:33">2021-07-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">清单配置详解
-
-ansible有两种完成任务的方式：  
-
-Ad-Hoc：也就是ansible命令，相当于linux命令  
-ansible-playbook：ansible-playbook命令，相当于shell脚本  
-
-Ad-Hoc用法1ansible &lt;host-pattern&gt; [options]
-[options]  
-
-
-
-选项
-解释
-
-
-
--v
-输出详细信息，-vvv输出更加详细的信息
-
-
--i PATH
-指定inventory配置文件，默认是/etc/ansible/hosts
-
-
--f NUM
-指定并发数，默认是使用的ansible.cfg中forks=5
-
-
--m NAME
-指定使用的模块名
-
-
--M PATH
-指定模块的存放路径
-
-
--a ‘xxxxx’
-模块参数
-
-
--k ：
-认证密码
-
-
--K ：
-sudo时使用的密码
-
-
--o ：
-标准输出至一行
-
-
--b ：
-相当于sudo命令
-
-
--t PATH
-将输出信息保存在PATH目录下，文件名为远程主机名
-
-
--T seconds
-设置最大超时时间，单位秒
-
-
--B seconds
-后台执行命令，超 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DaGuang</div><div class="author-info__description">学习！学习！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/daguangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1063745644@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://QQInterLive/?Cmd=2&amp;Uin=1063745644" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/28/zabbix/3-zabbix%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" title="3-zabbix快速配置"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3-zabbix快速配置"/></a><div class="content"><a class="title" href="/2022/03/28/zabbix/3-zabbix%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" title="3-zabbix快速配置">3-zabbix快速配置</a><time datetime="2022-03-28T01:02:33.000Z" title="发表于 2022-03-28 09:02:33">2022-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/25/zabbix/2-zabbix%E9%83%A8%E7%BD%B2/" title="2-zabbix部署"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2-zabbix部署"/></a><div class="content"><a class="title" href="/2022/03/25/zabbix/2-zabbix%E9%83%A8%E7%BD%B2/" title="2-zabbix部署">2-zabbix部署</a><time datetime="2022-03-25T14:22:21.000Z" title="发表于 2022-03-25 22:22:21">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/" title="1.zabbix概念"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.zabbix概念"/></a><div class="content"><a class="title" href="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/" title="1.zabbix概念">1.zabbix概念</a><time datetime="2022-03-25T12:45:46.000Z" title="发表于 2022-03-25 20:45:46">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/24/Linux/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" title="性能分析"><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="性能分析"/></a><div class="content"><a class="title" href="/2022/03/24/Linux/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" title="性能分析">性能分析</a><time datetime="2022-03-24T03:07:45.000Z" title="发表于 2022-03-24 11:07:45">2022-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/24/YAML/YAML%E5%9F%BA%E7%A1%80/" title="YAML基础"><img src="https://s2.loli.net/2022/03/24/9bBLo4WtTsJpyAu.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="YAML基础"/></a><div class="content"><a class="title" href="/2022/03/24/YAML/YAML%E5%9F%BA%E7%A1%80/" title="YAML基础">YAML基础</a><time datetime="2022-03-24T02:38:40.000Z" title="发表于 2022-03-24 10:38:40">2022-03-24</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/02/Linux/Supervisor%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4%E7%9B%91%E6%8E%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/02/Linux/Supervisor%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4%E7%9B%91%E6%8E%A7/" class="post-title-link" itemprop="url">Supervisor进程守护监控</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-02 21:55:50" itemprop="dateCreated datePublished" datetime="2021-09-02T21:55:50+08:00">2021-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 12:50:20" itemprop="dateModified" datetime="2022-05-24T12:50:20+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/02/Linux/Supervisor%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4%E7%9B%91%E6%8E%A7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/YAML/"><span class="card-category-list-name">YAML</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ansible/"><span class="card-category-list-name">ansible</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/zabbix/"><span class="card-category-list-name">zabbix</span><span class="card-category-list-count">3</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/" style="font-size: 1.1em; color: #999">Ad-Hoc命令集</a> <a href="/tags/Dockerfile/" style="font-size: 1.1em; color: #999">Dockerfile</a> <a href="/tags/FTP/" style="font-size: 1.1em; color: #999">FTP</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/Supervisor/" style="font-size: 1.1em; color: #999">Supervisor</a> <a href="/tags/YAML/" style="font-size: 1.1em; color: #999">YAML</a> <a href="/tags/ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" style="font-size: 1.1em; color: #999">ansible基本概念</a> <a href="/tags/ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/" style="font-size: 1.1em; color: #999">ansible基础元素介绍</a> <a href="/tags/cobbler/" style="font-size: 1.1em; color: #999">cobbler</a> <a href="/tags/docker%E4%BB%93%E5%BA%93/" style="font-size: 1.1em; color: #999">docker仓库</a> <a href="/tags/docker%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%AE%89%E8%A3%85/" style="font-size: 1.1em; color: #999">docker基础及安装</a> <a href="/tags/docker%E5%AE%B9%E5%99%A8/" style="font-size: 1.1em; color: #999">docker容器</a> <a href="/tags/docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">docker数据管理</a> <a href="/tags/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/" style="font-size: 1.1em; color: #999">docker相关报错</a> <a href="/tags/docker%E9%95%9C%E5%83%8F/" style="font-size: 1.1em; color: #999">docker镜像</a> <a href="/tags/dstat/" style="font-size: 1.1em; color: #999">dstat</a> <a href="/tags/grep/" style="font-size: 1.1em; color: #999">grep</a> <a href="/tags/htop/" style="font-size: 1.1em; color: #999">htop</a> <a href="/tags/iostat/" style="font-size: 1.1em; color: #999">iostat</a> <a href="/tags/iotop/" style="font-size: 1.1em; color: #999">iotop</a> <a href="/tags/lsof/" style="font-size: 1.1em; color: #999">lsof</a> <a href="/tags/mpstat/" style="font-size: 1.1em; color: #999">mpstat</a> <a href="/tags/netstat/" style="font-size: 1.1em; color: #999">netstat</a> <a href="/tags/perf/" style="font-size: 1.1em; color: #999">perf</a> <a href="/tags/pidstat/" style="font-size: 1.1em; color: #999">pidstat</a> <a href="/tags/playbook/" style="font-size: 1.5em; color: #99a9bf">playbook</a> <a href="/tags/playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" style="font-size: 1.1em; color: #999">playbook条件判断</a> <a href="/tags/playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 1.1em; color: #999">playbook流程控制</a> <a href="/tags/ps/" style="font-size: 1.1em; color: #999">ps</a> <a href="/tags/rsync/" style="font-size: 1.1em; color: #999">rsync</a> <a href="/tags/strace/" style="font-size: 1.1em; color: #999">strace</a> <a href="/tags/top/" style="font-size: 1.1em; color: #999">top</a> <a href="/tags/uptime/" style="font-size: 1.1em; color: #999">uptime</a> <a href="/tags/vmstat/" style="font-size: 1.1em; color: #999">vmstat</a> <a href="/tags/zabbix%E5%AE%89%E8%A3%85/" style="font-size: 1.5em; color: #99a9bf">zabbix安装</a> <a href="/tags/zabbix%E6%A6%82%E5%BF%B5/" style="font-size: 1.1em; color: #999">zabbix概念</a> <a href="/tags/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8docker/" style="font-size: 1.1em; color: #999">为什么使用docker</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E6%BA%90/" style="font-size: 1.1em; color: #999">本地源</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/" style="font-size: 1.1em; color: #999">端口映射与容器关联</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/04/"><span class="card-archive-list-date">四月 2019</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">31</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-05-24T03:09:17.310Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
-                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
-                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
-                console.log('已挂载history_calendar')
-                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
-                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
-            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+          <!--/noindex-->
+        
+      
+    </div>
 
-            history_calendar_injector_config()
-        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>function electric_clock_injector_config(){
-                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
-                var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>';
-                console.log('已挂载electric_clock')
-                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
-                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
-            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+    
+    
+    
 
-            electric_clock_injector_config()
-        } </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax  src="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.js"></script><!-- hexo injector body_end end --></body></html>
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/01/Linux/Rsync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/01/Linux/Rsync/" class="post-title-link" itemprop="url">Rsync+sersync实现实时同步</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-01 22:16:38" itemprop="dateCreated datePublished" datetime="2021-09-01T22:16:38+08:00">2021-09-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 12:50:26" itemprop="dateModified" datetime="2022-05-24T12:50:26+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/01/Linux/Rsync/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/" class="post-title-link" itemprop="url">8-过滤器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-20 22:14:39" itemprop="dateCreated datePublished" datetime="2021-08-20T22:14:39+08:00">2021-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 12:51:34" itemprop="dateModified" datetime="2022-05-24T12:51:34+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/%E5%9B%BE%E7%89%87ansible.jpg" alt="ansible">    </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/20/ansible/8-%E8%BF%87%E6%BB%A4%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/16/ansible/7-playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/16/ansible/7-playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" class="post-title-link" itemprop="url">7-playbook条件判断</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-16 23:59:08" itemprop="dateCreated datePublished" datetime="2021-08-16T23:59:08+08:00">2021-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-12-18 00:53:20" itemprop="dateModified" datetime="2021-12-18T00:53:20+08:00">2021-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/08/16/ansible/7-playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/ansible.jpg" alt="ansible">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/16/ansible/7-playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/15/ansible/6-playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/15/ansible/6-playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="post-title-link" itemprop="url">6-playbook流程控制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-15 00:25:09" itemprop="dateCreated datePublished" datetime="2021-08-15T00:25:09+08:00">2021-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-09-26 09:31:35" itemprop="dateModified" datetime="2021-09-26T09:31:35+08:00">2021-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/08/15/ansible/6-playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/ansible.jpg" alt="ansible">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/15/ansible/6-playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/12/ansible/5-playbook%E6%8B%93%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/12/ansible/5-playbook%E6%8B%93%E5%B1%95/" class="post-title-link" itemprop="url">5-playbook拓展</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-12 21:43:22" itemprop="dateCreated datePublished" datetime="2021-08-12T21:43:22+08:00">2021-08-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-09-26 09:31:25" itemprop="dateModified" datetime="2021-09-26T09:31:25+08:00">2021-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/08/12/ansible/5-playbook%E6%8B%93%E5%B1%95/ansible.jpg" alt="ansible">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/12/ansible/5-playbook%E6%8B%93%E5%B1%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/04/ansible/4-playbook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/04/ansible/4-playbook/" class="post-title-link" itemprop="url">4-playbook快速入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-04 14:49:49" itemprop="dateCreated datePublished" datetime="2021-08-04T14:49:49+08:00">2021-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-09-26 09:31:18" itemprop="dateModified" datetime="2021-09-26T09:31:18+08:00">2021-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/08/04/ansible/4-playbook/ansible.jpg" alt="ansible">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/04/ansible/4-playbook/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/02/Linux/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/Linux/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">正则表达式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-02 00:22:23" itemprop="dateCreated datePublished" datetime="2021-08-02T00:22:23+08:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 12:50:46" itemprop="dateModified" datetime="2022-05-24T12:50:46+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/02/Linux/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/31/Linux/Linux%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/31/Linux/Linux%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Linux学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-31 14:47:19" itemprop="dateCreated datePublished" datetime="2021-07-31T14:47:19+08:00">2021-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 12:50:31" itemprop="dateModified" datetime="2022-05-24T12:50:31+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/31/Linux/Linux%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/" class="post-title-link" itemprop="url">3-ansible Ad-Hoc命令集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-13 21:18:33" itemprop="dateCreated datePublished" datetime="2021-07-13T21:18:33+08:00">2021-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 13:01:20" itemprop="dateModified" datetime="2022-05-24T13:01:20+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/ansible.jpg" alt="ansible"><br>清单配置详解</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/13/ansible/3-Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

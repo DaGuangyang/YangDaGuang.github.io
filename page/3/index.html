@@ -1,250 +1,1132 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DaGuang</title><meta name="author" content="DaGuang"><meta name="copyright" content="DaGuang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="学习！学习！">
-<meta property="og:type" content="website">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="website">
 <meta property="og:title" content="DaGuang">
 <meta property="og:url" content="http://example.com/page/3/index.html">
 <meta property="og:site_name" content="DaGuang">
-<meta property="og:description" content="学习！学习！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/avatar.jpeg">
 <meta property="article:author" content="DaGuang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'DaGuang',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2022-05-24 11:09:17'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+<link rel="canonical" href="http://example.com/page/3/">
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DaGuang</title>
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DaGuang</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
     
-    const detectApple = () => {
-      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">DaGuang</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">DaGuang</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/daguangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1063745644@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://QQInterLive/?Cmd=2&amp;Uin=1063745644" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/" title="2-ansible基础元素介绍">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2-ansible基础元素介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/" title="2-ansible基础元素介绍">2-ansible基础元素介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-13T06:33:10.000Z" title="发表于 2021-07-13 14:33:10">2021-07-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">ansible基础元素介绍
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-ansible配置文件解析/etc/ansible:配置文件目录，Inventory主机配置清单，日常运维的所有的配置类操作也是基于此目录进行。ansible不是一种服务所以在修改配置文件后不需要进行重启等操作。ansible自身的配置文件/etc/ansible/ansible.cfg，文件遵循INI风格。ansible.cfg配置文件可以有多个，读取顺序是当前命令执行目录ansible.cfg–&gt;用户家目录ansible.cfg–&gt;/etc/ansible/ansible.cfg。  
-
-[defaults]  
-123456789101112131415161718192021#inventory      = /etc/ansible/hosts                    #主机配置清单位置#library        = /usr/share/my_modules/                #库文件路径#module_utils   = /usr/share/my_module_utils/           # ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/11/ansible/1-ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="1-ansible基本概念">     <img class="post_bg" src="https://i.loli.net/2021/09/26/JE46tO7wXTMfxuD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1-ansible基本概念"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/11/ansible/1-ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="1-ansible基本概念">1-ansible基本概念</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-10T16:43:03.000Z" title="发表于 2021-07-11 00:43:03">2021-07-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ansible/">ansible</a></span></div><div class="content">  
-
-ansible学习网站马哥Ansible中文权威指南Ansible官方文档  
-ansible可以做什么&emsp;&emsp;它是“配置管理工具”、“自动化运维工具”。&emsp;&emsp;可以完成一些批量任务，或者完成一些经常场重复的工作。例如：在10台机器上安装nginx服务，并启动；将某个文件一次性拷贝到10台服务器上。&emsp;&emsp;获取这些工作也可以使用脚本来完成，但是ansible具有一些优秀的特性，例如：会比较“当前状态”与“目标状态”是否一致，若不一致，会将“当前状态”编程“目标状态”;若一致，则不进行任何操作，这种特性被称为 幂等性。而且ansible只需要ssh即可正常工作，不需要在受管机器上安装agent端；以及将受管机器的IP信息添加在ansible的管理清单中。&emsp;&emsp;ansible没有客户端，因此底层通信依赖系统软件，Linux下基于OpenSSH，windows下基于PowerShell，管理端必须是Linux系统。使用者在管理节点通过ansible将指令推送到被管理端执行，在执行完毕后自动删除产生的临时文件。  
-An ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/24/docker/7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/" title="7.端口映射与容器关联">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7.端口映射与容器关联"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/24/docker/7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/" title="7.端口映射与容器关联">7.端口映射与容器关联</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-24T15:34:45.000Z" title="发表于 2020-08-24 23:34:45">2020-08-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">  
-
-端口映射实现容器访问从外部访问容器应用启动容器时，若不指定对应参数，在容器外部将无法通过网络访问容器内的网络应用和服务。这就需要使用-P、-p参数来指定端口映射。-P（大写），是将随机映射一个宿主机49000～49900的端口到内部容器开放的网络端口。-p（小写的）则可以指定要映射的端口，并且，在一个指定端口上只可以绑定一个容器。  
-映射所有接口地址 docker run -it -d -p 50001:50001 --name test ubuntu:latest /bin/bash  
-映射到指定地址的指定端口 docker run -it -d -p 127.0.0.1:50001:50001 --name test ubuntu:latest /bin/bash  
-映射到指定地址的任意端口 docker run -it -d -p 127.0.0.1::50001 --name test ubuntu:latest /bin/bash这样就会将localhost的任意端口到容器的5000端口，本地主机会自动分配一个端口。  
-查看映射端口配置docker port  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" title="6.docker数据管理">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="6.docker数据管理"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" title="6.docker数据管理">6.docker数据管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-22T15:58:48.000Z" title="发表于 2019-04-22 23:58:48">2019-04-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">  
-
-在容器中管理数据主要有两种方式  
-
-数据卷（Volumes）  
-数据卷容器：使用特定容器维护数据卷  
-
-数据卷数据卷是一个可供一个或多个容器使用的特殊目录，可以提供个很多有用的特性  
-
-数据卷可以在容器之间共享和使用
-对数据卷的修改会立马生效
-对数据卷的更新，不会影响镜像
-数据卷会默认一直存在，即使容器被删除
-
-注意：数据卷的使用，类似于Linux下对目录或文件进行mount，镜像中的被指定为挂载点的目录中的文件会隐藏掉，能显示看的是挂载的数据卷
-创建一个数据卷12345678#创建一个数据卷my-vol。创建的数据卷在`/var/lib/docker/volumes`下  docker volume create my-vol#查看所有的数据卷docker volume ls#查看指定数据卷my-vol的信息docker volume inspect my-vol
-
-启动一个挂载数据卷的容器在用docker run命令的时候，使用- -mount标记来将数据卷挂载到容器里。再一次docker run中可以挂载都多个数据卷 。下面创建一个名为web的容器，并加载一个数据 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/04/20/docker/5.docker%E4%BB%93%E5%BA%93/" title="5.docker仓库">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="5.docker仓库"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/20/docker/5.docker%E4%BB%93%E5%BA%93/" title="5.docker仓库">5.docker仓库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-20T13:49:37.000Z" title="发表于 2019-04-20 21:49:37">2019-04-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">本章有许多新的知识，太多的不懂，实践意义不大，暂不进行实践操作，记录此章后期重复学习
-
-仓库是（Repository）是集存放镜像的地方。一个容易混淆的概念是注册服务器（Registry）。实际上注册服务器是管理仓库的具体服务器，每个服务器上可以有多个仓库，而每个仓库下面有多个镜像。仓库可以被认为是一个具体的项目或目录。
-123dl.dockerpool.com/ubuntudl.dockerpool.com:注册服务器（Registry）ubuntu：仓库名（Repository）
-
-Docker HubDocker官方维护了一个公共仓库Docker Hub
-注册可以在 Docker Hub中免费注册一个Docker账号。  
-登录可以通过执行docker login命令交互式的输入用户名及密码来完成在命令行界面登录Docker Hub。登陆成功后会在  用户家目录/.docker/config.json中保存用户的认证信息。  
-拉取镜像通过docker search来查找官方仓库中的镜像，并利用docker pull下载镜像到本地。可以登录到Docker Hub中进行查找所需镜像 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/04/19/docker/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/" title="docker相关报错">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="docker相关报错"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/19/docker/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/" title="docker相关报错">docker相关报错</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-18T17:36:34.000Z" title="发表于 2019-04-19 01:36:34">2019-04-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">珍惜每一个错误
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-使用的镜像加速/etc/docker/daemon.json文件格式不规范导致docker服务启动报错错误原因：使用镜像加速，配置了/etc/docker/daemon.json文件，在配置该文件时没有符合json格式规范。
-错误现象：12[root@localhost ~]# systemctl restart dockerJob for docker.service failed because the control process exited with error code. See &quot;systemctl status docker.service&quot; and &quot;journalctl -xe&quot; for details.
-123456789101112131415161718[root@localhost ~]# systemctl status docker.service● docker.service - Docker Application Container Engine   Loaded: loaded (/ ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/04/14/docker/4.docker%E5%AE%B9%E5%99%A8/" title="4.docker容器">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="4.docker容器"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/14/docker/4.docker%E5%AE%B9%E5%99%A8/" title="4.docker容器">4.docker容器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-13T21:22:05.000Z" title="发表于 2019-04-14 05:22:05">2019-04-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">  
- 
-容器是Docker容器又一核心概念。容器是独立运行的一个或一组应用。可以理解为模拟运行的一整套操作系统。  
-创建容器使用docker create创建的容器处于停止状态，可以使用docker start来进行启动。格式：docker create IMAGE [COMMAND]语法同docker run  
-新建并启动容器格式：docker run [OPTIONS] IMAGE [COMMAND] [ARG...]  
-1docker run -it -d --name=&quot;test_ubuntu&quot; d27b9ffc5667 /bin/bash
+    <div class="main-inner index posts-expand">
 
-OPTIONS选项说明：  
-
--d：指定容器运行于后台，默认为前台-i：打开STDIN，用于控制台交互-t：分配tty设备，该可以支持终端登录，默认为false，通常与-i一起使用-p：端口映射，格式为：主机(宿主)端口:容器端口- -name：为容器指定一个名称-u： 指定容器的用户-w：指定容器的工作目录-e：指定环境变量，容器中可以使用该环境变量，-e NUM=11,一个-e后只能跟一个环境变量定义-m ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/04/13/docker/3.%E4%BD%BF%E7%94%A8Dockerfile%E5%AE%9A%E5%88%B6%E9%95%9C%E5%83%8F/" title="3.使用Dockerfile定制镜像">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3.使用Dockerfile定制镜像"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/13/docker/3.%E4%BD%BF%E7%94%A8Dockerfile%E5%AE%9A%E5%88%B6%E9%95%9C%E5%83%8F/" title="3.使用Dockerfile定制镜像">3.使用Dockerfile定制镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-12T20:25:47.000Z" title="发表于 2019-04-13 04:25:47">2019-04-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">  
+    
 
 
-使用 Dockerfile 定制镜像从之前的docker commit的学习里可以了解到，镜像定制实际就是定制每一层所添加的配置、文件。若将每一层的命令都写入一个脚本，用这个脚本来构建镜像，之前黑箱镜像的缺陷就都会解决，这个脚本就是Dockerfile。Dockerfile是一个文本文件，其中包含一条一条指定，每一条指定构建一层，因此每一条指定就是指定该层应该如何创建。以nginx镜像为例，使用Dockerfile来定制。在一个空白目录中创建一个名为Dockerfile的文件。Dockerfile主体内容分为四部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令。
-123mkdir mynginxcd mynginxtouch Dockerfile
-在Docker文件中添加内容为：  
-12FROM nginxRUN echo &#x27;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&#x27; &gt; /usr/share/nginx/html/index.html
-这样使用Dockerfile定制镜像的脚本就完成了。  
-FROM指 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/04/12/docker/2.docker%E9%95%9C%E5%83%8F/" title="2.docker镜像">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2.docker镜像"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/12/docker/2.docker%E9%95%9C%E5%83%8F/" title="2.docker镜像">2.docker镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-12T13:00:27.000Z" title="发表于 2019-04-12 21:00:27">2019-04-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">  
+<div class="post-block">
+  
+  
 
-在使用docker命令时需使用管理员身份运行  
-Docker镜像介绍在上一章介绍到镜像是docker的三大组件之一。docker运行容器需要本地存在对应的镜像。在执行时如果镜像不存在本地，docker会从镜像仓库下载（默认是Docker Hub中的仓库）。
-获取镜像
-查找想要的镜像  1docker search [选项] image_name
-【选项】：  
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/">
 
--s NUM：可以查看NUM星以上的镜像- -automated:默认false，显示automated build镜像- -no-trunk：默认false，以不截断方式查找镜像  
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
 
-获取想要的镜像  123docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]#例如下载默认仓库的ubuntu:18.04其实相当于docker pull registry.hub.docker.com/ubuntu:18.04
-镜像仓库地址：地址的格式一般是&lt;域名/IP&gt;[:端口号]，默认地址是Docker Hub。仓库名：正如上一章所述，仓库名为两段式 &lt;用户名 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/" title="1.初识Docker">     <img class="post_bg" src="https://i.loli.net/2021/11/04/hPOg389sWfSLZpG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.初识Docker"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/" title="1.初识Docker">1.初识Docker</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-10T16:56:27.000Z" title="发表于 2019-04-11 00:56:27">2019-04-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">  
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
 
-DockerDocker基本概念Docker的大部分操作都围绕：镜像、容器和仓库。
-Docker镜像（Image）&emsp;&emsp;对于Linux而言，内核启动后会挂载根文件系统提供用户空间支持。Docker镜像相当于一个根文件系统，比如官方镜像 ubuntu:18.04 就包含了完整的一套 Ubuntu 18.04 最小系统的 root 文件系统。Docker镜像是一个特殊的文件系统，除了提供容器运行时的所需的程序、库、资源、配置等文件，还包含了一些为运行时准备的参数配置（匿名卷、环境变量、用户等），镜像不包含任何动态数据，其内容在构建之后也不会被改变。docker镜像类似于虚拟机镜像，可以将它理解为一个只读的模板。  
-分层存储&emsp;&emsp;因为镜像包含操作系统的完整的根文件系统，其体积往往是庞大的，因此将其设计为分层存储的架构。 镜像只是一个虚拟的概念，其实际体现并非由一个文件系统组成，而是由多层文件系统组成。&emsp;&emsp;镜像构建时，会一层一层构建，前一层是后一层的基础。每一层构建完成后不会在改变，后一层上的任何改变只发生在当前层。比如，删除前 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DaGuang</div><div class="author-info__description">学习！学习！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/daguangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1063745644@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://QQInterLive/?Cmd=2&amp;Uin=1063745644" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/28/zabbix/3-zabbix%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" title="3-zabbix快速配置"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3-zabbix快速配置"/></a><div class="content"><a class="title" href="/2022/03/28/zabbix/3-zabbix%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" title="3-zabbix快速配置">3-zabbix快速配置</a><time datetime="2022-03-28T01:02:33.000Z" title="发表于 2022-03-28 09:02:33">2022-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/25/zabbix/2-zabbix%E9%83%A8%E7%BD%B2/" title="2-zabbix部署"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2-zabbix部署"/></a><div class="content"><a class="title" href="/2022/03/25/zabbix/2-zabbix%E9%83%A8%E7%BD%B2/" title="2-zabbix部署">2-zabbix部署</a><time datetime="2022-03-25T14:22:21.000Z" title="发表于 2022-03-25 22:22:21">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/" title="1.zabbix概念"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.zabbix概念"/></a><div class="content"><a class="title" href="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/" title="1.zabbix概念">1.zabbix概念</a><time datetime="2022-03-25T12:45:46.000Z" title="发表于 2022-03-25 20:45:46">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/24/Linux/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" title="性能分析"><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="性能分析"/></a><div class="content"><a class="title" href="/2022/03/24/Linux/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" title="性能分析">性能分析</a><time datetime="2022-03-24T03:07:45.000Z" title="发表于 2022-03-24 11:07:45">2022-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/24/YAML/YAML%E5%9F%BA%E7%A1%80/" title="YAML基础"><img src="https://s2.loli.net/2022/03/24/9bBLo4WtTsJpyAu.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="YAML基础"/></a><div class="content"><a class="title" href="/2022/03/24/YAML/YAML%E5%9F%BA%E7%A1%80/" title="YAML基础">YAML基础</a><time datetime="2022-03-24T02:38:40.000Z" title="发表于 2022-03-24 10:38:40">2022-03-24</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">2-ansible基础元素介绍</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-13 14:33:10" itemprop="dateCreated datePublished" datetime="2021-07-13T14:33:10+08:00">2021-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 12:58:43" itemprop="dateModified" datetime="2022-05-24T12:58:43+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/ansible.jpg" alt="ansible"><br>ansible基础元素介绍</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/YAML/"><span class="card-category-list-name">YAML</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ansible/"><span class="card-category-list-name">ansible</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/zabbix/"><span class="card-category-list-name">zabbix</span><span class="card-category-list-count">3</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Ad-Hoc%E5%91%BD%E4%BB%A4%E9%9B%86/" style="font-size: 1.1em; color: #999">Ad-Hoc命令集</a> <a href="/tags/Dockerfile/" style="font-size: 1.1em; color: #999">Dockerfile</a> <a href="/tags/FTP/" style="font-size: 1.1em; color: #999">FTP</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/Supervisor/" style="font-size: 1.1em; color: #999">Supervisor</a> <a href="/tags/YAML/" style="font-size: 1.1em; color: #999">YAML</a> <a href="/tags/ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" style="font-size: 1.1em; color: #999">ansible基本概念</a> <a href="/tags/ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/" style="font-size: 1.1em; color: #999">ansible基础元素介绍</a> <a href="/tags/cobbler/" style="font-size: 1.1em; color: #999">cobbler</a> <a href="/tags/docker%E4%BB%93%E5%BA%93/" style="font-size: 1.1em; color: #999">docker仓库</a> <a href="/tags/docker%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%AE%89%E8%A3%85/" style="font-size: 1.1em; color: #999">docker基础及安装</a> <a href="/tags/docker%E5%AE%B9%E5%99%A8/" style="font-size: 1.1em; color: #999">docker容器</a> <a href="/tags/docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">docker数据管理</a> <a href="/tags/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/" style="font-size: 1.1em; color: #999">docker相关报错</a> <a href="/tags/docker%E9%95%9C%E5%83%8F/" style="font-size: 1.1em; color: #999">docker镜像</a> <a href="/tags/dstat/" style="font-size: 1.1em; color: #999">dstat</a> <a href="/tags/grep/" style="font-size: 1.1em; color: #999">grep</a> <a href="/tags/htop/" style="font-size: 1.1em; color: #999">htop</a> <a href="/tags/iostat/" style="font-size: 1.1em; color: #999">iostat</a> <a href="/tags/iotop/" style="font-size: 1.1em; color: #999">iotop</a> <a href="/tags/lsof/" style="font-size: 1.1em; color: #999">lsof</a> <a href="/tags/mpstat/" style="font-size: 1.1em; color: #999">mpstat</a> <a href="/tags/netstat/" style="font-size: 1.1em; color: #999">netstat</a> <a href="/tags/perf/" style="font-size: 1.1em; color: #999">perf</a> <a href="/tags/pidstat/" style="font-size: 1.1em; color: #999">pidstat</a> <a href="/tags/playbook/" style="font-size: 1.5em; color: #99a9bf">playbook</a> <a href="/tags/playbook%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" style="font-size: 1.1em; color: #999">playbook条件判断</a> <a href="/tags/playbook%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 1.1em; color: #999">playbook流程控制</a> <a href="/tags/ps/" style="font-size: 1.1em; color: #999">ps</a> <a href="/tags/rsync/" style="font-size: 1.1em; color: #999">rsync</a> <a href="/tags/strace/" style="font-size: 1.1em; color: #999">strace</a> <a href="/tags/top/" style="font-size: 1.1em; color: #999">top</a> <a href="/tags/uptime/" style="font-size: 1.1em; color: #999">uptime</a> <a href="/tags/vmstat/" style="font-size: 1.1em; color: #999">vmstat</a> <a href="/tags/zabbix%E5%AE%89%E8%A3%85/" style="font-size: 1.5em; color: #99a9bf">zabbix安装</a> <a href="/tags/zabbix%E6%A6%82%E5%BF%B5/" style="font-size: 1.1em; color: #999">zabbix概念</a> <a href="/tags/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8docker/" style="font-size: 1.1em; color: #999">为什么使用docker</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E6%BA%90/" style="font-size: 1.1em; color: #999">本地源</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/" style="font-size: 1.1em; color: #999">端口映射与容器关联</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/04/"><span class="card-archive-list-date">四月 2019</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">31</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-05-24T03:09:17.310Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
-                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
-                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
-                console.log('已挂载history_calendar')
-                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
-                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
-            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+          <!--/noindex-->
+        
+      
+    </div>
 
-            history_calendar_injector_config()
-        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>function electric_clock_injector_config(){
-                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
-                var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>';
-                console.log('已挂载electric_clock')
-                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
-                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
-            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+    
+    
+    
 
-            electric_clock_injector_config()
-        } </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax  src="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.js"></script><!-- hexo injector body_end end --></body></html>
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/11/ansible/1-ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/11/ansible/1-ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">1-ansible基本概念</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-11 00:43:03" itemprop="dateCreated datePublished" datetime="2021-07-11T00:43:03+08:00">2021-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-13 14:18:23" itemprop="dateModified" datetime="2022-05-13T14:18:23+08:00">2022-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ansible/" itemprop="url" rel="index"><span itemprop="name">ansible</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2021/07/11/ansible/1-ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/ansible.jpg" alt="ansible">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/11/ansible/1-ansible%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/24/docker/7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/24/docker/7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/" class="post-title-link" itemprop="url">7.端口映射与容器关联</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-24 23:34:45" itemprop="dateCreated datePublished" datetime="2020-08-24T23:34:45+08:00">2020-08-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:45:52" itemprop="dateModified" datetime="2021-11-04T15:45:52+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2020/08/24/docker/7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/%E5%9B%BE%E7%89%87docker.jpg" alt="docker"><br><img src="/2020/08/24/docker/7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/%E5%9B%BE%E7%89%87ansible.jpg" alt="ansible">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/24/docker/7-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E5%85%B3%E8%81%94/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">6.docker数据管理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-22 23:58:48" itemprop="dateCreated datePublished" datetime="2019-04-22T23:58:48+08:00">2019-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:45:47" itemprop="dateModified" datetime="2021-11-04T15:45:47+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E5%9B%BE%E7%89%87docker.jpg" alt="docker">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/20/docker/5.docker%E4%BB%93%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/20/docker/5.docker%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">5.docker仓库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-20 21:49:37" itemprop="dateCreated datePublished" datetime="2019-04-20T21:49:37+08:00">2019-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:45:40" itemprop="dateModified" datetime="2021-11-04T15:45:40+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2019/04/20/docker/5.docker%E4%BB%93%E5%BA%93/%E5%9B%BE%E7%89%87docker.jpg" alt="docker"><br><em>本章有许多新的知识，太多的不懂，实践意义不大，暂不进行实践操作，记录此章后期重复学习</em></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/20/docker/5.docker%E4%BB%93%E5%BA%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/19/docker/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/19/docker/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">docker相关报错</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-19 01:36:34" itemprop="dateCreated datePublished" datetime="2019-04-19T01:36:34+08:00">2019-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:47:28" itemprop="dateModified" datetime="2021-11-04T15:47:28+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2019/04/19/docker/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/docker.jpg" alt="docker"><br><strong>珍惜每一个错误</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/19/docker/docker%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/14/docker/4.docker%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/14/docker/4.docker%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">4.docker容器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-14 05:22:05" itemprop="dateCreated datePublished" datetime="2019-04-14T05:22:05+08:00">2019-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:45:25" itemprop="dateModified" datetime="2021-11-04T15:45:25+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2019/04/14/docker/4.docker%E5%AE%B9%E5%99%A8/%E5%9B%BE%E7%89%87docker.jpg" alt="docker">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/14/docker/4.docker%E5%AE%B9%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/13/docker/3.%E4%BD%BF%E7%94%A8Dockerfile%E5%AE%9A%E5%88%B6%E9%95%9C%E5%83%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/13/docker/3.%E4%BD%BF%E7%94%A8Dockerfile%E5%AE%9A%E5%88%B6%E9%95%9C%E5%83%8F/" class="post-title-link" itemprop="url">3.使用Dockerfile定制镜像</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-13 04:25:47" itemprop="dateCreated datePublished" datetime="2019-04-13T04:25:47+08:00">2019-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:45:12" itemprop="dateModified" datetime="2021-11-04T15:45:12+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2019/04/13/docker/3.%E4%BD%BF%E7%94%A8Dockerfile%E5%AE%9A%E5%88%B6%E9%95%9C%E5%83%8F/docker.jpg" alt="docker">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/13/docker/3.%E4%BD%BF%E7%94%A8Dockerfile%E5%AE%9A%E5%88%B6%E9%95%9C%E5%83%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/12/docker/2.docker%E9%95%9C%E5%83%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/12/docker/2.docker%E9%95%9C%E5%83%8F/" class="post-title-link" itemprop="url">2.docker镜像</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-12 21:00:27" itemprop="dateCreated datePublished" datetime="2019-04-12T21:00:27+08:00">2019-04-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:44:56" itemprop="dateModified" datetime="2021-11-04T15:44:56+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2019/04/12/docker/2.docker%E9%95%9C%E5%83%8F/%E5%9B%BE%E7%89%87docker.jpg" alt="docker">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/12/docker/2.docker%E9%95%9C%E5%83%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/" class="post-title-link" itemprop="url">1.初识Docker</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-11 00:56:27" itemprop="dateCreated datePublished" datetime="2019-04-11T00:56:27+08:00">2019-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-04 15:44:44" itemprop="dateModified" datetime="2021-11-04T15:44:44+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/docker.jpg" alt="docker">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
