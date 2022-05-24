@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>1.zabbix概念 | DaGuang</title><meta name="keywords" content="zabbix概念"><meta name="author" content="DaGuang"><meta name="copyright" content="DaGuang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&amp;emsp;&amp;emsp;zabbix可以监控的硬件理论上是与我们的业务有关的硬件资源都可以被监控，比如：主机、交换机、路由器等。这就要求zabbix可以与这些监控对象能够进行通信。   zabbix支持的通信方式 agent通过专用的代理程序进行监控，与常见的master&#x2F;agent模型类似，如果被监控对象支持对应的agent，推荐首先该形式。   ssh&#x2F;telnet通过远程控制协议进行通讯，比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.zabbix概念">
+<meta property="og:url" content="http://example.com/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;zabbix可以监控的硬件理论上是与我们的业务有关的硬件资源都可以被监控，比如：主机、交换机、路由器等。这就要求zabbix可以与这些监控对象能够进行通信。   zabbix支持的通信方式 agent通过专用的代理程序进行监控，与常见的master&#x2F;agent模型类似，如果被监控对象支持对应的agent，推荐首先该形式。   ssh&#x2F;telnet通过远程控制协议进行通讯，比">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg">
+<meta property="article:published_time" content="2022-03-25T12:45:46.000Z">
+<meta property="article:modified_time" content="2022-03-25T16:10:25.847Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="zabbix概念">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '1.zabbix概念',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-26 00:10:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">DaGuang</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">1.zabbix概念</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-25T12:45:46.000Z" title="发表于 2022-03-25 20:45:46">2022-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-25T16:10:25.847Z" title="更新于 2022-03-26 00:10:25">2022-03-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/zabbix/">zabbix</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="1.zabbix概念"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>&emsp;&emsp;zabbix可以监控的硬件理论上是与我们的业务有关的硬件资源都可以被监控，比如：主机、交换机、路由器等。这就要求zabbix可以与这些监控对象能够进行通信。  </p>
+<h2 id="zabbix支持的通信方式"><a href="#zabbix支持的通信方式" class="headerlink" title="zabbix支持的通信方式"></a>zabbix支持的通信方式</h2><ul>
+<li>agent<br>通过专用的代理程序进行监控，与常见的master/agent模型类似，如果被监控对象支持对应的agent，推荐首先该形式。  </li>
+<li>ssh/telnet<br>通过远程控制协议进行通讯，比如：ssh、telnet。  </li>
+<li>SNMP<br>通过SNMP协议与被监控对象进行通信，SNMNP协议的全称是“简单网络管理协议”。  </li>
+<li>IPMI<br>通过IPMI接口进行监控，我们可以通过标准的IPMI硬件接口，监控被监控对象的物理特征，比如电压，温度，风扇状态，电源状态等。  </li>
+<li>JMX<br>JMX即java管理扩展，监控JVM时，可以使用这种方法也是很不错的。<br><img src="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/%E4%B8%8E%E7%9B%91%E6%8E%A7%E8%AE%BE%E5%A4%87%E7%9A%84%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F.png" alt="通信方式">  </li>
+</ul>
+<p>&emsp;&emsp;当监控规模变得庞大时，可能有成千上万台设备需要监控时。zabbix支持分布式监控，我们可以把所有的被监控对象分成不同的区域，每个区域中设置一台代理主机，区域内的每个被监控对象的信息被agent采集，提交给代理主机，在这个区域内，在理主机的作用就相当于是zabbix server，我们将代理主机为zabbix proxy，代理主机再将收集到的监控对象的信息统一提交给真正的zabbix server处理，这样zabbix proxy分摊了zabbix server的压力，还能通过统一的监控入口，监控所有的对象。  </p>
+<h2 id="zabbix组件"><a href="#zabbix组件" class="headerlink" title="zabbix组件"></a>zabbix组件</h2><ul>
+<li>zabbix agent<br>部署在被监控主机上，负责被监控主机的数据，并加数据发送给zabbix server。</li>
+<li>zabbix server<br>负责接受agent发送的报告信息，并且负责组织配置信息、统计信息、操作数据等。</li>
+<li>zabbix database<br>用于存储所有zabbix的配置信息、监控数据的数据库。</li>
+<li>zabbix web<br>zabbix的web界面，管理员通过web界面管理zabbix配置以及查看zabbix相关监控信息，可以单独部署在独立的服务器上。  </li>
+<li>zabbix proxy<br>可选组件，用于分布式监控环境中，zabbix proxy代表server端，完成局部区域内的信息收集，最终统一发往server端。采用中间代理将大大提高监控服务器端的处理速度，从而支撑构建大型分布式监控环境，从架构上支持异地多机房的需求。  </li>
+</ul>
+<h2 id="zabbix工作模式"><a href="#zabbix工作模式" class="headerlink" title="zabbix工作模式"></a>zabbix工作模式</h2><p>&emsp;&emsp;agent端会将采集完的数据主动发送给server端，这种模式称之为<strong>主动模式</strong>（对于agent端来说是主动的）；agent端也可以不发送数据，而是等待server端来拉取数据，这种模式称之为<strong>被动模式</strong>。一般来说，被动模式对监控控制端服务器的开销较大，适合小规模的监控环境；主动模式对监控控制端服务器的开销较小，适合大规模的监控环境。<br>&emsp;&emsp;可以在<strong>agent端使用zabbix_sender</strong>工具，测试是否能够向server端发送数据。<br>&emsp;&emsp;可以在<strong>server端使用zabbix_get</strong>工具，测试是否能够向agent端发送数据。<br>&emsp;&emsp;两种模式可以同时存在，并不会冲突。  </p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/zabbix%E6%A6%82%E5%BF%B5/">zabbix概念</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/25/zabbix/2-zabbix%E9%83%A8%E7%BD%B2/"><img class="prev-cover" src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2-zabbix部署</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/24/Linux/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/"><img class="next-cover" src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">性能分析</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DaGuang</div><div class="author-info__description">学习！学习！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/daguangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1063745644@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://QQInterLive/?Cmd=2&amp;Uin=1063745644" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix%E6%94%AF%E6%8C%81%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">zabbix支持的通信方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">zabbix组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zabbix%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">zabbix工作模式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/28/zabbix/3-zabbix%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" title="3-zabbix快速配置"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3-zabbix快速配置"/></a><div class="content"><a class="title" href="/2022/03/28/zabbix/3-zabbix%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" title="3-zabbix快速配置">3-zabbix快速配置</a><time datetime="2022-03-28T01:02:33.000Z" title="发表于 2022-03-28 09:02:33">2022-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/25/zabbix/2-zabbix%E9%83%A8%E7%BD%B2/" title="2-zabbix部署"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2-zabbix部署"/></a><div class="content"><a class="title" href="/2022/03/25/zabbix/2-zabbix%E9%83%A8%E7%BD%B2/" title="2-zabbix部署">2-zabbix部署</a><time datetime="2022-03-25T14:22:21.000Z" title="发表于 2022-03-25 22:22:21">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/" title="1.zabbix概念"><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.zabbix概念"/></a><div class="content"><a class="title" href="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/" title="1.zabbix概念">1.zabbix概念</a><time datetime="2022-03-25T12:45:46.000Z" title="发表于 2022-03-25 20:45:46">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/24/Linux/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" title="性能分析"><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="性能分析"/></a><div class="content"><a class="title" href="/2022/03/24/Linux/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" title="性能分析">性能分析</a><time datetime="2022-03-24T03:07:45.000Z" title="发表于 2022-03-24 11:07:45">2022-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/24/YAML/YAML%E5%9F%BA%E7%A1%80/" title="YAML基础"><img src="https://s2.loli.net/2022/03/24/9bBLo4WtTsJpyAu.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="YAML基础"/></a><div class="content"><a class="title" href="/2022/03/24/YAML/YAML%E5%9F%BA%E7%A1%80/" title="YAML基础">YAML基础</a><time datetime="2022-03-24T02:38:40.000Z" title="发表于 2022-03-24 10:38:40">2022-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>function electric_clock_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>';
+                console.log('已挂载electric_clock')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            electric_clock_injector_config()
+        } </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax  src="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.js"></script><!-- hexo injector body_end end --></body></html>
