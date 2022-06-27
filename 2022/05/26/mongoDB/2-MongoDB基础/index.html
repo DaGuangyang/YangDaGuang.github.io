@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="2-MongoDB基础">
+<meta property="og:url" content="http://example.com/2022/05/26/mongoDB/2-MongoDB%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/05/25/cnIFxBYjKNfkvA7.jpg">
+<meta property="article:published_time" content="2022-05-26T02:06:19.000Z">
+<meta property="article:modified_time" content="2022-06-08T02:46:44.526Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="MongoDB基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/25/cnIFxBYjKNfkvA7.jpg">
+
+
+<link rel="canonical" href="http://example.com/2022/05/26/mongoDB/2-MongoDB%E5%9F%BA%E7%A1%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/05/26/mongoDB/2-MongoDB%E5%9F%BA%E7%A1%80/","path":"2022/05/26/mongoDB/2-MongoDB基础/","title":"2-MongoDB基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2-MongoDB基础 | DaGuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DaGuang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MOngoDB%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">MOngoDB概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据库命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.3.</span> <span class="nav-text">删除数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.2.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">集合命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#capped-collection"><span class="nav-number">1.2.2.</span> <span class="nav-text">capped collection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88"><span class="nav-number">1.2.3.</span> <span class="nav-text">创建集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%90%88%E9%9B%86"><span class="nav-number">1.2.4.</span> <span class="nav-text">删除合集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3"><span class="nav-number">1.3.</span> <span class="nav-text">文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%96%87%E6%A1%A3"><span class="nav-number">1.3.1.</span> <span class="nav-text">插入文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%96%87%E6%A1%A3"><span class="nav-number">1.3.2.</span> <span class="nav-text">更新文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E6%A1%A3"><span class="nav-number">1.3.3.</span> <span class="nav-text">删除文档</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/26/mongoDB/2-MongoDB%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="2-MongoDB基础 | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2-MongoDB基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-26 10:06:19" itemprop="dateCreated datePublished" datetime="2022-05-26T10:06:19+08:00">2022-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-08 10:46:44" itemprop="dateModified" datetime="2022-06-08T10:46:44+08:00">2022-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://s2.loli.net/2022/05/25/cnIFxBYjKNfkvA7.jpg" alt="mongoDB.png">  </p>
+<span id="more"></span>
+<h1 id="MOngoDB概念"><a href="#MOngoDB概念" class="headerlink" title="MOngoDB概念"></a>MOngoDB概念</h1><table>
+<thead>
+<tr>
+<th>SQL</th>
+<th>MongoDB</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>database</td>
+<td>database</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+<td>数据库表/集合</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document</td>
+<td>行/文档</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+<td>字段/域</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+<td>索引</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key</td>
+<td>主键，mongodb自动将_id设置为主键</td>
+</tr>
+</tbody></table>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show dbs            #显示所有数据的列表</span><br><span class="line">db                  #显示当前数据库对象或集合</span><br><span class="line">use  [database]     #连接到一个指定的数据库</span><br></pre></td></tr></table></figure>
+<h3 id="数据库命名规则"><a href="#数据库命名规则" class="headerlink" title="数据库命名规则"></a>数据库命名规则</h3><ol>
+<li>不能是空字符串  </li>
+<li>不能含有空格、点、$、/、\  </li>
+<li><strong>应全部小写</strong>  </li>
+<li>最多64字节  </li>
+</ol>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><p>使用<code>use DATABASE_NAME</code>进行创建数据库，若没有该数据库则创建，若有则切换。<br>需要注意的是创建完成数据库是空的，使用<code>show dbs</code>不会显示，若要显示改数据库，则需要在该库中添加一些数据</p>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; use DATABASE_NAME </span><br><span class="line">&gt; db.dropDatabase()</span><br></pre></td></tr></table></figure>
+
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合存在于数据库中，集合没有固定给的结构，可以插入不同格式和类型的数据。当第一个文档插入时，集合就会被创建。  </p>
+<h3 id="集合命名规则"><a href="#集合命名规则" class="headerlink" title="集合命名规则"></a>集合命名规则</h3><ol>
+<li>不能是空字符串  </li>
+<li>不能以system开头，这些是系统合集保留的前缀</li>
+<li>不应包含$  </li>
+</ol>
+<h3 id="capped-collection"><a href="#capped-collection" class="headerlink" title="capped collection"></a>capped collection</h3><p>固定大小的collection，具有很高的性能以及队列过期的特性，可以按照文档的插入顺序保存到集合中，而且这些文档在磁盘上存放位置也是按照插入顺序来保存的，所以当我们更新Capped collections 中文档的时候，更新后的文档不可以超过之前文档的大小，这样话就可以确保所有文档在磁盘上的位置一直保持不变，创建时指定collection的大小，单位是字节，collection的空间是提前分配的。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;test&quot;, &#123;capped:true, size:100000&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p><code>db.createCollection(NAME，OPTIONS)</code><br>capped：true时创建固定合集<br>size：为固定合集指定一个最大值，单位是字节<br>max：固定合集中包含文档的最大数量  </p>
+<p><code>show collections</code>或者<code>show tables</code>查看已有合集。  </p>
+<h3 id="删除合集"><a href="#删除合集" class="headerlink" title="删除合集"></a>删除合集</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.COLLECTION_NAME.drop()</span><br></pre></td></tr></table></figure>
+
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>文档是一组键值对，不需要设置相同的字段，并且相同的字段不需要相同的数据类型。  </p>
+<ul>
+<li>键值对是有序的  </li>
+<li>区分类型与大小写  </li>
+<li>文档中不能有重复的键  </li>
+<li>文档的键是字符串</li>
+</ul>
+<h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.COLLECTION_NAME.insert()  # 插入文档，不用遍历，效率高，插入的文档主键已在合集中存在时会报错  </span><br><span class="line">db.COLLECTION_NAME.save()    # 插入文档，插入时需要遍历列表，插入的文档主键已在合集中存在时会将原有文档更新</span><br><span class="line">db.COLLECTION_NAME.insertOne()  #插入一个新文档</span><br><span class="line">db.COLLECTION_NAME.inserMany()  #插入多个新文档，插入方式为有序插入</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># insertMany插入</span><br><span class="line">&gt; db.test.insertMany([&#123;&quot;name&quot;:&quot;yyg&quot;&#125;,&#123;&quot;name&quot;:&quot;yang&quot;&#125;,&#123;&quot;name&quot;:&quot;guang&quot;&#125;])</span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedIds&quot; : [</span><br><span class="line">                ObjectId(&quot;629080043373edb925a0056f&quot;),</span><br><span class="line">                ObjectId(&quot;629080043373edb925a00570&quot;),</span><br><span class="line">                ObjectId(&quot;629080043373edb925a00571&quot;)</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br><span class="line">&gt; db.test.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;629080043373edb925a0056f&quot;), &quot;name&quot; : &quot;yyg&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;629080043373edb925a00570&quot;), &quot;name&quot; : &quot;yang&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;629080043373edb925a00571&quot;), &quot;name&quot; : &quot;guang&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">db.COLLECTION_NAME.update(&lt;query&gt;,&lt;update&gt;,</span><br><span class="line">   &#123;</span><br><span class="line">     upsert: &lt;boolean&gt;,</span><br><span class="line">     multi: &lt;boolean&gt;,</span><br><span class="line">     writeConcern: &lt;document&gt;</span><br><span class="line">   &#125;</span><br><span class="line">)</span><br><span class="line"># query : update的查询条件，类似sql update查询内where后面的</span><br><span class="line"># update : update的对象和一些更新的操作符（如$,$inc...）等，也可以理解为sql update查询内set后面的</span><br><span class="line"># upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</span><br><span class="line"># multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</span><br><span class="line"># writeConcern :可选，抛出异常的级别。</span><br><span class="line"></span><br><span class="line">db.COLLECTION_NAME.save()     #将传入的文档替换原有的文档，主键不存在就插入，存在就替换</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MongoDB%E5%9F%BA%E7%A1%80/" rel="tag"># MongoDB基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/25/mongoDB/1-MongoDB%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" rel="prev" title="1-MongoDB安装部署">
+                  <i class="fa fa-chevron-left"></i> 1-MongoDB安装部署
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/06/10/python/1-python%E5%9F%BA%E7%A1%80/" rel="next" title="1-python基础">
+                  1-python基础 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>
