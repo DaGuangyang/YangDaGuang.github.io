@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="article">
 <meta property="og:title" content="1-Kubernetes基本概念">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://s2.loli.net/2022/06/27/5UbYtS64yAIPXzM.jpg">
 <meta property="og:image" content="http://example.com/2022/06/27/K8s/1-Kubernetes%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/k8s%E6%9E%B6%E6%9E%84%E5%9B%BE.png">
 <meta property="article:published_time" content="2022-06-26T16:30:20.000Z">
-<meta property="article:modified_time" content="2022-06-27T02:55:59.196Z">
+<meta property="article:modified_time" content="2022-06-28T14:42:24.341Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="K8s基本概念">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">K8S概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">K8S特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E9%9B%86%E7%BE%A4%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">K8S集群架构组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#master%E7%BB%84%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">master组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">node组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">K8S核心概念</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">K8S概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">K8S特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E9%9B%86%E7%BE%A4%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">K8S集群架构组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#master%E7%BB%84%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">master组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">node组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">K8S核心概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">完整流程</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -161,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,7 +172,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -239,9 +239,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-06-27 00:30:20 / 修改时间：10:55:59" itemprop="dateCreated datePublished" datetime="2022-06-27T00:30:20+08:00">2022-06-27</time>
+      <time title="创建时间：2022-06-27 00:30:20" itemprop="dateCreated datePublished" datetime="2022-06-27T00:30:20+08:00">2022-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-28 22:42:24" itemprop="dateModified" datetime="2022-06-28T22:42:24+08:00">2022-06-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -295,22 +301,68 @@
 <li>最小部署单元  </li>
 <li>一组容器的集合  </li>
 <li>pod内共享网络  </li>
-<li>生命周期是短暂的  </li>
+<li>生命周期是短暂的（服务器重启后就找不到了）  </li>
 </ul>
 <ol start="2">
 <li>controller  </li>
 </ol>
 <ul>
-<li>确保预期的pod副本数量  </li>
-<li>一次性任务和定时任务  </li>
-<li>有状态应用部署与无状态应用部署（无状态应用部署即无部署或使用条件，有条件应用部署反之）  </li>
+<li>确保预期的pod副本数量（replicaSet）  </li>
+<li>一次性任务和定时任务（job和cronjob）  </li>
+<li>有状态应用部署（statefulSet）与无状态应用部署（Depoltment）（无状态应用部署即无部署或使用条件，有条件应用部署反之）  </li>
+<li>确保所有的node同时运行一个pod（DaemonSet）  </li>
 </ul>
 <ol start="3">
 <li>service  </li>
 </ol>
 <ul>
 <li>定义一组pod的访问规则  </li>
+<li>pod的负载均衡，提供一个或多个pod的稳定的访问地址  </li>
 </ul>
+<ol start="4">
+<li>volume  </li>
+</ol>
+<ul>
+<li>声明在pod中可以访问的文件目录  </li>
+<li>可以被挂载到一个或多个容器指定路径下</li>
+<li>支持多种后端存储  </li>
+</ul>
+<ol start="5">
+<li>deployment  </li>
+</ol>
+<ul>
+<li>定义一组pod副本数目，版本等  </li>
+<li>通过控制器controller维持pod数目  </li>
+<li>通过控制器以指定的策略控制版本  </li>
+</ul>
+<ol start="6">
+<li>label  </li>
+</ol>
+<ul>
+<li>标签，用于对对象资源查询、筛选  </li>
+</ul>
+<ol start="7">
+<li>namespace  </li>
+</ol>
+<ul>
+<li>命名空间，逻辑隔离  </li>
+<li>一个集群内部的逻辑隔离机制（鉴权、资源）  </li>
+<li>每一个资源都属于一个namespace  </li>
+<li>同一个namespace中所有资源不能重复  </li>
+<li>不同namespace中的资源名可以重复  </li>
+</ul>
+<h1 id="完整流程"><a href="#完整流程" class="headerlink" title="完整流程"></a>完整流程</h1><ol>
+<li>通过kubectl提交一个创建replication controller（RC），亲通过APIserver写入到etcd中  </li>
+<li>controller-manager通过APIserver监听到此RC  </li>
+<li>分析之后发现集群中还没有它对应的pod  </li>
+<li>根据RC中的pod模板定义一个生成pod对象，通过APIserver写入到etcd中  </li>
+<li>此事件被scheduler发现，立即执行一个复杂的调度流程，为这个pod选定一个node，然后通过APIserver将这一事件写入到etcd中  </li>
+<li>目标node上云心给的kubelet进程通过APIserver检测到这个新的pod，并按照他的定义启动该pod，并进行管理  </li>
+<li>随后通过kubectl提交一个新的映射到该pod的service的创建请求  </li>
+<li>controller-manager通过label标签查询到关联的pod实例，然后生成service的endpoints信息，并通过APIserver写入到etcd中  </li>
+<li>所有node上运行的proxy进程通过APIserver查询并监听service对象与对应的endpoints信息，建立一个软件方式的负载均衡来实现service访问到后端pod的流量转发功能  </li>
+</ol>
+<p>endpoints：endpoint是k8s集群中的一个资源对象，存储在etcd中，用来记录一个service对应的所有pod的访问地址。service配置selector，endpoint controller才会自动创建对应的endpoint对象；否则，不会生成endpoint对象  </p>
 
     </div>
 
@@ -371,7 +423,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
