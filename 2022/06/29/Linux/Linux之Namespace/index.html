@@ -22,13 +22,13 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="article">
-<meta property="og:title" content="Linux之Namespace">
+<meta property="og:title" content="Namespace">
 <meta property="og:url" content="http://example.com/2022/06/29/Linux/Linux%E4%B9%8BNamespace/index.html">
 <meta property="og:site_name" content="DaGuang">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg">
 <meta property="article:published_time" content="2022-06-29T13:24:38.000Z">
-<meta property="article:modified_time" content="2022-07-03T04:44:41.926Z">
+<meta property="article:modified_time" content="2022-07-04T04:58:56.942Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="namespace">
 <meta name="twitter:card" content="summary">
@@ -39,10 +39,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/06/29/Linux/Linux%E4%B9%8BNamespace/","path":"2022/06/29/Linux/Linux之Namespace/","title":"Linux之Namespace"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/06/29/Linux/Linux%E4%B9%8BNamespace/","path":"2022/06/29/Linux/Linux之Namespace/","title":"Namespace"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux之Namespace | DaGuang</title>
+<title>Namespace | DaGuang</title>
   
 
 
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">1.</span> <span class="nav-text">Namespace</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">1.</span> <span class="nav-text">Namespace</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#namespace%E8%B5%84%E6%BA%90%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">namespace资源类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%80%E5%9C%A8%E7%9A%84namespace"><span class="nav-number">1.3.</span> <span class="nav-text">查看进程所在的namespace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cgroup"><span class="nav-number">1.4.</span> <span class="nav-text">Cgroup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cgroup%E5%88%86%E9%85%8D%E9%99%90%E5%88%B6%E8%B5%84%E6%BA%90"><span class="nav-number">1.4.1.</span> <span class="nav-text">Cgroup分配限制资源</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,12 +223,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Linux之Namespace | DaGuang">
+      <meta itemprop="name" content="Namespace | DaGuang">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux之Namespace
+          Namespace
         </h1>
 
         <div class="post-meta-container">
@@ -246,7 +246,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-03 12:44:41" itemprop="dateModified" datetime="2022-07-03T12:44:41+08:00">2022-07-03</time>
+      <time title="修改时间：2022-07-04 12:58:56" itemprop="dateModified" datetime="2022-07-04T12:58:56+08:00">2022-07-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,7 +270,52 @@
     <div class="post-body" itemprop="articleBody">
         <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p>
 <span id="more"></span>
-<h1 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2>
+<h1 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Linux namespace是Kernel的一个功能，可以将一些系统资源进行隔离。Namespace 是 Linux 内核用来隔离内核资源的方式。通过 namespace 可以让一些进程只能看到与自己相关的一部分资源，而另外一些进程也只能看到与它们自己相关的资源，这两拨进程根本就感觉不到对方的存在。Linux namespaces 是对全局系统资源的一种封装隔离，使得处于不同 namespace 的进程拥有独立的全局系统资源，改变一个 namespace 中的系统资源只会影响当前 namespace 里的进程，对其他 namespace 中的进程没有影响。  </p>
+<p>用户可以创建指定类型的namespace，并将程序放入该namespace中，表示从前的系统中隔离出一个进程的运行环境，在此运行环境中的进程将认为自己拥有该namespace中的独立资源。 实际即使没有手动创建namespace，Linux系统开机后也会创建一个默认的namespace，称为 <strong>root namespace</strong>，所有进程默认都运行在root namespace中，每个进程都认为自己拥有该namespace中所有的全局资源。<br>每一个namespace都是基于当前内核，<strong>root namespace直接基于内核</strong>，<strong>用户创建的namespace运行环境基于当前所在的namespace</strong>，不直接基于内核是因为namespace可能会修改某些运行时内核参数。  </p>
+<h2 id="namespace资源类型"><a href="#namespace资源类型" class="headerlink" title="namespace资源类型"></a>namespace资源类型</h2><p>每种资源都是随着Linux内核版本更新逐渐加入的，所以有些内核版本可能不具备某种namespace  </p>
+<table>
+<thead>
+<tr>
+<th align="center">namespace类型</th>
+<th align="center">隔离的资源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">IPC</td>
+<td align="center">SystemV IPC(信号量、消息队列、共享内存)和POSIX消息队列</td>
+</tr>
+<tr>
+<td align="center">Network</td>
+<td align="center">网络设备、网络栈、端口</td>
+</tr>
+<tr>
+<td align="center">Mount</td>
+<td align="center">文件系统挂载点</td>
+</tr>
+<tr>
+<td align="center">PID</td>
+<td align="center">进程编号</td>
+</tr>
+<tr>
+<td align="center">User</td>
+<td align="center">用户和用户组</td>
+</tr>
+<tr>
+<td align="center">UTS</td>
+<td align="center">主机名和NIS域名</td>
+</tr>
+<tr>
+<td align="center">Cgroup</td>
+<td align="center">Cgroup的根目录</td>
+</tr>
+</tbody></table>
+<h2 id="查看进程所在的namespace"><a href="#查看进程所在的namespace" class="headerlink" title="查看进程所在的namespace"></a>查看进程所在的namespace</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">]# ll /proc/$$/ns  &amp;&amp; ll /proc/1/ns</span><br><span class="line">total 0</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 12:08 ipc -&gt; ipc:[4026531839]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 12:08 mnt -&gt; mnt:[4026531840]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 11:35 net -&gt; net:[4026531956]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 11:35 pid -&gt; pid:[4026531836]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 12:08 user -&gt; user:[4026531837]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 12:08 uts -&gt; uts:[4026531838]</span><br><span class="line">total 0</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 11:18 ipc -&gt; ipc:[4026531839]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 11:18 mnt -&gt; mnt:[4026531840]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jun 30 23:28 net -&gt; net:[4026531956]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jun 30 23:28 pid -&gt; pid:[4026531836]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 11:18 user -&gt; user:[4026531837]</span><br><span class="line">lrwxrwxrwx 1 root root 0 Jul  4 11:18 uts -&gt; uts:[4026531838]</span><br></pre></td></tr></table></figure>
+<p>路径下的文件都是软连接，指向的文件名中的数字表示namespace的inode，如果不同进程对应的文件的inode相同说明两个进程是在同一个namespace中。  </p>
+<h2 id="Cgroup"><a href="#Cgroup" class="headerlink" title="Cgroup"></a>Cgroup</h2><p>Cgroups(Control Groups) 是Linux内核提供的一种可以限制、记录、隔离进程组（process groups）所使用的物理资源（如：cpu,memory,IO等等）的机制。可以对一组进程及将来的子进程的资源的限制、控制和统计的能力，这些资源包括CPU，内存，存储，网络等。通过Cgroups，可以方便的限制某个进程的资源占用，并且可以实时的监控进程的监控和统计信息。Cgroups也是LXC为实现虚拟化所使用的资源管理手段，可以说没有cgroups就没有LXC (Linux Container)。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">]#</span><span class="bash"> ll /sys/fs/cgroup/</span></span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 blkio                        #​​​定​​​输​​​入​​​/输​​​出​​​限​​​制​​​</span><br><span class="line">lrwxrwxrwx 1 root root 11 Jun 30 23:27 cpu -&gt; cpu,cpuacct           #使​​​用​​​调​​​度​​​程​​​序​​​提​​​供​​​对​​​CPU的​​​cgroup任​​​务访​​问</span><br><span class="line">​lrwxrwxrwx 1 root root 11 Jun 30 23:27 cpuacct -&gt; cpu,cpuacct       #自​​​动​​​生​​​成​​​cgroup中​​​任​​​务​​​所​​​使​​​用​​​的​​​CPU报​​​告</span><br><span class="line">drwxr-xr-x 3 root root  0 Jun 30 23:27 cpu,cpuacct</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 cpuset                       #​​​为​​​cgroup中​​​的​​​任​​​务​​​分​​​配​​​独​​​立​​​CPU（在​​​多​​​核​​​系​​​统​​​）和​​​内​​​存​​​节​​​点​​​</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 devices                      #允​​​许​​​或​​​者​​​拒​​​绝​​​ cgroup 中​​​的​​​任​​​务​​​访​​​问​​​设​​​备</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 freezer                      #挂​​​起​​​或​​​者​​​恢​​​复​​​ cgroup 中​​​的​​​任​​​务</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 hugetlb                      #主要针对于HugeTLB系统进行限制，这是一个大页文件系统</span><br><span class="line">drwxr-xr-x 3 root root  0 Jun 30 23:27 memory                       #设​​​定​​​ cgroup 中​​​任​​​务​​​使​​​用​​​的​​​内​​​存​​​限​​​制​​​，并​​​自​​​动​​​生​​​成​​​​​内​​​存​​​资​​​源使用​​​报​​​告</span><br><span class="line">lrwxrwxrwx 1 root root 16 Jun 30 23:27 net_cls -&gt; net_cls,net_prio</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 net_cls,net_prio</span><br><span class="line">lrwxrwxrwx 1 root root 16 Jun 30 23:27 net_prio -&gt; net_cls,net_prio</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 perf_event</span><br><span class="line">drwxr-xr-x 2 root root  0 Jun 30 23:27 pids</span><br><span class="line">drwxr-xr-x 4 root root  0 Jun 30 23:27 systemd</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cgroup分配限制资源"><a href="#Cgroup分配限制资源" class="headerlink" title="Cgroup分配限制资源"></a>Cgroup分配限制资源</h3><p>拿menory为例，进入<code>/sys/fs/cgroup/memory</code>下创建<code>test</code>，这样就相当创建一个menory的控制组，进入到test下会发现自动创建了许多文件，每个文件对应不同的限制条件，再将需要进行限制进程的PID添加到tasks中，这样就对这个进程的menory进行了限制，需要删除的话将这个目录删除即可  </p>
+
     </div>
 
     
