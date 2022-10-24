@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/09/06/4PdOQiHzvqweAKj.webp">
 <meta property="article:published_time" content="2022-09-07T13:53:00.000Z">
-<meta property="article:modified_time" content="2022-09-07T18:18:07.292Z">
+<meta property="article:modified_time" content="2022-09-10T13:48:39.623Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="KVM相关命令">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#virsh-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">virsh 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%9F%E7%AE%A1%E7%90%86%EF%BC%88%E5%AE%A2%E6%88%B7%E6%9C%BA%E7%AE%A1%E7%90%86%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">域管理（客户机管理）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-manager"><span class="nav-number">1.2.</span> <span class="nav-text">virt-manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-viewer"><span class="nav-number">1.3.</span> <span class="nav-text">virt-viewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-install"><span class="nav-number">1.4.</span> <span class="nav-text">virt-install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-top"><span class="nav-number">1.5.</span> <span class="nav-text">virt-top</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#virsh-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">virsh 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%9F%E7%AE%A1%E7%90%86%EF%BC%88%E5%AE%A2%E6%88%B7%E6%9C%BA%E7%AE%A1%E7%90%86%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">域管理（客户机管理）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E7%85%A7%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">快照管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-manager"><span class="nav-number">1.3.</span> <span class="nav-text">virt-manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-viewer"><span class="nav-number">1.4.</span> <span class="nav-text">virt-viewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-install"><span class="nav-number">1.5.</span> <span class="nav-text">virt-install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-clone"><span class="nav-number">1.6.</span> <span class="nav-text">virt-clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virt-top"><span class="nav-number">1.7.</span> <span class="nav-text">virt-top</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -246,7 +246,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-08 02:18:07" itemprop="dateModified" datetime="2022-09-08T02:18:07+08:00">2022-09-08</time>
+      <time title="修改时间：2022-09-10 21:48:39" itemprop="dateModified" datetime="2022-09-10T21:48:39+08:00">2022-09-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,11 +287,11 @@
 </tr>
 <tr>
 <td align="center">destroy VM_NAME</td>
-<td align="center">强制停止虚拟机</td>
+<td align="center">强制停止虚拟机，相当于断电</td>
 </tr>
 <tr>
 <td align="center">undefine VM_NAME</td>
-<td align="center">取消虚拟机定义</td>
+<td align="center">删除虚拟机</td>
 </tr>
 <tr>
 <td align="center">console VM_NAME</td>
@@ -342,7 +342,55 @@
 <td align="center">设置虚拟机内存</td>
 </tr>
 </tbody></table>
-<h2 id="virt-manager"><a href="#virt-manager" class="headerlink" title="virt-manager"></a>virt-manager</h2><h2 id="virt-viewer"><a href="#virt-viewer" class="headerlink" title="virt-viewer"></a>virt-viewer</h2><h2 id="virt-install"><a href="#virt-install" class="headerlink" title="virt-install"></a>virt-install</h2><h2 id="virt-top"><a href="#virt-top" class="headerlink" title="virt-top"></a>virt-top</h2>
+<h2 id="快照管理"><a href="#快照管理" class="headerlink" title="快照管理"></a>快照管理</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">snapshot-create VM_NAME</td>
+<td align="center">创建快照</td>
+</tr>
+<tr>
+<td align="center">snapshot-create-as VM_NAME</td>
+<td align="center">创建快照，可添加快照描述/指定快照名称</td>
+</tr>
+<tr>
+<td align="center">snapshot-current VM_NAME</td>
+<td align="center">查看当前快照详细配置</td>
+</tr>
+<tr>
+<td align="center">snapshot-delete VM_NAME snapshot_name</td>
+<td align="center">删除快照</td>
+</tr>
+<tr>
+<td align="center">snapshot-dumpxml VM_NAME snapshot_name</td>
+<td align="center">查看指定快照配置</td>
+</tr>
+<tr>
+<td align="center">snapshot-edit VM_NAME snapshot_name</td>
+<td align="center">编辑指定快照xml文件</td>
+</tr>
+<tr>
+<td align="center">snapshot-info VM_NAME snapshot_name</td>
+<td align="center">查看指定快照信息</td>
+</tr>
+<tr>
+<td align="center">snapshot-list VM_NAME</td>
+<td align="center">查看快照列表</td>
+</tr>
+<tr>
+<td align="center">snapshot-parent VM_NAME</td>
+<td align="center">查看指定快照的父快照名称</td>
+</tr>
+<tr>
+<td align="center">snapshot-revert VM_NAME snapshot_name</td>
+<td align="center">恢复指定快照</td>
+</tr>
+</tbody></table>
+<h2 id="virt-manager"><a href="#virt-manager" class="headerlink" title="virt-manager"></a>virt-manager</h2><h2 id="virt-viewer"><a href="#virt-viewer" class="headerlink" title="virt-viewer"></a>virt-viewer</h2><h2 id="virt-install"><a href="#virt-install" class="headerlink" title="virt-install"></a>virt-install</h2><h2 id="virt-clone"><a href="#virt-clone" class="headerlink" title="virt-clone"></a>virt-clone</h2><h2 id="virt-top"><a href="#virt-top" class="headerlink" title="virt-top"></a>virt-top</h2>
     </div>
 
     

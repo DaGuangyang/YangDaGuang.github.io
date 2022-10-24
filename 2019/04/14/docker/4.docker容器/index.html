@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2019/04/14/docker/4.docker%E5%AE%B9%E5%99%A8/%E5%9B%BE%E7%89%87docker.jpg">
 <meta property="article:published_time" content="2019-04-13T21:22:05.000Z">
-<meta property="article:modified_time" content="2021-11-04T07:45:25.669Z">
+<meta property="article:modified_time" content="2022-10-20T11:54:25.131Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="docker容器">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">创建容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B9%B6%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">新建并启动容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%B7%B2%E7%BB%8F%E7%BB%88%E6%AD%A2%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">启动已经终止的容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">后台运行容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E6%AD%A2%E5%AE%B9%E5%99%A8%E3%80%81%E9%87%8D%E5%90%AF%E5%AE%B9%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">终止容器、重启容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">进入容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-attach"><span class="nav-number">6.1.</span> <span class="nav-text">docker attach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-exec"><span class="nav-number">6.2.</span> <span class="nav-text">docker exec</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%92%8C%E5%AF%BC%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">导出和导入容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%AE%B9%E5%99%A8"><span class="nav-number">7.1.</span> <span class="nav-text">导出容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%AE%B9%E5%99%A8%E5%BF%AB%E7%85%A7"><span class="nav-number">7.2.</span> <span class="nav-text">导出容器快照</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#export%E3%80%81import%E3%80%81save%E3%80%81load%E5%8C%BA%E5%88%AB"><span class="nav-number">7.2.1.</span> <span class="nav-text">export、import、save、load区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8"><span class="nav-number">8.</span> <span class="nav-text">删除容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E6%89%80%E6%9C%89%E5%A4%84%E4%BA%8E%E7%BB%88%E6%AD%A2%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-number">9.</span> <span class="nav-text">清理所有处于终止状态的容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8"><span class="nav-number">10.</span> <span class="nav-text">查看容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E8%AF%A6%E6%83%85"><span class="nav-number">10.1.</span> <span class="nav-text">查看容器详情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E5%86%85%E8%BF%9B%E7%A8%8B"><span class="nav-number">10.2.</span> <span class="nav-text">查看容器内进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">10.3.</span> <span class="nav-text">查看统计信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AE%B9%E5%99%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">11.</span> <span class="nav-text">其他容器命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6"><span class="nav-number">11.1.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E7%9A%84%E5%85%B7%E4%BD%93%E6%94%B9%E5%8A%A8"><span class="nav-number">11.2.</span> <span class="nav-text">查看容器的具体改动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">11.3.</span> <span class="nav-text">查看端口映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">11.4.</span> <span class="nav-text">更新配置</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">创建容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B9%B6%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">新建并启动容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%88%B6%E5%AE%B9%E5%99%A8%E5%AF%B9%E5%86%85%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">限制容器对内存的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%88%B6%E5%AE%B9%E5%99%A8%E5%AF%B9CPU%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">限制容器对CPU的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%88%B6%E5%AE%B9%E5%99%A8%E5%AF%B9%E7%A3%81%E7%9B%98IO"><span class="nav-number">5.</span> <span class="nav-text">限制容器对磁盘IO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E5%88%B6bps%E4%B8%8Eiops"><span class="nav-number">5.1.</span> <span class="nav-text">限制bps与iops</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">后台运行容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C"><span class="nav-number">7.</span> <span class="nav-text">容器相关操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="nav-number">8.</span> <span class="nav-text">进入容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-attach"><span class="nav-number">8.1.</span> <span class="nav-text">docker attach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-exec"><span class="nav-number">8.2.</span> <span class="nav-text">docker exec</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%92%8C%E5%AF%BC%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="nav-number">9.</span> <span class="nav-text">导出和导入容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%AE%B9%E5%99%A8"><span class="nav-number">9.1.</span> <span class="nav-text">导出容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%AE%B9%E5%99%A8%E5%BF%AB%E7%85%A7"><span class="nav-number">9.2.</span> <span class="nav-text">导出容器快照</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#export%E3%80%81import%E3%80%81save%E3%80%81load%E5%8C%BA%E5%88%AB"><span class="nav-number">9.2.1.</span> <span class="nav-text">export、import、save、load区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8"><span class="nav-number">10.</span> <span class="nav-text">删除容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E6%89%80%E6%9C%89%E5%A4%84%E4%BA%8E%E7%BB%88%E6%AD%A2%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-number">11.</span> <span class="nav-text">清理所有处于终止状态的容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8"><span class="nav-number">12.</span> <span class="nav-text">查看容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E8%AF%A6%E6%83%85"><span class="nav-number">12.1.</span> <span class="nav-text">查看容器详情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E5%86%85%E8%BF%9B%E7%A8%8B"><span class="nav-number">12.2.</span> <span class="nav-text">查看容器内进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">12.3.</span> <span class="nav-text">查看统计信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AE%B9%E5%99%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">13.</span> <span class="nav-text">其他容器命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6"><span class="nav-number">13.1.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E7%9A%84%E5%85%B7%E4%BD%93%E6%94%B9%E5%8A%A8"><span class="nav-number">13.2.</span> <span class="nav-text">查看容器的具体改动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">13.3.</span> <span class="nav-text">查看端口映射</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E7%9A%84%E5%BA%95%E5%B1%82%E6%8A%80%E6%9C%AF"><span class="nav-number">14.</span> <span class="nav-text">实现容器的底层技术</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -246,7 +246,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-11-04 15:45:25" itemprop="dateModified" datetime="2021-11-04T15:45:25+08:00">2021-11-04</time>
+      <time title="修改时间：2022-10-20 19:54:25" itemprop="dateModified" datetime="2022-10-20T19:54:25+08:00">2022-10-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -277,20 +277,23 @@
 <ul>
 <li>OPTIONS选项说明：  </li>
 </ul>
-<p><strong>-d：指定容器运行于后台，默认为前台</strong><br><strong>-i：打开STDIN，用于控制台交互</strong><br><strong>-t：分配tty设备，该可以支持终端登录，默认为false，通常与-i一起使用</strong><br><strong>-p：端口映射，格式为：主机(宿主)端口:容器端口</strong><br><strong>- -name：为容器指定一个名称</strong><br>-u： 指定容器的用户<br>-w：指定容器的工作目录<br>-e：指定环境变量，容器中可以使用该环境变量，-e NUM=11,一个-e后只能跟一个环境变量定义<br>-m：指定容器的内存上限<br>-h：指定容器的主机名<br>-v：给容器挂载存储卷，挂载到容器的某个目录，宿主机目录：容器目录  </p>
+<p><strong>-d：指定容器运行于后台，默认为前台</strong><br><strong>-i：打开STDIN，用于控制台交互</strong><br><strong>-t：分配tty设备，该可以支持终端登录，默认为false，通常与-i一起使用</strong><br><strong>-p（小写）：端口映射，格式为：主机(宿主)端口:容器端口</strong><br><strong>- -name=：为容器指定一个名称</strong><br>-u： 指定容器的用户<br>-w：指定容器的工作目录<br>-e：指定环境变量，容器中可以使用该环境变量，-e NUM=11,一个-e后只能跟一个环境变量定义<br>-m：指定容器的内存上限<br>-h：指定容器的主机名<br>-v：给容器挂载存储卷，挂载到容器的某个目录，宿主机目录：容器目录<br>-c：设置CPU权重<br> - -restart=always ：无论容器因何种原因退出（包括正常退出），就立即重启  </p>
 <p>在执行<code>docker run</code>时，Docker在后台运行的标准操作包括  </p>
 <ul>
 <li>检查本地是否存在指定的镜像，不存在就从公有仓库下载  </li>
 <li>利用镜像创建并启动一个容器  </li>
-<li>分配一个文件系统，并在只读的镜像层外面挂载一层可读写层</li>
-<li>从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去</li>
-<li>从地址池配置一个 ip 地址给容器</li>
-<li>执行用户指定的应用程序</li>
-<li>执行完毕后容器被终止</li>
+<li>分配一个文件系统，并在只读的镜像层外面挂载一层可读写层  </li>
+<li>从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去  </li>
+<li>从地址池配置一个 ip 地址给容器  </li>
+<li>执行用户指定的应用程序  </li>
+<li>执行完毕后容器被终止  </li>
 </ul>
-<h2 id="启动已经终止的容器"><a href="#启动已经终止的容器" class="headerlink" title="启动已经终止的容器"></a>启动已经终止的容器</h2><p><code>docker start 容器ID</code>  </p>
+<h2 id="限制容器对内存的使用"><a href="#限制容器对内存的使用" class="headerlink" title="限制容器对内存的使用"></a>限制容器对内存的使用</h2><p>-m :设置内存的使用限额，默认没有限制<br>–menory-swap= ：设置 内存+swap 的使用限额，默认没有限制<br><code>-m 300M --menory-swap=400M</code>为内存限制300M，swap限制100M</p>
+<h2 id="限制容器对CPU的使用"><a href="#限制容器对CPU的使用" class="headerlink" title="限制容器对CPU的使用"></a>限制容器对CPU的使用</h2><p>默认情况下容器可以平等的使用cpu资源并且没有限制。<br>-c可以设置CPU权重，默认为1024，这个数字并不是CPU资源的绝对数量，能够获取到多少资源取决于这个数字占所有容器CPU权重的比例<br><code>-c 1024</code>、<code>-c 512</code> 第一个可以获取到第二个的两倍资源，这只是在CPU资源紧张的情况时，当第一个处于空闲状态时，第二个也可以获取到所有的CPU资源  </p>
+<h2 id="限制容器对磁盘IO"><a href="#限制容器对磁盘IO" class="headerlink" title="限制容器对磁盘IO"></a>限制容器对磁盘IO</h2><p><code>--blkio-weight</code> 与限制CPU一样这只是一个权重，默认为500。  </p>
+<h3 id="限制bps与iops"><a href="#限制bps与iops" class="headerlink" title="限制bps与iops"></a>限制bps与iops</h3><p>bps 是 byte per second，每秒读写的数据量。<br>iops 是 io per second，每秒 IO 的次数。<br><code>--device-read-bps</code>，限制读某个设备的 bps。<code>--device-read-bps /dev/sda:30MB</code><br><code>--device-write-bps</code>，限制写某个设备的 bps。<br><code>--device-read-iops</code>，限制读某个设备的 iops。<br><code>--device-write-iops</code>，限制写某个设备的 iops</p>
 <h2 id="后台运行容器"><a href="#后台运行容器" class="headerlink" title="后台运行容器"></a>后台运行容器</h2><p>使用<code>docker run -d 镜像ID</code>将一个镜像的容器放在后台运行，若该镜像有输出结果，此时因在后台执行，所以不会将输出结果打印在屏幕上，但可以使用<code>docker logs 容器</code>查看容器日志。<br><em>容器是否会长久运行，是和 docker run 指定的命令有关，和 -d 参数无关。例如一个后台运行的容器的主进程只是将一串字符输出，那么当这一串字符输出完毕后容器就会自动停止</em>  </p>
-<h2 id="终止容器、重启容器"><a href="#终止容器、重启容器" class="headerlink" title="终止容器、重启容器"></a>终止容器、重启容器</h2><p><code>docker stop 容器ID </code>终止容器<br><code>docker restart 容器ID </code>重启容器</p>
+<h2 id="容器相关操作"><a href="#容器相关操作" class="headerlink" title="容器相关操作"></a>容器相关操作</h2><p><code>docker stop 容器ID </code>终止容器<br><code>docker start 容器ID</code>启动容器<br><code>docker restart 容器ID </code>重启容器<br><code>docker pause 容器ID</code> 暂停容器<br><code>docker unpause 容器ID</code> 恢复运行<br><code>docker rename 容器ID</code>重命名容器名  </p>
 <h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><p>在使用当使用<code>docker run -d</code>新建一个容器时，有些时候需要进入到容器中进行操作，可以使用<code>docker attach</code>或者<code>docker exec</code>,<strong>推荐使用docker exec进入到容器</strong>。  </p>
 <h3 id="docker-attach"><a href="#docker-attach" class="headerlink" title="docker attach"></a>docker attach</h3><p>当使用<code>docker attach 容器ID</code>进入到一个后台运行的容器中后,使用<code>exit</code>退出会导致容器中终止  </p>
 <h3 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h3><p>使用<code>docker exec -it 容器ID</code>进入到一个后台运行的容器中后,退出不会导致容器中终止  </p>
@@ -318,7 +321,7 @@
 <h2 id="其他容器命令"><a href="#其他容器命令" class="headerlink" title="其他容器命令"></a>其他容器命令</h2><h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h3><p><code>docker cp 源文件路径 目标路径</code>在容器和宿主机本地之间复制文件，容器路径格式：<code>容器ID:容器中的路径</code>  </p>
 <h3 id="查看容器的具体改动"><a href="#查看容器的具体改动" class="headerlink" title="查看容器的具体改动"></a>查看容器的具体改动</h3><p><code>docker diff 容器名/容器ID</code>  </p>
 <h3 id="查看端口映射"><a href="#查看端口映射" class="headerlink" title="查看端口映射"></a>查看端口映射</h3><p><code>docker port 容器ID</code>查看容器的端口映射情况。<br>输出内容为: 宿主机端口 -&gt; 容器端口  </p>
-<h3 id="更新配置"><a href="#更新配置" class="headerlink" title="更新配置"></a>更新配置</h3><p><code>container update</code> 命令可以更新容器的一些运行时配置。  </p>
+<h2 id="实现容器的底层技术"><a href="#实现容器的底层技术" class="headerlink" title="实现容器的底层技术"></a>实现容器的底层技术</h2><p>具体查看 <a href="/2022/06/29/Linux/Linux%E4%B9%8BNamespace/" title="Namespace">Namespace</a>  </p>
 
     </div>
 

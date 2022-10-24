@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="3-Prometheus数据">
+<meta property="og:url" content="http://example.com/2022/10/22/prometheus/3-Prometheus%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/10/21/Dv2fVhPgOBrK7bF.jpg">
+<meta property="og:image" content="http://example.com/2022/10/22/prometheus/3-Prometheus%E6%95%B0%E6%8D%AE/%E7%A4%BA%E4%BE%8B%E6%95%B0%E6%8D%AE.png">
+<meta property="article:published_time" content="2022-10-22T14:55:52.000Z">
+<meta property="article:modified_time" content="2022-10-22T18:27:15.776Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="Prometheus数据">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/10/21/Dv2fVhPgOBrK7bF.jpg">
+
+
+<link rel="canonical" href="http://example.com/2022/10/22/prometheus/3-Prometheus%E6%95%B0%E6%8D%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/22/prometheus/3-Prometheus%E6%95%B0%E6%8D%AE/","path":"2022/10/22/prometheus/3-Prometheus数据/","title":"3-Prometheus数据"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>3-Prometheus数据 | DaGuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DaGuang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prometheus-%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">Prometheus 数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%95%B0%E6%8D%AE"><span class="nav-number">1.1.</span> <span class="nav-text">时间序列数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E6%A0%87%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">指标类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter"><span class="nav-number">1.2.1.</span> <span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gauge"><span class="nav-number">1.2.2.</span> <span class="nav-text">Gauge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Histogram"><span class="nav-number">1.2.3.</span> <span class="nav-text">Histogram</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#summary"><span class="nav-number">1.2.4.</span> <span class="nav-text">summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B-1"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">实例</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/22/prometheus/3-Prometheus%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="3-Prometheus数据 | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          3-Prometheus数据
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-22 22:55:52" itemprop="dateCreated datePublished" datetime="2022-10-22T22:55:52+08:00">2022-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-23 02:27:15" itemprop="dateModified" datetime="2022-10-23T02:27:15+08:00">2022-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://s2.loli.net/2022/10/21/Dv2fVhPgOBrK7bF.jpg" alt="prometheus">  </p>
+<span id="more"></span>
+<h1 id="Prometheus-数据"><a href="#Prometheus-数据" class="headerlink" title="Prometheus 数据"></a>Prometheus 数据</h1><h2 id="时间序列数据"><a href="#时间序列数据" class="headerlink" title="时间序列数据"></a>时间序列数据</h2><p>时间序列数据通常由应用程序本身通过客户端库或称为exporter来作为HTTP端点暴露，由prometheus进行收集，包含指标、时间戳、测量值。<br><strong>指标</strong>：由指标名称和指标的标签组成，<code>&lt;metric name&gt;&#123;&lt;label name&gt;=&lt;label value&gt;, ...&#125;</code>  </p>
+<ul>
+<li>metric name：指标名称，由<code>[a-zA-Z_:][a-zA-Z0-9_:]*</code> 组成  </li>
+<li><code>&lt;label name&gt;=&lt;label value&gt;</code>:标签，键值对， <code>[a-zA-Z_][a-zA-Z0-9_]*</code> ， __ 开头的标签仅内部使用  </li>
+</ul>
+<p><strong>时间戳</strong>：精确到毫秒的时间戳<br><strong>测量值</strong>：一个float64的值  </p>
+<h2 id="指标类型"><a href="#指标类型" class="headerlink" title="指标类型"></a>指标类型</h2><h3 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h3><p>Counter是计数类型。用于累计值，比如请求次数、完成次数。一直增加，不会减少。重启进程后会被重置。可以方便了解事件变化速率。  </p>
+<h3 id="Gauge"><a href="#Gauge" class="headerlink" title="Gauge"></a>Gauge</h3><p>Gauge是测量器类型，是一个实际测量的值，可变大，可变小。比如剩余空间大小、剩余内存大小  </p>
+<h3 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h3><ul>
+<li>将一段时间范围内的数据进行采样（通常是请求持续时间或响应大小等），并将其计入可配置的存储桶（bucket）中. 后续可通过指定区间筛选样本，也可以统计样本总数，最后一般将数据展示为直方图。  </li>
+<li>对每个采样点值累计和(sum)  </li>
+<li>对采样点的次数累计和(count)  </li>
+<li>Histogram不会保存数据采样的值，存储的是区间的样本数统计值  </li>
+</ul>
+<p>一个Histogram可以理解为是由三个指标组成。<br><code>&lt;metric name&gt;_bucket&#123;le=&quot;上边界&quot;&#125;</code>:测量值为bucket中小于等于上边界的所有采样点数量<br><code>&lt;metric name&gt;_sum</code>：bucket中每个采样点值累计和<br><code>&lt;metric name&gt;_count</code>：bucket中采样点数量  </p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p><img src="/2022/10/22/prometheus/3-Prometheus%E6%95%B0%E6%8D%AE/%E7%A4%BA%E4%BE%8B%E6%95%B0%E6%8D%AE.png"><br>在一个时间段中有以上的数据，对应的在指标中展示为  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> _bucket指标</span></span><br><span class="line">&lt;metric name&gt;_bucket&#123;le=&quot;1&quot;&#125;    2   #采样点数值小于等于1的采样点的数量，即上图中采样点数值为0.1、0.2，一共两个采样点</span><br><span class="line">&lt;metric name&gt;_bucket&#123;le=&quot;5&quot;&#125;    5</span><br><span class="line">&lt;metric name&gt;_bucket&#123;le=&quot;10&quot;&#125;   10</span><br><span class="line">&lt;metric name&gt;_bucket&#123;le=&quot;+Inf&quot;&#125; 10  # +Inf 为无穷</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">_sum指标</span></span><br><span class="line">&lt;metric name&gt;_sum   51.1  #所有采样点值的和，即 0.1+0.2+1.3+3.2+4.6+6.5+7.6+8.8+8.8+10</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> _count指标</span></span><br><span class="line">&lt;metric name&gt;_count 10   #采样点数量，与&lt;metric name&gt;_bucket&#123;le=&quot;+Inf&quot;&#125;数值一致</span><br></pre></td></tr></table></figure>
+
+<h3 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h3><ul>
+<li>在客户端对于一段时间内（默认是10分钟）的每个采样点进行统计，并形成分位图。  </li>
+<li>统计班上所有同学的总成绩(sum)  </li>
+<li>统计班上同学的考试总人数(count)  </li>
+</ul>
+<p>一个summary指标可以理解为有三个指标组成。<br><code>&lt;metric name&gt;_bucket&#123;quantile=&quot;分位数&quot;&#125;</code>：百分位数的数值，例如quantile=0.5，即采样点数值的中位数，<br><code>&lt;metric name&gt;_sum</code>：每个采样点值累计和<br><code>&lt;metric name&gt;_count</code>：采样点数量  </p>
+<h4 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h4><p>有10个采样点数值为{1，2，3，4，5，6，7，8，9，10}  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">分位数计算方法 （n+1）y，n为数据个数，y为分位数，值为第几个数，例如要求某个分位数从公式得出值为2.25，则该分位数为第二个数+（第三个数-第二个数）0.25</span></span><br><span class="line">&lt;metric name&gt;_bucket&#123;quantile=&quot;0&quot;&#125;      1</span><br><span class="line">&lt;metric name&gt;_bucket&#123;quantile=&quot;0.25&quot;&#125;   2.75    #第一四分位数，（10+1）0.25=2.75，2+（3-2）0.75=2.75</span><br><span class="line">&lt;metric name&gt;_bucket&#123;quantile=&quot;0.5&quot;&#125;    5.5     #第二四分位数，即中位数</span><br><span class="line">&lt;metric name&gt;_bucket&#123;quantile=&quot;0.75&quot;&#125;   8.25    #第三四分位数</span><br><span class="line">&lt;metric name&gt;_bucket&#123;quantile=&quot;1&quot;&#125;      10</span><br><span class="line"></span><br><span class="line">&lt;metric name&gt;_sum   55</span><br><span class="line">&lt;metric name&gt;_count 10</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Prometheus%E6%95%B0%E6%8D%AE/" rel="tag"># Prometheus数据</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/22/prometheus/2-%E7%9B%91%E6%8E%A7%E4%B8%BB%E6%9C%BA%E4%B8%8E%E5%AE%B9%E5%99%A8/" rel="prev" title="2-Prometheus监控主机与容器">
+                  <i class="fa fa-chevron-left"></i> 2-Prometheus监控主机与容器
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/23/Linux/Linux%E4%BF%AE%E6%94%B9%E5%8F%A5%E6%9F%84%E6%95%B0/" rel="next" title="Linux修改句柄数">
+                  Linux修改句柄数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/code-unfold.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

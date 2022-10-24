@@ -22,15 +22,16 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="article">
-<meta property="og:title" content="6.docker数据管理">
+<meta property="og:title" content="6.docker存储">
 <meta property="og:url" content="http://example.com/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="DaGuang">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E5%9B%BE%E7%89%87docker.jpg">
+<meta property="og:image" content="http://example.com/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/linux%E5%AD%98%E5%82%A8%E9%A9%B1%E5%8A%A8.png">
 <meta property="article:published_time" content="2019-04-22T15:58:48.000Z">
-<meta property="article:modified_time" content="2021-11-04T07:45:47.741Z">
+<meta property="article:modified_time" content="2022-10-20T18:37:19.927Z">
 <meta property="article:author" content="DaGuang">
-<meta property="article:tag" content="docker数据管理">
+<meta property="article:tag" content="docker存储">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E5%9B%BE%E7%89%87docker.jpg">
 
@@ -39,10 +40,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/","path":"2019/04/22/docker/6.docker数据管理/","title":"6.docker数据管理"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/","path":"2019/04/22/docker/6.docker数据管理/","title":"6.docker存储"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>6.docker数据管理 | DaGuang</title>
+<title>6.docker存储 | DaGuang</title>
   
 
 
@@ -145,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">1.</span> <span class="nav-text">数据卷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个数据卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E6%8C%82%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%8D%B7%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">启动一个挂载数据卷的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%8D%B7%E7%9A%84%E5%85%B7%E4%BD%93%E4%BF%A1%E6%81%AF"><span class="nav-number">1.3.</span> <span class="nav-text">查看数据卷的具体信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">1.4.</span> <span class="nav-text">删除数据卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E4%B8%BB%E6%9C%BA%E7%9B%AE%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">挂载主机目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E4%B8%80%E4%B8%AA%E4%B8%BB%E6%9C%BA%E7%9B%AE%E5%BD%95%E4%BD%9C%E4%B8%BA%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">2.1.</span> <span class="nav-text">挂载一个主机目录作为数据卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%8D%B7%E7%9A%84%E5%85%B7%E4%BD%93%E4%BF%A1%E6%81%AF-1"><span class="nav-number">2.2.</span> <span class="nav-text">查看数据卷的具体信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">数据卷容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8%E6%9D%A5%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE"><span class="nav-number">4.</span> <span class="nav-text">利用数据卷容器来迁移数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD"><span class="nav-number">4.1.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D"><span class="nav-number">4.2.</span> <span class="nav-text">恢复</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E5%AD%98%E5%82%A8"><span class="nav-number">1.</span> <span class="nav-text">docker存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#storage-driver"><span class="nav-number">1.1.</span> <span class="nav-text">storage driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Volume"><span class="nav-number">1.2.</span> <span class="nav-text">Data Volume</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bind-mount"><span class="nav-number">1.2.1.</span> <span class="nav-text">bind mount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-managed-volume"><span class="nav-number">1.2.2.</span> <span class="nav-text">docker managed volume</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">数据卷容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-packed-volume-container"><span class="nav-number">1.4.</span> <span class="nav-text">data-packed volume container</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,18 +161,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -223,12 +224,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="6.docker数据管理 | DaGuang">
+      <meta itemprop="name" content="6.docker存储 | DaGuang">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          6.docker数据管理
+          6.docker存储
         </h1>
 
         <div class="post-meta-container">
@@ -246,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-11-04 15:45:47" itemprop="dateModified" datetime="2021-11-04T15:45:47+08:00">2021-11-04</time>
+      <time title="修改时间：2022-10-21 02:37:19" itemprop="dateModified" datetime="2022-10-21T02:37:19+08:00">2022-10-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,45 +271,32 @@
     <div class="post-body" itemprop="articleBody">
         <p><img src="/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E5%9B%BE%E7%89%87docker.jpg" alt="docker">  </p>
 <span id="more"></span>
-<p>在容器中管理数据主要有两种方式  </p>
-<ul>
-<li>数据卷（Volumes）  </li>
-<li>数据卷容器：使用特定容器维护数据卷  </li>
-</ul>
-<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><p><strong>数据卷</strong>是一个可供一个或多个容器使用的特殊目录，可以提供个很多有用的特性  </p>
-<ul>
-<li><strong>数据卷</strong>可以在容器之间共享和使用</li>
-<li>对<strong>数据卷</strong>的修改会立马生效</li>
-<li>对<strong>数据卷</strong>的更新，不会影响镜像</li>
-<li><strong>数据卷</strong>会默认一直存在，即使容器被删除</li>
-</ul>
-<p><em>注意：<strong>数据卷</strong>的使用，类似于Linux下对目录或文件进行mount，镜像中的被指定为挂载点的目录中的文件会隐藏掉，能显示看的是挂载的<strong>数据卷</strong></em></p>
-<h3 id="创建一个数据卷"><a href="#创建一个数据卷" class="headerlink" title="创建一个数据卷"></a>创建一个数据卷</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#创建一个数据卷my-vol。创建的数据卷在`/var/lib/docker/volumes`下  </span><br><span class="line">docker volume create my-vol</span><br><span class="line"></span><br><span class="line">#查看所有的数据卷</span><br><span class="line">docker volume ls</span><br><span class="line"></span><br><span class="line">#查看指定数据卷my-vol的信息</span><br><span class="line">docker volume inspect my-vol</span><br></pre></td></tr></table></figure>
+<h1 id="docker存储"><a href="#docker存储" class="headerlink" title="docker存储"></a>docker存储</h1><p>docker有两种存储资源，<strong>Data Volume</strong>、管理镜像层与容器层的 <strong>storage driver</strong>  </p>
+<h2 id="storage-driver"><a href="#storage-driver" class="headerlink" title="storage driver"></a>storage driver</h2><p>容器是由最上层可写容器层、下面若干的镜像层，这样会有一下特性。  </p>
+<ol>
+<li>新数据会保存在最上层的容器层中  </li>
+<li>修改原现有的数据会将镜像层中将数据复制到容器层中，修改后的数据保存在容器层中，镜像层保持不变  </li>
+<li>多层中有同名文件时，只能看到以及实际使用的是最上层中的文件  </li>
+</ol>
+<p>docker支持多种存储驱动，<strong>AUFS、Btrfs、Device mapper、OverlayFS、ZFS</strong>，没有哪个 driver 能够适应所有的场景，docker官方给出的建议是使用发行版默认的存储驱动，docker在安装时会根据当前系统选择默认的存储驱动。<br><img src="/2019/04/22/docker/6.docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/linux%E5%AD%98%E5%82%A8%E9%A9%B1%E5%8A%A8.png" alt="存储驱动"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看当前docker使用的~]Storage Driver</span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker info |grep <span class="string">&quot;Storage Driver&quot;</span></span></span><br><span class="line"> Storage Driver: overlay2</span><br></pre></td></tr></table></figure>
 
-<h3 id="启动一个挂载数据卷的容器"><a href="#启动一个挂载数据卷的容器" class="headerlink" title="启动一个挂载数据卷的容器"></a>启动一个挂载数据卷的容器</h3><p>在用docker run命令的时候，使用- -mount标记来将数据卷挂载到容器里。再一次docker run中可以挂载都多个数据卷 。<br>下面创建一个名为web的容器，并加载一个数据卷到容器的/webapp目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P --name web #-v my-vol:/webapp --mount source=my-vol,target=/webapp training/webapp python app.py</span><br></pre></td></tr></table></figure>
+<p>当然也可以手动进行修改  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">~]#</span><span class="bash"> vim /etc/docker/daemon.json</span>    </span><br><span class="line">&#123;</span><br><span class="line">  &quot;storage-driver&quot;: &quot;overlay2&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看数据卷的具体信息"><a href="#查看数据卷的具体信息" class="headerlink" title="查看数据卷的具体信息"></a>查看数据卷的具体信息</h3><p>在主机里使用以下命令可以查看web容器的信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect web</span><br></pre></td></tr></table></figure>
-<p>数据卷信息在<code>Mount</code> Key下面  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Type&quot;: &quot;volume&quot;,</span><br><span class="line">        &quot;Name&quot;: &quot;my-vol&quot;,</span><br><span class="line">        &quot;Source&quot;: &quot;/var/lib/docker/volumes/my-vol/_data&quot;,</span><br><span class="line">        &quot;Destination&quot;: &quot;/app&quot;,</span><br><span class="line">        &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">        &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">        &quot;RW&quot;: true,</span><br><span class="line">        &quot;Propagation&quot;: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="Data-Volume"><a href="#Data-Volume" class="headerlink" title="Data Volume"></a>Data Volume</h2><p>对于有持久化存储需求的容器来说需要使用Data Volume来持久化存储数据。<br>docker volume实际是宿主机文件系统的一部分，volume可使用的容量取决于文件系统可用容量，不能设置volume容量。<br>docker volume有两种类型：<strong>bind mount</strong>和<strong>docker managed volume</strong>。  </p>
+<h3 id="bind-mount"><a href="#bind-mount" class="headerlink" title="bind mount"></a>bind mount</h3><p><strong>bind mount</strong>是宿主机上存在的一个<strong>文件</strong>或<strong>文件夹</strong>。当容器中挂载点中原本有文件则会被隐藏，显示的为bind mount的内容，容器中默认对bind mount<strong>有可读可写权限</strong>。<br><code>docker run -v &lt;host path&gt;:&lt;container path&gt;[:ro]</code>，加上<code>:ro</code>表示容器中只有可读权限,只有宿主机数据的修改权限。  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将本地/root/test_volume文件夹挂载到容器中/root/test_volume</span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker run -it -d -v /root/test_volume:/root/test_volume --name=<span class="string">&quot;busybox1&quot;</span> busybox</span></span><br><span class="line">4126231bdaaf1f04f3ae33d1d2259d996c69399aec9f04b1243508257ae4c8c4</span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker inspect busybox1</span></span><br><span class="line">...</span><br><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;Type&quot;: &quot;bind&quot;,</span><br><span class="line">                &quot;Source&quot;: &quot;/root/test_volume&quot;,</span><br><span class="line">                &quot;Destination&quot;: &quot;/root/test_volume&quot;,</span><br><span class="line">                &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">                &quot;RW&quot;: true,</span><br><span class="line">                &quot;Propagation&quot;: &quot;rprivate&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">...</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker run -it -d -v /root/test_volume:/root/test_volume:ro --name=<span class="string">&quot;busybox2&quot;</span> busybox</span></span><br><span class="line">705cc2de09e05da2bc72a8511c6130d63f2398b8c1e053f359e3ef2b45506d64</span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker inspect busybox2</span></span><br><span class="line">...</span><br><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;Type&quot;: &quot;bind&quot;,</span><br><span class="line">                &quot;Source&quot;: &quot;/root/test_volume&quot;,</span><br><span class="line">                &quot;Destination&quot;: &quot;/root/test_volume&quot;,</span><br><span class="line">                &quot;Mode&quot;: &quot;ro&quot;,</span><br><span class="line">                &quot;RW&quot;: false,</span><br><span class="line">                &quot;Propagation&quot;: &quot;rprivate&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<h3 id="删除数据卷"><a href="#删除数据卷" class="headerlink" title="删除数据卷"></a>删除数据卷</h3><p><code>docker volume rm my-vol</code><br><strong>数据卷</strong>是被设计用来持久化数据的，它的声明周期独立于容器，Docker不会在容器被删除后自动删除<strong>数据卷</strong>，并且也在不存在垃圾回收这样的机制来处理没有任何引用 <strong>数据卷</strong>。如果需要在删除容器的同时移除数据卷。可以在删除容器的时候<code>docker rm -v</code>这个命令。<br>无主数据卷可能会占用很多空间，要清理需使用以下命令。<br><code>docker volume prune</code>  </p>
-<h2 id="挂载主机目录"><a href="#挂载主机目录" class="headerlink" title="挂载主机目录"></a>挂载主机目录</h2><h3 id="挂载一个主机目录作为数据卷"><a href="#挂载一个主机目录作为数据卷" class="headerlink" title="挂载一个主机目录作为数据卷"></a>挂载一个主机目录作为数据卷</h3><p>使用–mount 标记可以指定挂载一个本地主机的目录到容器中。  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P --name web \ </span><br><span class="line">#-v /src/webapp:/opt/webapp \</span><br><span class="line">--mount type=bind,source=/src/webapp,target=/opt/webapp \</span><br><span class="line">training/webapp \</span><br><span class="line">python app.py</span><br></pre></td></tr></table></figure>
-<p>上面的命令加载主机的/src/webapp目录到容器的/opt/webapp目录。这个功能在进行测试的时候十分方便。本地目录使用<strong>绝对路径</strong>，使用-v时本地目录不存在Docker将会自动创建一个文件夹，使用–mount时本地目录不存在Docker将会报错。<br>Docker挂载目录的默认权限时<strong>读写</strong>，也可以设置为只读（readonly）。  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P --name web \ </span><br><span class="line">#-v /src/webapp:/opt/webapp \</span><br><span class="line">--mount type=bind,source=/src/webapp,target=/opt/webapp readonly \</span><br><span class="line">training/webapp \</span><br><span class="line">python app.py</span><br></pre></td></tr></table></figure>
-<p>加上readonly之后在容器中/opt/webapp目录下面创建文件夹会显示报错。  </p>
-<h3 id="查看数据卷的具体信息-1"><a href="#查看数据卷的具体信息-1" class="headerlink" title="查看数据卷的具体信息"></a>查看数据卷的具体信息</h3><p><code>docker inspect web</code><br>挂载主机目录的配置信息在<code>Mounts</code>Key下面  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Type&quot;: &quot;bind&quot;,</span><br><span class="line">        &quot;Source&quot;: &quot;/src/webapp&quot;,</span><br><span class="line">        &quot;Destination&quot;: &quot;/opt/webapp&quot;,</span><br><span class="line">        &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">        &quot;RW&quot;: true,</span><br><span class="line">        &quot;Propagation&quot;: &quot;rprivate&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="docker-managed-volume"><a href="#docker-managed-volume" class="headerlink" title="docker managed volume"></a>docker managed volume</h3><p>docker managed volume即为数据卷，创建的数据卷会保存在<code>/var/lib/docker/volumes</code>中。当容器需要数据卷时可以直接<code>-v &lt;container path&gt;</code>，此时会自动创建一个名字为一串数字的数据卷并挂载到指定容器路径。与bind mount不同的是，当容器挂载路径中有文件时，会将文件拷贝到数据卷中，即原有文件不会被隐藏。<br><code>docker run -v [&lt;volume_name&gt;:]&lt;container path&gt;[:ro]</code>,使用数据卷也可以将容器内的权限修改为只读，但必须使用提前创建的数据卷。<br>数据卷相关操作：<br><code>docker volume create &lt;volume_name&gt;</code>:创建数据卷<br><code>docker volume inspect &lt;volume_name&gt;</code>:查看数据卷信息<br><code>docker volume rm &lt;volume_name&gt;</code>:删除指定数据卷<br><code>docker volume prune</code>:删除空闲的数据卷<br><code>docker volume ls</code>:查看所有的数据卷  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">~]#</span><span class="bash">docker volume create testvolume</span></span><br><span class="line">testvolume</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker run -it -d -v testvolume:/root/test_volume:ro --name=<span class="built_in">test</span> busybox</span></span><br><span class="line">12851737a86ee205c918ba50529c486b326c7e620bd1d93206eebd7e4eaaeceb</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker inspect testvolume</span> </span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;CreatedAt&quot;: &quot;2022-10-21T02:13:34+08:00&quot;,</span><br><span class="line">        &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">        &quot;Labels&quot;: &#123;&#125;,</span><br><span class="line">        &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/testvolume/_data&quot;,</span><br><span class="line">        &quot;Name&quot;: &quot;testvolume&quot;,</span><br><span class="line">        &quot;Options&quot;: &#123;&#125;,</span><br><span class="line">        &quot;Scope&quot;: &quot;local&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> docker inspect <span class="built_in">test</span></span></span><br><span class="line">...</span><br><span class="line"> &quot;Mounts&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;Type&quot;: &quot;volume&quot;,</span><br><span class="line">                &quot;Name&quot;: &quot;testvolume&quot;,</span><br><span class="line">                &quot;Source&quot;: &quot;/var/lib/docker/volumes/testvolume/_data&quot;,</span><br><span class="line">                &quot;Destination&quot;: &quot;/root/test_volume&quot;,</span><br><span class="line">                &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">                &quot;Mode&quot;: &quot;ro&quot;,</span><br><span class="line">                &quot;RW&quot;: false,</span><br><span class="line">                &quot;Propagation&quot;: &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <h2 id="数据卷容器"><a href="#数据卷容器" class="headerlink" title="数据卷容器"></a>数据卷容器</h2><p>如果用户需要在多个容器之间共享一些持续更新的数据，最简单的方式是使用数据卷容器。<br>首先创建一个数据卷容器。  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~]# docker run -it -v /dbdata --name dbdata ubuntu:18.04 </span><br></pre></td></tr></table></figure>
 <p>可以在其他容器中使用–volumes-from来挂载dbdata容器中的数据卷。<br>可以多次使用–volumes-from参数来从多个容器挂载多个数据卷，还可以从其他已经挂载了容器卷的容器来挂载数据卷。  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --volumes-from dbdata --name db1 ubuntu:18.04</span><br><span class="line">docker run -it --volumes-from dbdata --name db2 ubuntu:18.04</span><br></pre></td></tr></table></figure>
 <p>这样三个容器任何一方在该目录下的写入，其他容器都可以看到。删除挂载数据卷的容器，数据卷不会被删除。  </p>
-<h2 id="利用数据卷容器来迁移数据"><a href="#利用数据卷容器来迁移数据" class="headerlink" title="利用数据卷容器来迁移数据"></a>利用数据卷容器来迁移数据</h2><h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><p>备份dbdata数据卷容器，大体的思路为，创建一个容器时，使用<code>--volumes-from</code>挂载dbdata数据卷容器中的数据卷，并使用<code>-v</code>将一个本地目录挂载到容器中，然后将数据卷中的内容打包，拷贝到本地目录中，这样就实现了将数据卷备份的效果。  </p>
-<h3 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h3><p>想要将备份在本地的数据恢复到数据卷容器中，需要创建两个容器，一个是数据卷容器，另一个容器的作用就是恢复数据。<br>数据卷容器创建完毕后，创建另一个容器时，将数据卷容器的数据卷挂载，并将存有需恢复数据的本地目录挂载到容器中，然后在容器中将需恢复的数据拷贝到数据卷目录中。  </p>
+<h2 id="data-packed-volume-container"><a href="#data-packed-volume-container" class="headerlink" title="data-packed volume container"></a>data-packed volume container</h2><p>data-packed volume container就是将数据打包ADD到镜像中，并在dockerfile中使用VOLUME将数据卷挂载位置设置为镜像中文件位置，在容器启动时会自动创建一个数据卷，并将数据拷贝到数据卷中。再通过数据卷容器的方式共享给其他容器。  </p>
 
     </div>
 
@@ -318,7 +306,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/docker%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag"># docker数据管理</a>
+              <a href="/tags/docker%E5%AD%98%E5%82%A8/" rel="tag"># docker存储</a>
           </div>
 
         
