@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="2-grafana插件安装">
+<meta property="og:url" content="http://example.com/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg">
+<meta property="og:image" content="http://example.com/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85.png">
+<meta property="article:published_time" content="2022-11-12T07:22:28.000Z">
+<meta property="article:modified_time" content="2022-11-12T10:27:10.165Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="grafana插件安装">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg">
+
+
+<link rel="canonical" href="http://example.com/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/","path":"2022/11/12/grafana/2-grafana插件安装/","title":"2-grafana插件安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2-grafana插件安装 | DaGuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DaGuang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">grafana插件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">在线安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">离线安装</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="2-grafana插件安装 | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2-grafana插件安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-11-12 15:22:28 / 修改时间：18:27:10" itemprop="dateCreated datePublished" datetime="2022-11-12T15:22:28+08:00">2022-11-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/grafana/" itemprop="url" rel="index"><span itemprop="name">grafana</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg"> </p>
+<span id="more"></span>
+<h1 id="grafana插件安装"><a href="#grafana插件安装" class="headerlink" title="grafana插件安装"></a>grafana插件安装</h1><p>插件安装分为两种方式：在线安装与离线安装  </p>
+<h2 id="在线安装插件"><a href="#在线安装插件" class="headerlink" title="在线安装插件"></a>在线安装插件</h2><p>在线安装插件可以在grafana的web界面进行安装，找到需要的插件进行安装即可<br><img src="/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85.png"><br>还可以使用grafana-cli进行安装，使用<strong>grafana-cli安装插件后需要将grafana服务重启</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">grafana-cli plugins COMMANDS</span><br><span class="line">COMMANDS:</span><br><span class="line">   install                  install &lt;plugin id&gt; &lt;plugin version (optional)&gt;，安装指定插件，可以指定插件的版本</span><br><span class="line">   list-remote              list remote available plugins，查看可以安装的插件</span><br><span class="line">   list-versions            list-versions &lt;plugin id&gt;，查看指定插件的版本</span><br><span class="line">   update, upgrade          update &lt;plugin id&gt;，更新插件</span><br><span class="line">   update-all, upgrade-all  update all your installed plugins</span><br><span class="line">   ls                       list all installed plugins，查看已经安装的插件</span><br><span class="line">   uninstall, remove        uninstall &lt;plugin id&gt;，卸载插件</span><br><span class="line">   help, h                  Shows a list of commands or help for one command</span><br></pre></td></tr></table></figure>
+<p>插件默认安装在<code>/var/lib/grafana/plugins</code>下，可以指定安装目录进行安装，需要添加参数 <code>--pluginsDir=PATH</code>，也可以修改<code>/usr/sbin/grafana-cli</code>中的配置  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">]#</span><span class="bash"> more /usr/sbin/grafana-cli</span> </span><br><span class="line"><span class="meta">#</span><span class="bash">! /usr/bin/env bash</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Wrapper <span class="keyword">for</span> the grafana-cli binary</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> This file serves as a wrapper <span class="keyword">for</span> the grafana-cli binary. It ensures we <span class="built_in">set</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> the system-wide Grafana configuration that was bundled with the package as we</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> use the binary.</span></span><br><span class="line"></span><br><span class="line">DEFAULT=/etc/default/grafana</span><br><span class="line"></span><br><span class="line">GRAFANA_HOME=/usr/share/grafana</span><br><span class="line">CONF_DIR=/etc/grafana</span><br><span class="line">DATA_DIR=/var/lib/grafana</span><br><span class="line">PLUGINS_DIR=/var/lib/grafana/plugins</span><br><span class="line">LOG_DIR=/var/log/grafana</span><br><span class="line"></span><br><span class="line">CONF_FILE=$CONF_DIR/grafana.ini</span><br><span class="line">PROVISIONING_CFG_DIR=$CONF_DIR/provisioning</span><br><span class="line"></span><br><span class="line">EXECUTABLE=$GRAFANA_HOME/bin/grafana-cli</span><br><span class="line"></span><br><span class="line">if [ ! -x $EXECUTABLE ]; then</span><br><span class="line"> echo &quot;Program not installed or not executable&quot;</span><br><span class="line"> exit 5</span><br><span class="line">fi</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> overwrite settings from default file</span></span><br><span class="line">if [ -f &quot;$DEFAULT&quot; ]; then</span><br><span class="line">  . &quot;$DEFAULT&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">OPTS=&quot;--homepath=$&#123;GRAFANA_HOME&#125; \</span><br><span class="line">      --config=$&#123;CONF_FILE&#125; \</span><br><span class="line">      --pluginsDir=$&#123;PLUGINS_DIR&#125; \</span><br><span class="line">      --configOverrides=&#x27;cfg:default.paths.provisioning=$PROVISIONING_CFG_DIR \</span><br><span class="line">                        cfg:default.paths.data=$&#123;DATA_DIR&#125; \</span><br><span class="line">                        cfg:default.paths.logs=$&#123;LOG_DIR&#125; \</span><br><span class="line">                        cfg:default.paths.plugins=$&#123;PLUGINS_DIR&#125;&#x27;&quot;</span><br><span class="line"></span><br><span class="line">eval $EXECUTABLE &quot;$OPTS&quot; &#x27;$@&#x27;</span><br></pre></td></tr></table></figure>
+<p>grafana的环境变量在多个配合文件中有相同定义需要全都修改，有些不方便  </p>
+<h2 id="离线安装"><a href="#离线安装" class="headerlink" title="离线安装"></a>离线安装</h2><p>离线安装可以在<a target="_blank" rel="noopener" href="https://grafana.com/grafana/plugins/?plcmt=footer">官网插件</a>中找到对应的插件安装包,下载后为一个压缩包，将压缩包解压后放在<code>/var/lib/grafana/plugins</code>下即可，<strong>注意不要忘记重启</strong>  </p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag"># grafana插件安装</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/10/grafana/1-grafana%E5%AE%89%E8%A3%85/" rel="prev" title="1-grafana安装">
+                  <i class="fa fa-chevron-left"></i> 1-grafana安装
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/13/grafana/3-grafana%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D/" rel="next" title="3-grafana界面介绍">
+                  3-grafana界面介绍 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/code-unfold.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

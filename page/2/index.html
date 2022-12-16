@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="DaGuang">
@@ -154,18 +154,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -187,6 +187,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -203,7 +204,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/08/KVM/4-%E5%BF%AB%E7%85%A7%E4%B8%8E%E5%85%8B%E9%9A%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -221,7 +222,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/08/KVM/4-%E5%BF%AB%E7%85%A7%E4%B8%8E%E5%85%8B%E9%9A%86/" class="post-title-link" itemprop="url">4-快照与克隆</a>
+          <a href="/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-title-link" itemprop="url">5-panel可视化</a>
         </h2>
 
         <div class="post-meta-container">
@@ -231,15 +232,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-09-08 13:07:22" itemprop="dateCreated datePublished" datetime="2022-09-08T13:07:22+08:00">2022-09-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-26 01:11:38" itemprop="dateModified" datetime="2022-09-26T01:11:38+08:00">2022-09-26</time>
+      <time title="创建时间：2022-11-25 02:00:18 / 修改时间：14:25:58" itemprop="dateCreated datePublished" datetime="2022-11-25T02:00:18+08:00">2022-11-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -247,7 +242,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/KVM/" itemprop="url" rel="index"><span itemprop="name">KVM</span></a>
+          <a href="/categories/grafana/" itemprop="url" rel="index"><span itemprop="name">grafana</span></a>
         </span>
     </span>
 
@@ -261,10 +256,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/09/06/4PdOQiHzvqweAKj.webp" alt="KVM.jpg"></p>
+          <p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg">  </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/08/KVM/4-%E5%BF%AB%E7%85%A7%E4%B8%8E%E5%85%8B%E9%9A%86/#more" rel="contents">
+              <a class="btn" href="/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -295,7 +290,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/08/KVM/3-KVM%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E7%A3%81%E7%9B%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/22/grafana/4-dashboard/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -313,7 +308,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/08/KVM/3-KVM%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E7%A3%81%E7%9B%98/" class="post-title-link" itemprop="url">3-KVM配置文件和磁盘</a>
+          <a href="/2022/11/22/grafana/4-dashboard/" class="post-title-link" itemprop="url">4-dashboard</a>
         </h2>
 
         <div class="post-meta-container">
@@ -324,14 +319,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-09-08 01:24:29" itemprop="dateCreated datePublished" datetime="2022-09-08T01:24:29+08:00">2022-09-08</time>
+      <time title="创建时间：2022-11-22 15:35:05" itemprop="dateCreated datePublished" datetime="2022-11-22T15:35:05+08:00">2022-11-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-10 21:46:11" itemprop="dateModified" datetime="2022-09-10T21:46:11+08:00">2022-09-10</time>
+      <time title="修改时间：2022-11-25 01:54:23" itemprop="dateModified" datetime="2022-11-25T01:54:23+08:00">2022-11-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -339,7 +334,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/KVM/" itemprop="url" rel="index"><span itemprop="name">KVM</span></a>
+          <a href="/categories/grafana/" itemprop="url" rel="index"><span itemprop="name">grafana</span></a>
         </span>
     </span>
 
@@ -353,10 +348,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/09/06/4PdOQiHzvqweAKj.webp" alt="KVM.jpg"></p>
+          <p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg"> </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/08/KVM/3-KVM%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E7%A3%81%E7%9B%98/#more" rel="contents">
+              <a class="btn" href="/2022/11/22/grafana/4-dashboard/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -387,7 +382,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/07/KVM/2-KVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/13/grafana/3-grafana%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -405,7 +400,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/07/KVM/2-KVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">2-KVM相关命令</a>
+          <a href="/2022/11/13/grafana/3-grafana%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">3-grafana界面介绍</a>
         </h2>
 
         <div class="post-meta-container">
@@ -416,14 +411,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-09-07 21:53:00" itemprop="dateCreated datePublished" datetime="2022-09-07T21:53:00+08:00">2022-09-07</time>
+      <time title="创建时间：2022-11-13 14:59:54" itemprop="dateCreated datePublished" datetime="2022-11-13T14:59:54+08:00">2022-11-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-10 21:48:39" itemprop="dateModified" datetime="2022-09-10T21:48:39+08:00">2022-09-10</time>
+      <time title="修改时间：2022-11-25 13:21:17" itemprop="dateModified" datetime="2022-11-25T13:21:17+08:00">2022-11-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -431,7 +426,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/KVM/" itemprop="url" rel="index"><span itemprop="name">KVM</span></a>
+          <a href="/categories/grafana/" itemprop="url" rel="index"><span itemprop="name">grafana</span></a>
         </span>
     </span>
 
@@ -445,10 +440,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/09/06/4PdOQiHzvqweAKj.webp" alt="KVM.jpg"></p>
+          <p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg"> </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/07/KVM/2-KVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/#more" rel="contents">
+              <a class="btn" href="/2022/11/13/grafana/3-grafana%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -479,7 +474,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/03/KVM/KVM%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -497,7 +492,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/03/KVM/KVM%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">KVM相关问题以及解决</a>
+          <a href="/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">2-grafana插件安装</a>
         </h2>
 
         <div class="post-meta-container">
@@ -507,15 +502,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-09-03 02:08:52" itemprop="dateCreated datePublished" datetime="2022-09-03T02:08:52+08:00">2022-09-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-19 20:43:29" itemprop="dateModified" datetime="2022-09-19T20:43:29+08:00">2022-09-19</time>
+      <time title="创建时间：2022-11-12 15:22:28 / 修改时间：18:27:10" itemprop="dateCreated datePublished" datetime="2022-11-12T15:22:28+08:00">2022-11-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -523,7 +512,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/KVM/" itemprop="url" rel="index"><span itemprop="name">KVM</span></a>
+          <a href="/categories/grafana/" itemprop="url" rel="index"><span itemprop="name">grafana</span></a>
         </span>
     </span>
 
@@ -537,10 +526,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/09/06/4PdOQiHzvqweAKj.webp" alt="KVM.jpg"></p>
+          <p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg"> </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/03/KVM/KVM%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3/#more" rel="contents">
+              <a class="btn" href="/2022/11/12/grafana/2-grafana%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -571,7 +560,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/03/KVM/1-KVM%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E3%80%81%E5%9B%BE%E5%BD%A2%E5%8C%96%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/10/grafana/1-grafana%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -589,7 +578,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/03/KVM/1-KVM%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E3%80%81%E5%9B%BE%E5%BD%A2%E5%8C%96%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">1-KVM环境准备、图形化使用</a>
+          <a href="/2022/11/10/grafana/1-grafana%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">1-grafana安装</a>
         </h2>
 
         <div class="post-meta-container">
@@ -600,14 +589,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-09-03 01:32:12" itemprop="dateCreated datePublished" datetime="2022-09-03T01:32:12+08:00">2022-09-03</time>
+      <time title="创建时间：2022-11-10 13:18:15" itemprop="dateCreated datePublished" datetime="2022-11-10T13:18:15+08:00">2022-11-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-08 09:03:37" itemprop="dateModified" datetime="2022-09-08T09:03:37+08:00">2022-09-08</time>
+      <time title="修改时间：2022-11-12 15:44:06" itemprop="dateModified" datetime="2022-11-12T15:44:06+08:00">2022-11-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -615,7 +604,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/KVM/" itemprop="url" rel="index"><span itemprop="name">KVM</span></a>
+          <a href="/categories/grafana/" itemprop="url" rel="index"><span itemprop="name">grafana</span></a>
         </span>
     </span>
 
@@ -629,10 +618,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/09/06/4PdOQiHzvqweAKj.webp" alt="KVM.jpg"></p>
+          <p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg"> </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/03/KVM/1-KVM%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E3%80%81%E5%9B%BE%E5%BD%A2%E5%8C%96%E4%BD%BF%E7%94%A8/#more" rel="contents">
+              <a class="btn" href="/2022/11/10/grafana/1-grafana%E5%AE%89%E8%A3%85/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -663,7 +652,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/02/KVM/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/10/prometheus/6-pushgateway%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -681,7 +670,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/02/KVM/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">虚拟化技术</a>
+          <a href="/2022/11/10/prometheus/6-pushgateway%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">6-pushgateway安装以及使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -691,15 +680,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-09-02 22:10:13" itemprop="dateCreated datePublished" datetime="2022-09-02T22:10:13+08:00">2022-09-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-20 03:07:55" itemprop="dateModified" datetime="2022-10-20T03:07:55+08:00">2022-10-20</time>
+      <time title="创建时间：2022-11-10 01:34:18 / 修改时间：02:49:24" itemprop="dateCreated datePublished" datetime="2022-11-10T01:34:18+08:00">2022-11-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -707,7 +690,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96%E4%BB%8B%E7%BB%8D/" itemprop="url" rel="index"><span itemprop="name">虚拟化介绍</span></a>
+          <a href="/categories/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
         </span>
     </span>
 
@@ -721,10 +704,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <center> 虚拟化技术介绍、分类 </center>
+          <p><img src="https://s2.loli.net/2022/10/21/Dv2fVhPgOBrK7bF.jpg" alt="prometheus">  </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/02/KVM/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/#more" rel="contents">
+              <a class="btn" href="/2022/11/10/prometheus/6-pushgateway%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -755,7 +738,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/07/K8s/7-K8S%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AFService/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/06/Linux/Linux%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -773,7 +756,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/07/K8s/7-K8S%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AFService/" class="post-title-link" itemprop="url">7-K8S核心技术Service</a>
+          <a href="/2022/11/06/Linux/Linux%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">Linux脚本开机自启动</a>
         </h2>
 
         <div class="post-meta-container">
@@ -784,290 +767,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-07-07 10:49:59" itemprop="dateCreated datePublished" datetime="2022-07-07T10:49:59+08:00">2022-07-07</time>
+      <time title="创建时间：2022-11-06 22:51:50" itemprop="dateCreated datePublished" datetime="2022-11-06T22:51:50+08:00">2022-11-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-08 09:01:43" itemprop="dateModified" datetime="2022-09-08T09:01:43+08:00">2022-09-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/06/27/5UbYtS64yAIPXzM.jpg" alt="k8s">  </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/07/K8s/7-K8S%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AFService/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/03/K8s/k8s%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="DaGuang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DaGuang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DaGuang">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/03/K8s/k8s%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">k8s相关使用以及问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-03 12:30:21" itemprop="dateCreated datePublished" datetime="2022-07-03T12:30:21+08:00">2022-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-12 10:50:36" itemprop="dateModified" datetime="2022-08-12T10:50:36+08:00">2022-08-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/06/27/5UbYtS64yAIPXzM.jpg" alt="k8s.jpg">  </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/03/K8s/k8s%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/01/K8s/6-K8S%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AFController/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="DaGuang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DaGuang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DaGuang">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/01/K8s/6-K8S%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AFController/" class="post-title-link" itemprop="url">6-K8S核心技术Controller</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-01 09:49:07" itemprop="dateCreated datePublished" datetime="2022-07-01T09:49:07+08:00">2022-07-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-12 09:54:35" itemprop="dateModified" datetime="2022-08-12T09:54:35+08:00">2022-08-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s2.loli.net/2022/06/27/5UbYtS64yAIPXzM.jpg" alt="k8s.jpg">  </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/01/K8s/6-K8S%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AFController/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/29/Linux/Linux%E4%B9%8BNamespace/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="DaGuang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DaGuang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DaGuang">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/29/Linux/Linux%E4%B9%8BNamespace/" class="post-title-link" itemprop="url">Namespace</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-06-29 21:24:38" itemprop="dateCreated datePublished" datetime="2022-06-29T21:24:38+08:00">2022-06-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-04 12:58:56" itemprop="dateModified" datetime="2022-07-04T12:58:56+08:00">2022-07-04</time>
+      <time title="修改时间：2022-11-27 11:34:16" itemprop="dateModified" datetime="2022-11-27T11:34:16+08:00">2022-11-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1092,7 +799,271 @@
           <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/06/29/Linux/Linux%E4%B9%8BNamespace/#more" rel="contents">
+              <a class="btn" href="/2022/11/06/Linux/Linux%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/31/prometheus/5-PromQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/31/prometheus/5-PromQL/" class="post-title-link" itemprop="url">5-PromQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-31 21:14:13" itemprop="dateCreated datePublished" datetime="2022-10-31T21:14:13+08:00">2022-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-10 00:57:47" itemprop="dateModified" datetime="2022-11-10T00:57:47+08:00">2022-11-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://s2.loli.net/2022/10/21/Dv2fVhPgOBrK7bF.jpg" alt="prometheus">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/31/prometheus/5-PromQL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/29/prometheus/4-Prometheus%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/29/prometheus/4-Prometheus%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">4-Prometheus配置文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-29 11:38:40 / 修改时间：16:01:09" itemprop="dateCreated datePublished" datetime="2022-10-29T11:38:40+08:00">2022-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://s2.loli.net/2022/10/21/Dv2fVhPgOBrK7bF.jpg" alt="prometheus">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/29/prometheus/4-Prometheus%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/23/Linux/Linux%E4%BF%AE%E6%94%B9%E5%8F%A5%E6%9F%84%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/23/Linux/Linux%E4%BF%AE%E6%94%B9%E5%8F%A5%E6%9F%84%E6%95%B0/" class="post-title-link" itemprop="url">Linux修改句柄数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-23 17:31:20 / 修改时间：21:56:05" itemprop="dateCreated datePublished" datetime="2022-10-23T17:31:20+08:00">2022-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/23/Linux/Linux%E4%BF%AE%E6%94%B9%E5%8F%A5%E6%9F%84%E6%95%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1116,7 +1087,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1134,8 +1105,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">DaGuang</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
     </div>
   </footer>
