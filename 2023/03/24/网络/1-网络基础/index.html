@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="网络基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1-网络基础">
+<meta property="og:url" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:description" content="网络基础知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/OSI%E6%A8%A1%E5%9E%8B%E4%B8%8ETCPIP%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1.png">
+<meta property="og:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/vlan.png">
+<meta property="og:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/trunk.png">
+<meta property="og:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2.png">
+<meta property="og:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1.png">
+<meta property="og:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/ACL.png">
+<meta property="article:published_time" content="2023-03-24T02:15:41.000Z">
+<meta property="article:modified_time" content="2023-03-28T07:58:32.982Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="网络基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/OSI%E6%A8%A1%E5%9E%8B%E4%B8%8ETCPIP%E6%A8%A1%E5%9E%8B.png">
+
+
+<link rel="canonical" href="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/","path":"2023/03/24/网络/1-网络基础/","title":"1-网络基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>1-网络基础 | DaGuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DaGuang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP%E4%B8%8EUDP%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">TCP与UDP的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%92%8CTCP-IP%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">OSI七层模型和TCP&#x2F;IP四层模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eNSP%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">eNSP基础操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vlan"><span class="nav-number">4.</span> <span class="nav-text">vlan</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#trunk"><span class="nav-number">4.1.</span> <span class="nav-text">trunk</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2"><span class="nav-number">5.</span> <span class="nav-text">三层交换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1"><span class="nav-number">6.</span> <span class="nav-text">单臂路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ACL"><span class="nav-number">7.</span> <span class="nav-text">ACL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NAT"><span class="nav-number">8.</span> <span class="nav-text">NAT</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="1-网络基础 | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          1-网络基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-24 10:15:41" itemprop="dateCreated datePublished" datetime="2023-03-24T10:15:41+08:00">2023-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-28 15:58:32" itemprop="dateModified" datetime="2023-03-28T15:58:32+08:00">2023-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <center> 网络基础知识 </center>
+<span id="more"></span>  
+# 部分基础知识  
+由网络位划分网段，子网掩码决定网络位的长度，网关连接不同的网段  
+IP：192.168.27.1  netmask：255.255.0.0  表示IP地址前两段是网络位  
+DHCP：自动分配IP地址
+
+<h1 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h1><p>TCP:可靠服务、完整性高、有连接、对延迟不敏感<br>UDP:无连接、对延迟敏感</p>
+<h1 id="OSI七层模型和TCP-IP四层模型"><a href="#OSI七层模型和TCP-IP四层模型" class="headerlink" title="OSI七层模型和TCP/IP四层模型"></a>OSI七层模型和TCP/IP四层模型</h1><p><img src="/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/OSI%E6%A8%A1%E5%9E%8B%E4%B8%8ETCPIP%E6%A8%A1%E5%9E%8B.png"></p>
+<h1 id="eNSP基础操作"><a href="#eNSP基础操作" class="headerlink" title="eNSP基础操作"></a>eNSP基础操作</h1><p>sysname NAME:修改路由器名<br>eNSP中路由器一般使用AR2220，连接使用AUTO即可  </p>
+<ul>
+<li>路由器配置IP<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Huawei&gt;system-view    #用户进入系统，可以写作sys</span><br><span class="line">Enter system view, return user view with Ctrl+Z.</span><br><span class="line">[Huawei]interface GigabitEthernet 0/0/0   #进入端口0/0/0，或者是写作int g0/0/0</span><br><span class="line">[Huawei-GigabitEthernet0/0/0]ip address  192.168.1.1 255.255.255.0   #配置IP地址以及子网掩码，可以写作ip add 192.168.1.1 255.255.255.0</span><br><span class="line">Mar 24 2023 13:50:58-08:00 Huawei %%01IFNET/4/LINK_STATE(l)[1]:The line protocol IP on the interface GigabitEthernet0/0/0 has entered the UP state. </span><br><span class="line">[Huawei-GigabitEthernet0/0/0]q  #退出0/0/0端口</span><br><span class="line">[Huawei]q</span><br><span class="line">&lt;Huawei&gt;save #保存配置</span><br></pre></td></tr></table></figure></li>
+<li>路由器开启DHCP<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Huawei&gt;system-view </span><br><span class="line">Enter system view, return user view with Ctrl+Z.</span><br><span class="line">[Huawei]dhcp enable   #开启DHCP</span><br><span class="line">Info: The operation may take a few seconds. Please wait for a moment.done.</span><br><span class="line">[Huawei]interface GigabitEthernet 0/0/0  </span><br><span class="line">[Huawei-GigabitEthernet0/0/0]dhcp select interface   #指定该接口使用DHCP</span><br><span class="line">[Huawei-GigabitEthernet0/0/0]dhcp server dns-list 192.168.1.99  #添加DNS</span><br></pre></td></tr></table></figure></li>
+<li>查看路由器路由表<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]display ip routing-table</span><br><span class="line">Route Flags: R - relay, D - download to fib</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">Routing Tables: Public</span><br><span class="line">         Destinations : 10       Routes : 10       </span><br><span class="line"></span><br><span class="line">Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface</span><br><span class="line"></span><br><span class="line">  100.100.100.0/24  Direct  0    0           D   100.100.100.1   GigabitEthernet</span><br><span class="line">0/0/1</span><br><span class="line">  100.100.100.1/32  Direct  0    0           D   127.0.0.1       GigabitEthernet</span><br><span class="line">0/0/1</span><br><span class="line">100.100.100.255/32  Direct  0    0           D   127.0.0.1       GigabitEthernet</span><br><span class="line">0/0/1</span><br><span class="line">      127.0.0.0/8   Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">      127.0.0.1/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">127.255.255.255/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">    192.168.1.0/24  Direct  0    0           D   192.168.1.1     GigabitEthernet</span><br><span class="line">0/0/0</span><br><span class="line">    192.168.1.1/32  Direct  0    0           D   127.0.0.1       GigabitEthernet</span><br><span class="line">0/0/0</span><br><span class="line">  192.168.1.255/32  Direct  0    0           D   127.0.0.1       GigabitEthernet</span><br><span class="line">0/0/0</span><br><span class="line">255.255.255.255/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line"></span><br><span class="line">[Huawei]display ip routing-table 100.100.100.100  #查看100.100.100.100的路由表</span><br><span class="line">Route Flags: R - relay, D - download to fib</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">Routing Table : Public</span><br><span class="line">Summary Count : 1</span><br><span class="line">Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface</span><br><span class="line"></span><br><span class="line">  100.100.100.0/24  Direct  0    0           D   100.100.100.1   GigabitEthernet</span><br><span class="line">0/0/1</span><br></pre></td></tr></table></figure></li>
+<li>添加静态路由,来回都要添加<br><img src="/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1.png">  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[AR1]ip route-static 192.168.3.0 255.255.255.0 192.168.2.10  #添加静态路由，去192.168.3.x 255.255.255.0的通过192.168.2.10为下一跳</span><br><span class="line">[AR2]ip route-static 192.168.1.0 255.255.255.0 192.168.2.1   #回包的路由</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="vlan"><a href="#vlan" class="headerlink" title="vlan"></a>vlan</h1><p>vlan：虚拟局域网，主要用在交换机中，是一种隔离技术，将物理的lan在逻辑上划分成多个广播域的通信，vlan内的主机可以直接通信，vlan之间不能直接通信<br>vlan 1：是默认的vlan<br>交换机的接口模式：access(连接终端)、trunk(连接其他交换机)<br><img src="/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/vlan.png"><br>该例子中两个pc原本可以ping通，分别划入不同的vlan中后则ping不通。  </p>
+<ul>
+<li>创建vlan<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;Huawei&gt;system-view </span><br><span class="line">Enter system view, return user view with Ctrl+Z.</span><br><span class="line">[Huawei]vlan 10   #创建vlan 10</span><br><span class="line">[Huawei-vlan10]q</span><br><span class="line">[Huawei]vlan 20   #创建vlan 20</span><br><span class="line">[Huawei-vlan20]q  </span><br><span class="line">[Huawei]display vlan </span><br><span class="line">The total number of vlans is : 3</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">U: Up;         D: Down;         TG: Tagged;         UT: Untagged;</span><br><span class="line">MP: Vlan-mapping;               ST: Vlan-stacking;</span><br><span class="line">#: ProtocolTransparent-vlan;    *: Management-vlan;</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">VID  Type    Ports                                                          </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">1    common  UT:GE0/0/1(U)      GE0/0/2(U)      GE0/0/3(D)      GE0/0/4(D)      </span><br><span class="line">                GE0/0/5(D)      GE0/0/6(D)      GE0/0/7(D)      GE0/0/8(D)      </span><br><span class="line">                GE0/0/9(D)      GE0/0/10(D)     GE0/0/11(D)     GE0/0/12(D)     </span><br><span class="line">                GE0/0/13(D)     GE0/0/14(D)     GE0/0/15(D)     GE0/0/16(D)     </span><br><span class="line">                GE0/0/17(D)     GE0/0/18(D)     GE0/0/19(D)     GE0/0/20(D)     </span><br><span class="line">                GE0/0/21(D)     GE0/0/22(D)     GE0/0/23(D)     GE0/0/24(D)     </span><br><span class="line"></span><br><span class="line">10   common  </span><br><span class="line">20   common  </span><br><span class="line"></span><br><span class="line">VID  Status  Property      MAC-LRN Statistics Description      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1    enable  default       enable  disable    VLAN 0001                         </span><br><span class="line">10   enable  default       enable  disable    VLAN 0010                         </span><br><span class="line">20   enable  default       enable  disable    VLAN 0020  </span><br></pre></td></tr></table></figure></li>
+<li>配置vlan  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]int g0/0/1</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port link-type access # 将接口模式改为access</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port default vlan 10  #将0/0/1接口划分到vlan 10中</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]display vlan</span><br><span class="line">The total number of vlans is : 3</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">U: Up;         D: Down;         TG: Tagged;         UT: Untagged;</span><br><span class="line">MP: Vlan-mapping;               ST: Vlan-stacking;</span><br><span class="line">#: ProtocolTransparent-vlan;    *: Management-vlan;</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">VID  Type    Ports                                                          </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">1    common  UT:GE0/0/2(U)      GE0/0/3(D)      GE0/0/4(D)      GE0/0/5(D)      </span><br><span class="line">                GE0/0/6(D)      GE0/0/7(D)      GE0/0/8(D)      GE0/0/9(D)      </span><br><span class="line">                GE0/0/10(D)     GE0/0/11(D)     GE0/0/12(D)     GE0/0/13(D)     </span><br><span class="line">                GE0/0/14(D)     GE0/0/15(D)     GE0/0/16(D)     GE0/0/17(D)     </span><br><span class="line">                GE0/0/18(D)     GE0/0/19(D)     GE0/0/20(D)     GE0/0/21(D)     </span><br><span class="line">                GE0/0/22(D)     GE0/0/23(D)     GE0/0/24(D)                     </span><br><span class="line"></span><br><span class="line">10   common  UT:GE0/0/1(U)                                                      </span><br><span class="line"></span><br><span class="line">20   common  </span><br><span class="line"></span><br><span class="line">VID  Status  Property      MAC-LRN Statistics Description      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1    enable  default       enable  disable    VLAN 0001                         </span><br><span class="line">10   enable  default       enable  disable    VLAN 0010                         </span><br><span class="line">20   enable  default       enable  disable    VLAN 0020   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Huawei-GigabitEthernet0/0/2]port default vlan 20</span><br><span class="line">[Huawei-GigabitEthernet0/0/2]</span><br><span class="line">Mar 24 2023 16:26:45-08:00 Huawei %%01IFNET/4/IF_STATE(l)[2]:Interface Vlanif1 h</span><br><span class="line">as turned into DOWN state.</span><br><span class="line">[Huawei-GigabitEthernet0/0/2]display vlan</span><br><span class="line">The total number of vlans is : 3</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">U: Up;         D: Down;         TG: Tagged;         UT: Untagged;</span><br><span class="line">MP: Vlan-mapping;               ST: Vlan-stacking;</span><br><span class="line">#: ProtocolTransparent-vlan;    *: Management-vlan;</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">VID  Type    Ports                                                          </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">1    common  UT:GE0/0/3(D)      GE0/0/4(D)      GE0/0/5(D)      GE0/0/6(D)      </span><br><span class="line">                GE0/0/7(D)      GE0/0/8(D)      GE0/0/9(D)      GE0/0/10(D)     </span><br><span class="line">                GE0/0/11(D)     GE0/0/12(D)     GE0/0/13(D)     GE0/0/14(D)     </span><br><span class="line">                GE0/0/15(D)     GE0/0/16(D)     GE0/0/17(D)     GE0/0/18(D)     </span><br><span class="line">                GE0/0/19(D)     GE0/0/20(D)     GE0/0/21(D)     GE0/0/22(D)     </span><br><span class="line">                GE0/0/23(D)     GE0/0/24(D)                                     </span><br><span class="line"></span><br><span class="line">10   common  UT:GE0/0/1(U)                                                      </span><br><span class="line"></span><br><span class="line">20   common  UT:GE0/0/2(U)                                                      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VID  Status  Property      MAC-LRN Statistics Description      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1    enable  default       enable  disable    VLAN 0001                         </span><br><span class="line">10   enable  default       enable  disable    VLAN 0010                         </span><br><span class="line">20   enable  default       enable  disable    VLAN 0020</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="trunk"><a href="#trunk" class="headerlink" title="trunk"></a>trunk</h2><p>连接不同的交换机，数据包之间会打上vlan的标签，用于其他交换机识别属于那个vlan<br><strong>注意两边的交换机都需要将对应的端口修改为trunk</strong><br><img src="/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/trunk.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Huawei&gt;system-view </span><br><span class="line">Enter system view, return user view with Ctrl+Z.</span><br><span class="line">[Huawei]int g0/0/3</span><br><span class="line">[Huawei-GigabitEthernet0/0/3]port link-type trunk  #将端口类型修改为trunk</span><br><span class="line">[Huawei-GigabitEthernet0/0/3]port trunk allow-pass vlan all #允许哪些vlan可以通过</span><br></pre></td></tr></table></figure>
+
+<h1 id="三层交换"><a href="#三层交换" class="headerlink" title="三层交换"></a>三层交换</h1><p>三层交换就是将多一层的交换机充当为两个vlan的网关，实现两个vlan之间的互通<br><img src="/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2.png">  </p>
+<p>1.将LSW2中，0/0/1端口设置为trunk，并将所有vlan允许通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]int g0/0/1</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port link-type trunk </span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port trunk allow-pass vlan all</span><br></pre></td></tr></table></figure>
+<p>2.将0/0/2、0/0/3端口设置为access，并划分如不同的vlan</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Huawei] vlan 10 </span><br><span class="line">[Huawei] vlan 20</span><br><span class="line">[Huawei] int g0/0/2</span><br><span class="line">[Huawei-GigabitEthernet0/0/2] port link-type access</span><br><span class="line">[Huawei-GigabitEthernet0/0/2] portt default vlan 10 </span><br><span class="line">[Huawei] int g0/0/3</span><br><span class="line">[Huawei-GigabitEthernet0/0/3] port link-type access</span><br><span class="line">[Huawei-GigabitEthernet0/0/3] portt default vlan 20 </span><br></pre></td></tr></table></figure>
+<p>3.将LSW1中，0/0/1端口设置为trunk，并将所有vlan允许通过，并配置虚接口pc1与pc2对应的网关</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Huawei] vlan 10 </span><br><span class="line">[Huawei] vlan 20</span><br><span class="line">[Huawei]int g0/0/1</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port link-type trunk </span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port trunk allow-pass vlan all</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]q</span><br><span class="line">[Huawei]int Vlanif 10</span><br><span class="line">[Huawei-Vlanif10]ip add 1.1.1.254 255.255.255.0  #1.1.1.254为PC1中填写的网关</span><br><span class="line">[Huawei-Vlanif10]q</span><br><span class="line">[Huawei]int Vlanif 20</span><br><span class="line">[Huawei-Vlanif20]ip add 2.2.2.254 255.255.255.0</span><br></pre></td></tr></table></figure>
+
+<h1 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h1><p>单臂路由就是路由器的一个接口通过配置子接口，实现原来互相隔离的Vlan之间的互联互通。<br><img src="/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1.png"><br>1.将交换机LSW1的0/0/2、0/0/3端口划分到vlan  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]int g0/0/2</span><br><span class="line">[Huawei-GigabitEthernet0/0/2]port link-type access</span><br><span class="line">[Huawei-GigabitEthernet0/0/2]port default vlan 10</span><br><span class="line">[Huawei-GigabitEthernet0/0/2]q</span><br><span class="line">[Huawei]int g0/0/3</span><br><span class="line">[Huawei-GigabitEthernet0/0/3]port link-type access</span><br><span class="line">[Huawei-GigabitEthernet0/0/3]port default vlan 20</span><br></pre></td></tr></table></figure>
+<p>2.将换机LSW1的0/0/1接口设置为trunk，并允许多有vlan通过  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]int g0/0/1</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port link-type trunk</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]port trunk allow-pass vlan all</span><br></pre></td></tr></table></figure>
+<p>3.路由器AR1设置，将路由器的0/0/0端口配置两个子接口，分别对应两个vlan  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]int g0/0/0.10   #子接口0/0/0.10</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.10]dot1q termination vid 10  #子接口与vlan关联</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.10]arp broadcast enable      #允许arp广播</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.10]ip add 1.1.1.254 255.255.255.0   #配置地址作为pc1的网关</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.10]display this    #查看当前视图的配置</span><br><span class="line">[V200R003C00]</span><br><span class="line">#</span><br><span class="line">interface GigabitEthernet0/0/0.10</span><br><span class="line"> dot1q termination vid 10</span><br><span class="line"> ip address 1.1.1.254 255.255.255.0 </span><br><span class="line"> arp broadcast enable</span><br><span class="line">#</span><br><span class="line">return</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.10]q</span><br><span class="line">[Huawei]int g0/0/0.20  #子接口0/0/0.20</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.20]dot1q termination vid 20</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.20]ip add 2.2.2.254 255.255.255.0</span><br><span class="line">[Huawei-GigabitEthernet0/0/0.20]arp broadcast enable</span><br></pre></td></tr></table></figure>
+
+<h1 id="ACL"><a href="#ACL" class="headerlink" title="ACL"></a>ACL</h1><p>访问控制列表，提供安全访问，防止重要服务器资源被随意访问<br><img src="/2023/03/24/%E7%BD%91%E7%BB%9C/1-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/ACL.png"><br>在三层路由基础上进行操作，实现PC1禁止访问PC3  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]acl name test advance  #创建高级的ACL 名为test</span><br><span class="line">[Huawei-acl-adv-test]rule deny ip source 1.1.1.0 0.255.255.255 destination 3.3.3.0 0.255.255.255    #阻止源1.1.1.0 0.255.255.255到3.3.3.0 0.255.255.255的访问 </span><br><span class="line">[Huawei-acl-adv-test]rule permit ip source any destination any   #允许其他的访问</span><br><span class="line">[Huawei-acl-adv-test]q</span><br><span class="line">[Huawei]int g0/0/1   #0/0/1是访问的毕竟之路，将接口配置上acl规则</span><br><span class="line">[Huawei-GigabitEthernet0/0/1]traffic-filter inbound acl name test </span><br></pre></td></tr></table></figure>
+
+<h1 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" rel="tag"># 网络基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/17/mysql/mysql%E6%95%99%E7%A8%8B/" rel="prev" title="mysql教程">
+                  <i class="fa fa-chevron-left"></i> mysql教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/24/%E7%BD%91%E7%BB%9C/eNSP%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" rel="next" title="eNSP相关问题">
+                  eNSP相关问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/code-unfold.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

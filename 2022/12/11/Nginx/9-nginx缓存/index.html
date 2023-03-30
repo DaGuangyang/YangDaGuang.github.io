@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/11/27/xdGY8aqytLheSjp.jpg">
 <meta property="article:published_time" content="2022-12-11T06:28:01.000Z">
-<meta property="article:modified_time" content="2022-12-15T06:37:25.663Z">
+<meta property="article:modified_time" content="2022-12-19T14:53:44.970Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="nginx负载均衡">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">nginx缓存机制</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">nginx缓存机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#proxy-buffer"><span class="nav-number">2.</span> <span class="nav-text">proxy buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-buffering"><span class="nav-number">2.1.</span> <span class="nav-text">proxy_buffering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-buffers"><span class="nav-number">2.2.</span> <span class="nav-text">proxy_buffers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-buffer-size"><span class="nav-number">2.3.</span> <span class="nav-text">proxy_buffer_size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-busy-buffers-size"><span class="nav-number">2.4.</span> <span class="nav-text">proxy_busy_buffers_size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-temp-path"><span class="nav-number">2.5.</span> <span class="nav-text">proxy_temp_path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-max-temp-file-size"><span class="nav-number">2.6.</span> <span class="nav-text">proxy_max_temp_file_size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-temp-file-write-size"><span class="nav-number">2.7.</span> <span class="nav-text">proxy_temp_file_write_size</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#proxy-cache"><span class="nav-number">3.</span> <span class="nav-text">proxy cache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-1"><span class="nav-number">3.1.</span> <span class="nav-text">proxy cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-bypass"><span class="nav-number">3.2.</span> <span class="nav-text">proxy_cache_bypass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-key"><span class="nav-number">3.3.</span> <span class="nav-text">proxy_cache_key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-lock"><span class="nav-number">3.4.</span> <span class="nav-text">proxy_cache_lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-lock-timeout"><span class="nav-number">3.5.</span> <span class="nav-text">proxy_cache_lock_timeout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-min-uses"><span class="nav-number">3.6.</span> <span class="nav-text">proxy_cache_min_uses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-path"><span class="nav-number">3.7.</span> <span class="nav-text">proxy_cache_path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-use-stale"><span class="nav-number">3.8.</span> <span class="nav-text">proxy_cache_use_stale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-cache-valid"><span class="nav-number">3.9.</span> <span class="nav-text">proxy_cache_valid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-no-cache"><span class="nav-number">3.10.</span> <span class="nav-text">proxy_no_cache</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#proxy-store"><span class="nav-number">4.</span> <span class="nav-text">proxy store</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-store-1"><span class="nav-number">4.1.</span> <span class="nav-text">proxy_store</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -247,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-12-15 14:37:25" itemprop="dateModified" datetime="2022-12-15T14:37:25+08:00">2022-12-15</time>
+      <time title="修改时间：2022-12-19 22:53:44" itemprop="dateModified" datetime="2022-12-19T22:53:44+08:00">2022-12-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,7 +271,28 @@
     <div class="post-body" itemprop="articleBody">
         <p><img src="https://s2.loli.net/2022/11/27/xdGY8aqytLheSjp.jpg" alt="nginx.jpg">  </p>
 <span id="more"></span>
-<h1 id="nginx缓存机制"><a href="#nginx缓存机制" class="headerlink" title="nginx缓存机制"></a>nginx缓存机制</h1>
+<h1 id="nginx缓存机制"><a href="#nginx缓存机制" class="headerlink" title="nginx缓存机制"></a>nginx缓存机制</h1><h1 id="proxy-buffer"><a href="#proxy-buffer" class="headerlink" title="proxy buffer"></a>proxy buffer</h1><p>Proxy Buffer启用以后，Nginx服务器会异步地将被代理服务器的响应数据传递给客户端。<br>Nginx服务器首先尽可能地从被代理服务器那里接收响应数据，放置在Proxy Buffer中，Buffer的大小由proxy_buffer_size指令和proxy_buffers指令决定。如果在接收过程中，发现Buffer没有足够大小来接收一次响应的数据，Nginx服务器会将部分接收到的数据临时存放在磁盘的临时文件中，磁盘上的临时文件路径可以通过proxy_temp_path指令进行设置，临时文件的大小由proxy_max_temp_file_size指令和proxy_temp_file_write_size指令决定。<br>一次响应数据被接收完成或者Buffer已经装满后，Nginx服务器开始向客户端传输数据。每个Proxy Buffer装满数据后，在从开始向客户端发送一直到Proxy Buffer中的数据全部传输给客户端的整个过程中，它都处于BUSY状态，期间对它进行的其他操作都会失败。同时处于BUSY状态的Proxy Buffer总大小由proxy_busy_buffers_size指令限制，不能超过该指令设置的大小。<br>每个Proxy Buffer装满数据后，在从开始向客户端发送一直到Proxy Buffer中的数据全部传输给客户端的整个过程中，它都处于BUSY状态，期间对它进行的其他操作都会失败。同时处于BUSY状态的Proxy Buffer总大小由proxy_busy_buffers_size指令限制，不能超过该指令设置的大小<br><strong>注意：以下配置都是针对每一个请求起作用，也就是对每一个请求来配置自己的buffer</strong></p>
+<h2 id="proxy-buffering"><a href="#proxy-buffering" class="headerlink" title="proxy_buffering"></a>proxy_buffering</h2><p><code>proxy_buffering on|off;</code>该指令用于配置是否启用或者关闭proxy buffer  </p>
+<h2 id="proxy-buffers"><a href="#proxy-buffers" class="headerlink" title="proxy_buffers"></a>proxy_buffers</h2><p><code>proxy_buffers NUMBER SIZE;</code>配置接受一次被代理服务器响应数据的proxy buffer个数和每个buffer的大小，size的大小默认为一个内存页的大小，这里设置的缓冲区大小是针对每个请求连接而言的，对于每一个连接，都会分配 ”number*size“大小的内存缓冲区。  </p>
+<h2 id="proxy-buffer-size"><a href="#proxy-buffer-size" class="headerlink" title="proxy_buffer_size"></a>proxy_buffer_size</h2><p><code>proxy_buffer_size SIZE</code> 设置size用于读取从代理服务器收到的响应的第一部分的缓冲区。这部分通常包含一个小的响应头。默认情况下，缓冲区大小等于一个内存页。这是 4K 或 8K，具体取决于平台。但是，它可以做得更小。  </p>
+<h2 id="proxy-busy-buffers-size"><a href="#proxy-busy-buffers-size" class="headerlink" title="proxy_busy_buffers_size"></a>proxy_busy_buffers_size</h2><p><code>proxy_busy_buffers_size SIZE</code>设置读取从代理服务器收到的响应的第一部分的缓冲区，默认为一个内存页的大小。  </p>
+<h2 id="proxy-temp-path"><a href="#proxy-temp-path" class="headerlink" title="proxy_temp_path"></a>proxy_temp_path</h2><p><code>proxy_temp_path PATH [level1 [level2 [level3]]]</code>,临时存放代理服务器响应数据文件，proxy buffer装满后，响应数据仍没有接收完，响应数据就会被存放在该文件中<br>[level1 [level2 [level3]]]为临时文件的存放目录为几级目录，<code>proxy_temp_path /nginx/temp 1 2</code>则临时文件存放在/nginx/temp/1/10下  </p>
+<h2 id="proxy-max-temp-file-size"><a href="#proxy-max-temp-file-size" class="headerlink" title="proxy_max_temp_file_size"></a>proxy_max_temp_file_size</h2><p><code>proxy_max_temp_file_size SIZE</code> 临时文件的总体积的大小，默认为1024MB。  </p>
+<h2 id="proxy-temp-file-write-size"><a href="#proxy-temp-file-write-size" class="headerlink" title="proxy_temp_file_write_size"></a>proxy_temp_file_write_size</h2><p><code>proxy_temp_file_write_size size</code> 配置<strong>同时写入临时文件的数据量</strong>的大小，避免磁盘IO过大  </p>
+<h1 id="proxy-cache"><a href="#proxy-cache" class="headerlink" title="proxy cache"></a>proxy cache</h1><p>Proxy Cache主要实现Nginx服务器对客户端数据请求的快速响应。Nginx服务器在接收到被代理服务器的响应数据之后，一方面通过Porxy Buffer机制将数据传递给客户端，另一方面根据Proxy Cache的配置将这些数据缓存到本地硬盘上。当客户端下次要访问相同的数据时，Nginx服务器直接从硬盘检索到相应的数据返回给用户，从而减少与被代理服务器交互的时间。<br>Proxy Cache机制依赖于Porxy Buffer机制，只有在Porxy Buffer机制开启的情况下Proxy Cache的配置才发挥作用  </p>
+<h2 id="proxy-cache-1"><a href="#proxy-cache-1" class="headerlink" title="proxy cache"></a>proxy cache</h2><p><code>proxy cache ZONE | off</code> 用于配置一个公共的内存区域的名称，该区域存放缓存的索引。off为关闭proxy_cache功能。  </p>
+<h2 id="proxy-cache-bypass"><a href="#proxy-cache-bypass" class="headerlink" title="proxy_cache_bypass"></a>proxy_cache_bypass</h2><p><code>proxy_cache_bypass string</code> 用于设置向客户端发送数据时，不从缓存中获取的条件。string是条件变量，可以有多个，当有不为空或者不等于0时，相应数据不从缓存读取。  </p>
+<h2 id="proxy-cache-key"><a href="#proxy-cache-key" class="headerlink" title="proxy_cache_key"></a>proxy_cache_key</h2><p><code>proxy_cache_key string</code> 设置在内存中为缓存数据建立索引时使用的关键字。string为设置的关键字，支持变量  </p>
+<h2 id="proxy-cache-lock"><a href="#proxy-cache-lock" class="headerlink" title="proxy_cache_lock"></a>proxy_cache_lock</h2><p><code>proxy_cache_lock on | off</code> 是否开启缓存的锁功能。在缓存中，某些数据可以同时被多个请求返回的数据填充，开启锁后，只能有一个请求填充缓存中的某一数据项，这相当于给该数据项上锁，不允许其他请求操作。其他的请求如果也想填充该项，必须等待该数据项的锁被释放。这个等待时间由proxy_cache_lock_timeout指令配置  </p>
+<h2 id="proxy-cache-lock-timeout"><a href="#proxy-cache-lock-timeout" class="headerlink" title="proxy_cache_lock_timeout"></a>proxy_cache_lock_timeout</h2><p><code>proxy_cache_lock_timeout time</code>设置缓存的锁功能开启以后锁的超时时间，默认为5s。  </p>
+<h2 id="proxy-cache-min-uses"><a href="#proxy-cache-min-uses" class="headerlink" title="proxy_cache_min_uses"></a>proxy_cache_min_uses</h2><p><code>proxy_cache_min_uses NUM</code> 设置客户端请求发送的次数，相同的请求达到该次数时，才对请求的相应数据做缓存。</p>
+<h2 id="proxy-cache-path"><a href="#proxy-cache-path" class="headerlink" title="proxy_cache_path"></a>proxy_cache_path</h2><p><code>proxy_cache_path path [levels=levels] keys_zone=name:size1 [inactive=time1] [max_size=size2] [loader_files=number] [loader_sleep=time2] [loader_threshold=time3];</code> 缓存数据的路径，以及相关内容。<br><strong>[levels=levels]</strong>:levels=1表示一级hash目录，levels=1:2表示二级。<br><strong>keys_zone=name:size1</strong>：表示缓存索引的内存区域名称和大小<br>**[inactive=time1]**：强制更新缓存数据的时间，当缓存数据在设定时间内没有被访问时，缓存就被清除<br>**[max_size=size2]**：硬盘中缓存数据的大小限制，当缓存超过该值时，将会删除最近最少被访问的缓存  </p>
+<h2 id="proxy-cache-use-stale"><a href="#proxy-cache-use-stale" class="headerlink" title="proxy_cache_use_stale"></a>proxy_cache_use_stale</h2><p><code>proxy_cache_use_stale error | timeout | invalid_header | updating | http_500 | http_502 | http_503 | http_504 | http_403 | http_404 | http_429 | off</code> Nginx在访问被代理服务器过程中出现被代理的服务器无法访问或者访问错误等现象时， Nginx服务器可以使用历史缓存响应客户端的请求，这些数据不一定和被代理服务器上最新的数据相一致，但对于更新频率不高的后端服务器来说，Nginx服务器的该功能在一定程度上能够为客户端提供不间断访问。<br>updating状态,不是指被代理服务器在updating状态，而是指客户端请求的数据在Nginx服务器中正好处于更新状态。  </p>
+<h2 id="proxy-cache-valid"><a href="#proxy-cache-valid" class="headerlink" title="proxy_cache_valid"></a>proxy_cache_valid</h2><p><code>proxy_cache_valid CODE TIME</code> 针对不同的响应状态设置不同的缓存时间<br><code>proxy_cache_valid 200 10s</code>  </p>
+<h2 id="proxy-no-cache"><a href="#proxy-no-cache" class="headerlink" title="proxy_no_cache"></a>proxy_no_cache</h2><p><code>proxy_no_cache string</code> 设置何时不使用cache，string为一个、多个变量，不为空或者不为0时，不启用cache。  </p>
+<h1 id="proxy-store"><a href="#proxy-store" class="headerlink" title="proxy store"></a>proxy store</h1><p>proxy store是另一种缓存方法，不提供缓存过期时间、内存索引建立、不占用内存空间，对静态数据的效果比较好。  </p>
+<h2 id="proxy-store-1"><a href="#proxy-store-1" class="headerlink" title="proxy_store"></a>proxy_store</h2><p><code>proxy_store on|off|string</code> 是否开启store功能，string为自定义混存文件的存放位置，设置后store开启  </p>
+
     </div>
 
     
@@ -287,11 +308,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/12/09/Nginx/8-nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="prev" title="8-nginx负载均衡">
-                  <i class="fa fa-chevron-left"></i> 8-nginx负载均衡
+                <a href="/2022/12/09/mysql/mysql%E5%A4%87%E4%BB%BD/" rel="prev" title="mysql备份">
+                  <i class="fa fa-chevron-left"></i> mysql备份
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/12/20/Jenkins/1-jenkins%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/" rel="next" title="1-jenkins介绍与安装">
+                  1-jenkins介绍与安装 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -312,7 +336,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
