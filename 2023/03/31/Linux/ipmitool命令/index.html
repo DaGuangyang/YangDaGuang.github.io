@@ -22,27 +22,27 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="article">
-<meta property="og:title" content="1-jenkins介绍与安装">
-<meta property="og:url" content="http://example.com/2022/12/20/Jenkins/1-jenkins%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:title" content="ipmitool命令">
+<meta property="og:url" content="http://example.com/2023/03/31/Linux/ipmitool%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="DaGuang">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/12/20/wEX72epkWox34FU.jpg">
-<meta property="article:published_time" content="2022-12-20T01:51:17.000Z">
-<meta property="article:modified_time" content="2023-02-10T09:06:36.160Z">
+<meta property="og:image" content="https://s2.loli.net/2023/03/31/rckvO9SjyoTBpXn.png">
+<meta property="article:published_time" content="2023-03-31T01:48:34.000Z">
+<meta property="article:modified_time" content="2023-07-28T06:17:38.869Z">
 <meta property="article:author" content="DaGuang">
-<meta property="article:tag" content="Jenkins安装">
+<meta property="article:tag" content="ipmitool">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/12/20/wEX72epkWox34FU.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2023/03/31/rckvO9SjyoTBpXn.png">
 
 
-<link rel="canonical" href="http://example.com/2022/12/20/Jenkins/1-jenkins%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/">
+<link rel="canonical" href="http://example.com/2023/03/31/Linux/ipmitool%E5%91%BD%E4%BB%A4/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/12/20/Jenkins/1-jenkins%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/","path":"2022/12/20/Jenkins/1-jenkins介绍与安装/","title":"1-jenkins介绍与安装"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/03/31/Linux/ipmitool%E5%91%BD%E4%BB%A4/","path":"2023/03/31/Linux/ipmitool命令/","title":"ipmitool命令"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>1-jenkins介绍与安装 | DaGuang</title>
+<title>ipmitool命令 | DaGuang</title>
   
 
 
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jenkins%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Jenkins介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins-job%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">Jenkins job类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jenkins%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Jenkins安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jenkins%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">Jenkins相关文件及目录</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFIPMI"><span class="nav-number">1.</span> <span class="nav-text">什么是IPMI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ipmitool"><span class="nav-number">2.</span> <span class="nav-text">ipmitool</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E6%BA%90%E6%8E%A7%E5%88%B6%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">电源控制类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E4%BF%A1%E6%81%AF%E7%8A%B6%E6%80%81%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">读取信息状态类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%98%E8%AE%B0BMC%E5%AF%86%E7%A0%81%E5%90%8E%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E4%BD%BF%E7%94%A8ipmitool%E5%91%BD%E4%BB%A4%E4%BF%AE%E6%94%B9BMC%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="nav-number">2.3.</span> <span class="nav-text">忘记BMC密码后，使用在服务器中使用ipmitool命令修改BMC用户密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BBMC-IP%E3%80%81%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9BMC-IP"><span class="nav-number">2.4.</span> <span class="nav-text">查看BMC IP、以及修改BMC IP</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,7 +160,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -171,7 +171,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -211,7 +211,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/20/Jenkins/1-jenkins%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Linux/ipmitool%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -224,12 +224,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="1-jenkins介绍与安装 | DaGuang">
+      <meta itemprop="name" content="ipmitool命令 | DaGuang">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          1-jenkins介绍与安装
+          ipmitool命令
         </h1>
 
         <div class="post-meta-container">
@@ -240,14 +240,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-12-20 09:51:17" itemprop="dateCreated datePublished" datetime="2022-12-20T09:51:17+08:00">2022-12-20</time>
+      <time title="创建时间：2023-03-31 09:48:34" itemprop="dateCreated datePublished" datetime="2023-03-31T09:48:34+08:00">2023-03-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-02-10 17:06:36" itemprop="dateModified" datetime="2023-02-10T17:06:36+08:00">2023-02-10</time>
+      <time title="修改时间：2023-07-28 14:17:38" itemprop="dateModified" datetime="2023-07-28T14:17:38+08:00">2023-07-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,7 +255,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
         </span>
     </span>
 
@@ -269,15 +269,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img src="https://s2.loli.net/2022/12/20/wEX72epkWox34FU.jpg" alt="Jenkins.jpg"></p>
+        <p><img src="https://s2.loli.net/2023/03/31/rckvO9SjyoTBpXn.png">  </p>
 <span id="more"></span>
-<h1 id="Jenkins介绍"><a href="#Jenkins介绍" class="headerlink" title="Jenkins介绍"></a>Jenkins介绍</h1><p>Jenkins是一个持续集成（CI）的工具，用于自动化任务，包括构建、测试和部署软件。  </p>
-<h2 id="Jenkins-job类型"><a href="#Jenkins-job类型" class="headerlink" title="Jenkins job类型"></a>Jenkins job类型</h2><p>Freestyle project：自由风格项目，主要的项目类型<br>Maven peoject：maven项目专有<br>Multiconfigration project：多配制项目，适合大量不同配置（环境、平台）构建<br>Pipeline：流水线项目，适合使用pipeline插件功能构建流水线任务<br>Multibranch pipeline：多分支流水线项目，根据SCM代码仓库中的分支创建多个pipeline项目  </p>
-<h1 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo</span><br><span class="line">sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key</span><br><span class="line">yum install fontconfig java-11-openjdk</span><br><span class="line">yum install jenkins</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start jenkins</span><br></pre></td></tr></table></figure>
-<p>启动完成后可以通过8080端口进行访问web界面<br>在wget时可能会报错，以下情况<code>yum install -y ca-certificates</code>即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~]# wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo</span><br><span class="line">--2022-12-20 10:38:51--  https://pkg.jenkins.io/redhat-stable/jenkins.repo</span><br><span class="line">正在解析主机 pkg.jenkins.io (pkg.jenkins.io)... 151.101.2.133, 151.101.66.133, 151.101.130.133, ...</span><br><span class="line">正在连接 pkg.jenkins.io (pkg.jenkins.io)|151.101.2.133|:443... 已连接。</span><br><span class="line">错误: 无法验证 pkg.jenkins.io 的由 “/C=US/O=Let&#x27;s Encrypt/CN=R3” 颁发的证书:</span><br><span class="line">  颁发的证书已经过期。</span><br><span class="line">要以不安全的方式连接至 pkg.jenkins.io，使用“--no-check-certificate”。</span><br></pre></td></tr></table></figure>
-<p>按照说明进行初始化即可</p>
-<h1 id="Jenkins相关文件及目录"><a href="#Jenkins相关文件及目录" class="headerlink" title="Jenkins相关文件及目录"></a>Jenkins相关文件及目录</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/jenkins         #启动文件</span><br><span class="line">/etc/logrotate.d/jenkins    #日志相关配置</span><br><span class="line">/etc/sysconfig/jenkins      #配置文件</span><br><span class="line">/usr/bin/jenkins</span><br><span class="line">/usr/lib/systemd/system/jenkins.service</span><br><span class="line">/usr/sbin/rcjenkins</span><br><span class="line">/usr/share/java/jenkins.war</span><br><span class="line">/usr/share/jenkins</span><br><span class="line">/usr/share/jenkins/migrate</span><br><span class="line">/var/cache/jenkins</span><br><span class="line">/var/log/jenkins        #日志文件</span><br><span class="line">/var/lib/jenkins        #家目录&amp;插件目录&amp;构建工作目录</span><br></pre></td></tr></table></figure>
+<h1 id="什么是IPMI"><a href="#什么是IPMI" class="headerlink" title="什么是IPMI"></a>什么是IPMI</h1><p>是一种硬件管理接口，也就是常说的服务器的管理口，提供一种标准化的硬件管理接口，使系统管理员能够远程管理服务器的硬件。  </p>
+<ul>
+<li>功能  </li>
+</ul>
+<ol>
+<li>硬件监控：IPMI可以监控服务器的各种硬件组件，包括CPU、内存、硬盘、电源、风扇、温度、电压等，管理员可以远程监控服务器的硬件状态，及时发现和解决故障。  </li>
+<li>硬件远程管理：IPMI支持远程控制服务器的电源开关、重启、硬件配置等，管理员可以通过网络远程控制服务器的各种硬件操作。  </li>
+<li>事件日志：IPMI可以记录服务器的事件日志，包括服务器硬件发生的错误、警告和事件等，管理员可以远程查看服务器的事件日志，及时发现和解决问题。  </li>
+<li>远程系统维护：IPMI可以让管理员在操作系统出现故障时，通过网络远程进入服务器的BIOS设置，对服务器进行维护和修复。  </li>
+</ol>
+<h1 id="ipmitool"><a href="#ipmitool" class="headerlink" title="ipmitool"></a>ipmitool</h1><p>虽然在BMC web界面中可以查看到大部分的服务器信息以及执行操作，但使用ipmitool可以查看到更加详细的相关数据与操作</p>
+<h2 id="电源控制类"><a href="#电源控制类" class="headerlink" title="电源控制类"></a>电源控制类</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password chassis power off</span><br><span class="line"></span><br><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password chassis power on</span><br><span class="line"></span><br><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password chassis power reset</span><br><span class="line"></span><br><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password chassis power cycle</span><br></pre></td></tr></table></figure>
+<p>cycle会先关闭服务器电源，然后再开启服务器电源，会对服务器进行完全的启动  </p>
+<h2 id="读取信息状态类"><a href="#读取信息状态类" class="headerlink" title="读取信息状态类"></a>读取信息状态类</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password sensor list   # 此命令列出服务器上的所有传感器及其当前的读数。例如，查看CPU温度、风扇速度、电压等信息。</span><br><span class="line">ipmitool sensor get &quot;&lt;Sensor Name&gt;&quot;  #查看指定传感器的读数</span><br><span class="line"></span><br><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password sdr list # 此命令列出服务器上的所有传感器，包括其ID、类型、状态和阈值等信息</span><br><span class="line"></span><br><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password user list # 此命令列出服务器上的所有BMC用户，包括其ID、用户名、权限等信息。</span><br><span class="line"></span><br><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password fru list # 此命令列出服务器的FRU（Field Replaceable Unit）信息，包括制造商、型号、序列号等信息 </span><br><span class="line"></span><br><span class="line">ipmitool -I lanplus -H BMC_IP –U BMC_user –P BMC_password mc info # 此命令用于查看服务器的管理控制器信息，包括版本号、IP地址、固件版本等信息。</span><br></pre></td></tr></table></figure>
+
+<h2 id="忘记BMC密码后，使用在服务器中使用ipmitool命令修改BMC用户密码"><a href="#忘记BMC密码后，使用在服务器中使用ipmitool命令修改BMC用户密码" class="headerlink" title="忘记BMC密码后，使用在服务器中使用ipmitool命令修改BMC用户密码"></a>忘记BMC密码后，使用在服务器中使用ipmitool命令修改BMC用户密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipmitool user list  #首先查看需要修改密码的BMC用户对应的ID</span><br><span class="line">ipmitool user set password ID_NUM  #对指定ID的BMC用户修改密码 </span><br></pre></td></tr></table></figure>
+
+<h2 id="查看BMC-IP、以及修改BMC-IP"><a href="#查看BMC-IP、以及修改BMC-IP" class="headerlink" title="查看BMC IP、以及修改BMC IP"></a>查看BMC IP、以及修改BMC IP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipmitool lan print 1  #查看BMC 配置信息，1表示默认使用的通道号，用于大多数IPMI操作，其他通道可能用于特定用途</span><br><span class="line">ipmitool lan set 1 ipaddr NEW_BMC_IP #为BMC配置新的IP地址</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -286,20 +297,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Jenkins%E5%AE%89%E8%A3%85/" rel="tag"># Jenkins安装</a>
+              <a href="/tags/ipmitool/" rel="tag"># ipmitool</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/12/11/Nginx/9-nginx%E7%BC%93%E5%AD%98/" rel="prev" title="9-nginx缓存">
-                  <i class="fa fa-chevron-left"></i> 9-nginx缓存
+                <a href="/2023/03/24/%E7%BD%91%E7%BB%9C/eNSP%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" rel="prev" title="eNSP相关问题">
+                  <i class="fa fa-chevron-left"></i> eNSP相关问题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/12/20/Jenkins/2-pipeline/" rel="next" title="2-pipeline">
-                  2-pipeline <i class="fa fa-chevron-right"></i>
+                <a href="/2023/03/31/Linux/CUDA/" rel="next" title="CUDA">
+                  CUDA <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
