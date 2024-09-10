@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="article">
 <meta property="og:title" content="概念补充知识">
@@ -27,8 +28,9 @@
 <meta property="og:site_name" content="DaGuang">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg">
+<meta property="og:image" content="http://example.com/2023/07/27/Linux/%E6%A6%82%E5%BF%B5%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.png">
 <meta property="article:published_time" content="2023-07-27T09:31:59.000Z">
-<meta property="article:modified_time" content="2023-07-28T06:06:30.034Z">
+<meta property="article:modified_time" content="2023-08-23T10:04:31.238Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="补充知识">
 <meta name="twitter:card" content="summary">
@@ -145,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">补充知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%80%81%E4%B8%8E%E5%86%85%E6%A0%B8%E6%80%81"><span class="nav-number">1.1.</span> <span class="nav-text">用户态与内核态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%80%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">用户态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E6%80%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">内核态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%A1%AC%E4%B8%AD%E6%96%AD"><span class="nav-number">1.2.</span> <span class="nav-text">软中断与硬中断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%B8%AD%E6%96%AD"><span class="nav-number">1.2.1.</span> <span class="nav-text">硬中断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%B8%AD%E6%96%AD"><span class="nav-number">1.2.2.</span> <span class="nav-text">软中断</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">补充知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%80%81%E4%B8%8E%E5%86%85%E6%A0%B8%E6%80%81"><span class="nav-number">1.1.</span> <span class="nav-text">用户态与内核态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%80%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">用户态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E6%80%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">内核态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%A1%AC%E4%B8%AD%E6%96%AD"><span class="nav-number">1.2.</span> <span class="nav-text">软中断与硬中断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%B8%AD%E6%96%AD"><span class="nav-number">1.2.1.</span> <span class="nav-text">硬中断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%B8%AD%E6%96%AD"><span class="nav-number">1.2.2.</span> <span class="nav-text">软中断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="nav-number">1.3.</span> <span class="nav-text">上下文切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.4.</span> <span class="nav-text">内存相关概念</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -171,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">73</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -247,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-28 14:06:30" itemprop="dateModified" datetime="2023-07-28T14:06:30+08:00">2023-07-28</time>
+      <time title="修改时间：2023-08-23 18:04:31" itemprop="dateModified" datetime="2023-08-23T18:04:31+08:00">2023-08-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,13 +273,14 @@
     <div class="post-body" itemprop="articleBody">
         <p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg">  </p>
 <span id="more"></span>
-<h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><h2 id="用户态与内核态"><a href="#用户态与内核态" class="headerlink" title="用户态与内核态"></a>用户态与内核态</h2><p>用户态和内核态是两种不同的特权级别，用于区分进程执行时的权限和资源访问的范围，这是操作系统的核心概念之一，有助于保护系统的稳定性和安全性。  </p>
+<h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><p><img src="/2023/07/27/Linux/%E6%A6%82%E5%BF%B5%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.png">  </p>
+<h2 id="用户态与内核态"><a href="#用户态与内核态" class="headerlink" title="用户态与内核态"></a>用户态与内核态</h2><p>用户态和内核态是两种不同的特权级别，用于区分进程执行时的权限和资源访问的范围，这是操作系统的核心概念之一，有助于保护系统的稳定性和安全性。  </p>
 <h3 id="用户态"><a href="#用户态" class="headerlink" title="用户态"></a>用户态</h3><p>用户态是进程执行时的一种受限状态，进程在用户态下运行时，只能访问受限的资源和执行受限的操作。在用户态下，进程不能直接访问操作系统的底层资源，如内存管理单元，硬件设备、中断处理等。如果进程需要执行需要更高权限的操作或访问受限资源，它必须通过系统调用来请求内核的帮助。<br>在用户态下，进程运行的代码通常是应用程序代码，如用户编写的应用程序或库。用户态的代码执行速度较快，但受到操作系统的限制，无法直接操作硬件设备或访问核心资源。   </p>
 <h3 id="内核态"><a href="#内核态" class="headerlink" title="内核态"></a>内核态</h3><p>内核态是进程执行时的特权状态，进程在内核态下拥有访问操作系统核心资源和执行特权操作的权限。在内核态下，进程可以执行任意指令，包括访问所有硬件设备、执行特权指令、直接操作内存等。内核态的代码通常是操作系统内核代码。  </p>
 <h2 id="软中断与硬中断"><a href="#软中断与硬中断" class="headerlink" title="软中断与硬中断"></a>软中断与硬中断</h2><p><strong>中断</strong>指当出现需要时，CPU暂时停止当前程序的执行转而执行处理新情况的程序和执行过程。即在程序运行过程中，系统出现了一个必须由CPU立即处理的情况，此时，CPU暂时中止程序的执行转而处理这个新的情况的过程就叫做中断。  </p>
 <h3 id="硬中断"><a href="#硬中断" class="headerlink" title="硬中断"></a>硬中断</h3><p>硬中断是由计算机硬件发出的中断信号，用于向处理器通知某个特定事件的发生，如外部设备请求处理、定时器中断、硬件故障等。硬件中断是异步的，即发生中断的时间点是不可预测的，处理器必须立即中止当前正在执行的任务并跳转到中断服务例程来处理中断请求。硬中断使用硬件中断向量来识别和处理不同类型的中断。<br>硬中断的触发可以由外部设备、CPU内部的定时器或其他硬件组件引起。处理器在接收到硬中断信号后，会根据硬件中断向量找到对应的中断处理程序，并在处理完中断后返回到被中断的程序。  </p>
 <h3 id="软中断"><a href="#软中断" class="headerlink" title="软中断"></a>软中断</h3><p>软中断是由计算机软件（通常是运行在用户空间的程序或操作系统内核代码）主动触发的中断。软中断是通过特定的指令来引发的，例如在x86架构的CPU中，使用INT指令产生软中断。软中断通常用于实现系统调用（System Call）和在用户空间和内核空间之间传递消息或请求。<br>软中断是同步的，即由程序主动发起，因此它们不会像硬中断那样随机发生。软中断的使用可以在用户态和内核态之间切换，并允许用户程序请求操作系统的服务和资源。</p>
-
+<h2 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h2><h2 id="内存相关概念"><a href="#内存相关概念" class="headerlink" title="内存相关概念"></a>内存相关概念</h2>
     </div>
 
     
@@ -298,6 +301,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/08/04/Linux/Linux%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="next" title="Linux测试工具">
+                  Linux测试工具 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -318,7 +324,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

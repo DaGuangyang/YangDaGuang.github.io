@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="ansible基础元素介绍">
 <meta property="og:type" content="article">
@@ -30,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/07/13/ansible/2-ansible%E5%9F%BA%E7%A1%80%E5%85%83%E7%B4%A0%E4%BB%8B%E7%BB%8D/ansible.jpg">
 <meta property="article:published_time" content="2021-07-13T06:33:10.000Z">
-<meta property="article:modified_time" content="2022-05-24T06:06:23.971Z">
+<meta property="article:modified_time" content="2023-08-31T03:31:36.589Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="ansible基础元素介绍">
 <meta name="twitter:card" content="summary">
@@ -147,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ansible%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">ansible配置文件解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ansible%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">ansible相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible"><span class="nav-number">2.1.</span> <span class="nav-text">ansible</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-galaxy"><span class="nav-number">2.2.</span> <span class="nav-text">ansible-galaxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-pull%EF%BC%88%E5%85%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">ansible-pull（先了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-doc"><span class="nav-number">2.4.</span> <span class="nav-text">ansible-doc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-playbook"><span class="nav-number">2.5.</span> <span class="nav-text">ansible-playbook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-vault"><span class="nav-number">2.6.</span> <span class="nav-text">ansible-vault</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-console%EF%BC%88%E5%85%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-number">2.7.</span> <span class="nav-text">ansible-console（先了解）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inventory%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95"><span class="nav-number">3.</span> <span class="nav-text">Inventory配置清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%92%8C%E7%BB%84"><span class="nav-number">3.1.</span> <span class="nav-text">定义主机和组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%8F%98%E9%87%8F%EF%BC%88%E5%85%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">定义主机变量（先了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%BB%84%E5%8F%98%E9%87%8F"><span class="nav-number">3.3.</span> <span class="nav-text">定义组变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%BB%84"><span class="nav-number">3.4.</span> <span class="nav-text">子组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8F%82%E6%95%B0"><span class="nav-number">3.5.</span> <span class="nav-text">其他参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E4%B8%8E%E6%AD%A3%E5%88%99"><span class="nav-number">3.6.</span> <span class="nav-text">逻辑运算与正则</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ansible%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">ansible配置文件解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ansible%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">ansible相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible"><span class="nav-number">2.1.</span> <span class="nav-text">ansible</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-galaxy"><span class="nav-number">2.2.</span> <span class="nav-text">ansible-galaxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-doc"><span class="nav-number">2.3.</span> <span class="nav-text">ansible-doc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-playbook"><span class="nav-number">2.4.</span> <span class="nav-text">ansible-playbook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-vault"><span class="nav-number">2.5.</span> <span class="nav-text">ansible-vault</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-console%EF%BC%88%E5%85%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-number">2.6.</span> <span class="nav-text">ansible-console（先了解）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inventory%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95"><span class="nav-number">3.</span> <span class="nav-text">Inventory配置清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%92%8C%E7%BB%84"><span class="nav-number">3.1.</span> <span class="nav-text">定义主机和组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%BB%84%E5%8F%98%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">定义组变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%BB%84"><span class="nav-number">3.3.</span> <span class="nav-text">子组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8F%82%E6%95%B0"><span class="nav-number">3.4.</span> <span class="nav-text">其他参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E4%B8%8E%E6%AD%A3%E5%88%99"><span class="nav-number">3.5.</span> <span class="nav-text">逻辑运算与正则</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +163,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,7 +174,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">73</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -249,7 +250,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-24 14:06:23" itemprop="dateModified" datetime="2022-05-24T14:06:23+08:00">2022-05-24</time>
+      <time title="修改时间：2023-08-31 11:31:36" itemprop="dateModified" datetime="2023-08-31T11:31:36+08:00">2023-08-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,12 +304,7 @@
 <li>[–help]<br>类似的<code>ansible-galaxy init --help</code> 查看ansible-galaxy init相关使用方式。  </li>
 <li>[options]<br>根据<code>ansible-galaxy xxx</code>使用执行的选项  </li>
 </ul>
-<h2 id="ansible-pull（先了解）"><a href="#ansible-pull（先了解）" class="headerlink" title="ansible-pull（先了解）"></a>ansible-pull（先了解）</h2><p>通过结合git和crontab一起实现：通过crontab定期拉取指定git版本到本地<br>适用场景：  </p>
-<ol>
-<li>大量机器需要配置，及时高并发也需要大量时间  </li>
-<li>在刚启动、没有网络连接的机器上运行ansible  </li>
-</ol>
-<h2 id="ansible-doc"><a href="#ansible-doc" class="headerlink" title="ansible-doc"></a>ansible-doc</h2><p>ansible模块文档说明。<br>ansible-doc -l  ：列出支持的模块<br>ansible-doc MODULE_NAME：显示模块用法说明<br>ansible-doc -v MODULE_NAME：显示模块版本号</p>
+<h2 id="ansible-doc"><a href="#ansible-doc" class="headerlink" title="ansible-doc"></a>ansible-doc</h2><p>ansible模块文档说明。<br>ansible-doc -l  ：列出支持的模块<br>ansible-doc MODULE_NAME：显示模块用法说明<br>ansible-doc -v MODULE_NAME：显示模块版本号  </p>
 <h2 id="ansible-playbook"><a href="#ansible-playbook" class="headerlink" title="ansible-playbook"></a>ansible-playbook</h2><p>日常应用中使用最多的命令，通过预先编写YML格式的playbook文件实现批量管理，playbook文件可以理解为是按照一定条件组成的ansible的任务集。<br><code>ansible-playbook xxx.yml</code>  </p>
 <h2 id="ansible-vault"><a href="#ansible-vault" class="headerlink" title="ansible-vault"></a>ansible-vault</h2><p>主要用于配置文件的加密，例如playbook文件中包含敏感信息，可以使用ansible-vault。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-vault [create|decrypt|edit|view|encrypt|encrypt_string|rekey] [--help] [options]</span><br></pre></td></tr></table></figure>
@@ -317,7 +313,9 @@
 </ul>
 <p><strong>create</strong>          #创建新的加密文件<br><strong>decrypt</strong>         #解密加密文件<br><strong>edit</strong>            #编辑加密文件<br><strong>view</strong>            #查看加密文件<br><strong>encrypt</strong>         #加密YAML文件<br><strong>encrypt_string</strong>  #加密字符串<br><strong>rekey</strong>           #为加密文件重新设置加密</p>
 <h2 id="ansible-console（先了解）"><a href="#ansible-console（先了解）" class="headerlink" title="ansible-console（先了解）"></a>ansible-console（先了解）</h2><p>交互式工具，用户可以在ansible-console虚拟出来的终端中执行各种内置命令。  </p>
-<h1 id="Inventory配置清单"><a href="#Inventory配置清单" class="headerlink" title="Inventory配置清单"></a>Inventory配置清单</h1><p>默认配置文件<code>/etc/ansible/hosts</code>，该配置文件遵循INI风格，在<code>/etc/ansible/hosts</code>尾部直接添加主机即可，<strong>建议在配置受控端时，先配置好控制端到受控端的免密</strong>。  </p>
+<h1 id="Inventory配置清单"><a href="#Inventory配置清单" class="headerlink" title="Inventory配置清单"></a>Inventory配置清单</h1><p>默认配置文件<code>/etc/ansible/hosts</code>，该配置文件遵循INI、yaml、json，在<code>/etc/ansible/hosts</code>尾部直接添加主机即可，<strong>建议在配置受控端时，先配置好控制端到受控端的免密</strong>。<br>在使用时可以将多个主机文件一并传递<code>ansible-play xxx.yml -i Inventory1 -i Inventory2</code><br>可以将多个主机文件放在同一个目录下，当多个单个文件太长时，并不容易维护，可以将其进行分类，分别保存到不同的文件中，在同一个目录中进行保存，注意：在目录的多个文件中有父组关系时，必须先加载定义子组的文件。默认是按照ASCII顺序进行加载，尽量对多个文件进行编号来控制加载顺序。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">inventory_hosts]#</span><span class="bash"> ll</span></span><br><span class="line">总用量 12</span><br><span class="line">-rw-r--r-- 1 root root 10 8月  16 14:51 01-cloud</span><br><span class="line">-rw-r--r-- 1 root root 10 8月  16 14:51 02-web</span><br><span class="line">-rw-r--r-- 1 root root 10 8月  16 14:51 03-database</span><br><span class="line"></span><br><span class="line">ansible-playbook playbook.yaml -i inventory_hosts/  #执行时可以将整个文件夹作为参数传递</span><br></pre></td></tr></table></figure>
+
 <h2 id="定义主机和组"><a href="#定义主机和组" class="headerlink" title="定义主机和组"></a>定义主机和组</h2><ul>
 <li>可以直接是IP  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.27.7</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -328,26 +326,23 @@
 </ul>
 <p><strong>使用方式：</strong> ansible test3 -m ping  </p>
 <ul>
-<li>分组  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[testserver]</span><br><span class="line">192.168.27.[5:7]</span><br><span class="line">test[a:c]</span><br></pre></td></tr></table></figure>
-[testserver]表示一个叫testserver分组的开始,其分组成员包括192.168.27.5、192.168.27.6、192.168.27.7、testa、testb、testc。  </li>
+<li>分组  <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[testserver]</span></span><br><span class="line">192.168.27.<span class="section">[5:7]</span></span><br><span class="line">test<span class="section">[a:c]</span></span><br></pre></td></tr></table></figure>
+[testserver]表示一个叫testserver分组的开始,其分组成员包括192.168.27.5、192.168.27.6、192.168.27.7、testa、testb、testc。[5:9:2]则表示5、7、9。  </li>
 </ul>
 <p><strong>使用方式：</strong> ansible testserver -m ping   会同时操作testserver组下的所有成员机器</p>
-<h2 id="定义主机变量（先了解）"><a href="#定义主机变量（先了解）" class="headerlink" title="定义主机变量（先了解）"></a>定义主机变量（先了解）</h2><p>举个例子，在实际场景中通常会将web服务的80端口修改为其他端口,在配置该主机的配置信息时可以对该主机添加变量，以便在playbook中使用。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test http_prot=80 </span><br></pre></td></tr></table></figure>
-
 <h2 id="定义组变量"><a href="#定义组变量" class="headerlink" title="定义组变量"></a>定义组变量</h2><p>类似于主机变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[test]</span><br><span class="line">test1</span><br><span class="line">test2</span><br><span class="line">test3</span><br><span class="line"></span><br><span class="line">[test:vars]   #[组名：vars]</span><br><span class="line">http_prot=808</span><br></pre></td></tr></table></figure>
-<p>这样就给test组所有的主机定义了http_prot=808变量</p>
-<h2 id="子组"><a href="#子组" class="headerlink" title="子组"></a>子组</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[test]</span><br><span class="line">test1</span><br><span class="line">test2</span><br><span class="line">test3</span><br><span class="line"></span><br><span class="line">[nginx]</span><br><span class="line">nginx1</span><br><span class="line">nginx2</span><br><span class="line"></span><br><span class="line">[hostname:children]  #[组名：children]</span><br><span class="line">test</span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
-<p>这样hostname这个组就相当于test组和nginx组的集合，这个组实际有5个成员。  </p>
-<h2 id="其他参数"><a href="#其他参数" class="headerlink" title="其他参数"></a>其他参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test1 ansible_ssh_host=192.168.163.171 ansible_ssh_port=22 ansible_ssh_user=root ansible_ssh_pass=123456</span><br></pre></td></tr></table></figure>
-<p>ansible_ssh_host：指定test1的IP<br>ansible_ssh_port：指定ssh的端口<br>ansible_ssh_user：指定ssh远程的用户名<br>ansible_ssh_pass：指定ssh用户的密码【不推荐使用这种明文密码的方式，推荐使用公私秘钥认证的方式】<br>ansible_sudo_pass：指定sudo密码<br>ansible_shell_type：指定受控端的shell类型</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[test]</span></span><br><span class="line">test1</span><br><span class="line">test2</span><br><span class="line">test3</span><br><span class="line"></span><br><span class="line"><span class="section">[test:vars]</span>   <span class="comment">#[组名：vars]</span></span><br><span class="line"><span class="attr">http_prot</span>=<span class="number">808</span></span><br></pre></td></tr></table></figure>
+<p>这样就给test组所有的主机定义了http_prot=808变量  </p>
+<h2 id="子组"><a href="#子组" class="headerlink" title="子组"></a>子组</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[test]</span></span><br><span class="line">test1</span><br><span class="line">test2</span><br><span class="line">test3</span><br><span class="line"></span><br><span class="line"><span class="section">[nginx]</span></span><br><span class="line">nginx1</span><br><span class="line">nginx2</span><br><span class="line"></span><br><span class="line"><span class="section">[hostname:children]</span>  <span class="comment">#[组名：children]</span></span><br><span class="line">test</span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
+<p>这样hostname这个组就相当于test组和nginx组的集合，这个组实际有5个成员。<br>子组的变量将具有更高的优先级，将会覆盖父组的变量；合并变量，ansible将按照ASCII顺序合并同一级别的组，a组与b组合并变量，a组则相当于父组。all是所有组的父组  </p>
+<h2 id="其他参数"><a href="#其他参数" class="headerlink" title="其他参数"></a>其他参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test1 ansible_host=192.168.163.171 ansible_port=22 ansible_user=root ansible_password=123456</span><br></pre></td></tr></table></figure>
+<p>ansible_host：指定test1的IP<br>ansible_port：指定ssh的端口<br>ansible_user：指定ssh远程的用户名<br>ansible_password：指定ssh用户的密码【不推荐使用这种明文密码的方式，推荐使用公私秘钥认证的方式】  </p>
 <h2 id="逻辑运算与正则"><a href="#逻辑运算与正则" class="headerlink" title="逻辑运算与正则"></a>逻辑运算与正则</h2><ul>
 <li>all<br><code>ansible all -m ping</code> 检测使用的主机配置清单中所有的主机<br><code>ansible 192.168.27.* -m ping</code> 检测192.168.27网段的主机  </li>
-<li>逻辑或<br><code>ansible &quot;test:nginx&quot; -m ping</code> 检测test和nginx组（或者是主机）的情况  </li>
-<li>逻辑非<br><code>ansible &quot;test:!nginx&quot; -m ping</code> 检测在test组但不在nginx组的主机  </li>
-<li>逻辑与<br><code>ansible &quot;test:&amp;nginx&quot; -m ping</code> 检测同时在test组和nginx组的主机  </li>
-<li>域切割<br>可以理解为组的切片  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[test]</span><br><span class="line">nginx</span><br><span class="line">zabbix</span><br><span class="line">web</span><br></pre></td></tr></table></figure>
+<li>逻辑或<br><code>ansible &quot;test:nginx&quot; -m ping</code> 检测test和nginx组（或者是主机）的情况，合集  </li>
+<li>逻辑非<br><code>ansible &quot;test:!nginx&quot; -m ping</code> 检测在test组但不在nginx组的主机，非  </li>
+<li>逻辑与<br><code>ansible &quot;test:&amp;nginx&quot; -m ping</code> 检测同时在test组和nginx组的主机，交集  </li>
+<li>域切割<br>可以理解为组的切片  <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[test]</span></span><br><span class="line">nginx</span><br><span class="line">zabbix</span><br><span class="line">web</span><br></pre></td></tr></table></figure>
 <code>ansible test[2] -m ping</code>等同于<code>ansible web -m ping</code>  </li>
 <li>正则匹配<br><code>ansible ~正则表达式 -m -ping</code>  ~表示开启正则匹配功能。  </li>
 </ul>
@@ -395,7 +390,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

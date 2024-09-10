@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-28T06:06:30.034Z</updated>
+  <updated>2024-09-03T07:52:20.968Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PXE批量部署</title>
+    <link href="http://example.com/2024/09/03/Linux/PXE%E6%89%B9%E9%87%8F%E9%83%A8%E7%BD%B2/"/>
+    <id>http://example.com/2024/09/03/Linux/PXE%E6%89%B9%E9%87%8F%E9%83%A8%E7%BD%B2/</id>
+    <published>2024-09-03T07:52:20.000Z</published>
+    <updated>2024-09-03T07:52:20.968Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>负载均衡</title>
+    <link href="http://example.com/2024/04/08/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%8E%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%8E%E9%AB%98%E5%8F%AF%E7%94%A8/"/>
+    <id>http://example.com/2024/04/08/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%8E%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%8E%E9%AB%98%E5%8F%AF%E7%94%A8/</id>
+    <published>2024-04-08T07:34:55.000Z</published>
+    <updated>2024-04-08T07:54:28.321Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><h1 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;负载均衡&quot;&gt;&lt;a href=&quot;#负载均衡&quot; class=&quot;headerlink&quot; title=&quot;负载均衡&quot;&gt;&lt;/a&gt;负载均衡&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="负载均衡" scheme="http://example.com/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux测试工具</title>
+    <link href="http://example.com/2023/08/04/Linux/Linux%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/"/>
+    <id>http://example.com/2023/08/04/Linux/Linux%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</id>
+    <published>2023-08-04T07:50:19.000Z</published>
+    <updated>2023-08-04T08:00:36.087Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg" alt="linux.jpg">  </p><span id="more"></span><h1 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h1><h2 id="SPEC-CPU"><a href="#SPEC-CPU" class="headerlink" title="SPEC CPU"></a>SPEC CPU</h2><p>SPEC CPU套件包括了一组性能测试程序，用于衡量计算机系统处理器在不同工作负载下的性能表现。这些测试程序涵盖了常见的计算密集型任务，如浮点运算、整数运算、存储访问等。<br>SPEC CPU测试结果以 SPECint 和 SPECfp 两个主要指标来衡量，分别代表了计算系统在整数和浮点运算方面的性能。这些指标可以用来比较不同系统的性能，并提供了参考数据，帮助用户选择适合自己需求的计算机系统。<br>SPEC CPU套件有不同的版本可供选择，包括SPEC CPU2006和SPEC CPU2017等。<br>SPEC CPU2006是SPEC CPU套件的旧版本，于2006年发布。它包含一系列测试程序，用于评估计算机系统处理器在整数和浮点运算方面的性能。<br>SPEC CPU2017是SPEC CPU套件的最新版本，于2017年发布。与SPEC CPU2006相比，SPEC CPU2017引入了新的工作负载和测试程序，以反映当今计算机系统的计算需求和技术进步。SPEC CPU2017比SPEC CPU2006更加现代化，能够更准确地评估计算机系统的性能。<br>SPEC CPU2006和SPEC CPU2017之间存在一些区别和关系：</p><ul><li>工作负载：SPEC CPU2006包含12个基准测试程序，而SPEC CPU2017包含了17个基准测试程序。  </li><li>测试程序选择：SPEC CPU2017选择了新的测试程序，更加关注现代计算需求，例如虚拟化、多线程处理等。  </li><li>指标：SPEC CPU2006使用的是SPECint2006和SPECfp2006两个指标来衡量性能，而SPEC CPU2017使用的是SPECrate2017_int和SPECrate2017_fp两个指标。  </li><li>测试环境：SPEC CPU2017对测试环境的要求更加严格，以确保测试的可靠性和准确性。  </li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg&quot; alt=&quot;linux.jpg&quot;&gt;  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>概念补充知识</title>
     <link href="http://example.com/2023/07/27/Linux/%E6%A6%82%E5%BF%B5%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/"/>
     <id>http://example.com/2023/07/27/Linux/%E6%A6%82%E5%BF%B5%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/</id>
     <published>2023-07-27T09:31:59.000Z</published>
-    <updated>2023-07-28T06:06:30.034Z</updated>
+    <updated>2023-08-23T10:04:31.238Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg">  </p><span id="more"></span><h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><h2 id="用户态与内核态"><a href="#用户态与内核态" class="headerlink" title="用户态与内核态"></a>用户态与内核态</h2><p>用户态和内核态是两种不同的特权级别，用于区分进程执行时的权限和资源访问的范围，这是操作系统的核心概念之一，有助于保护系统的稳定性和安全性。  </p><h3 id="用户态"><a href="#用户态" class="headerlink" title="用户态"></a>用户态</h3><p>用户态是进程执行时的一种受限状态，进程在用户态下运行时，只能访问受限的资源和执行受限的操作。在用户态下，进程不能直接访问操作系统的底层资源，如内存管理单元，硬件设备、中断处理等。如果进程需要执行需要更高权限的操作或访问受限资源，它必须通过系统调用来请求内核的帮助。<br>在用户态下，进程运行的代码通常是应用程序代码，如用户编写的应用程序或库。用户态的代码执行速度较快，但受到操作系统的限制，无法直接操作硬件设备或访问核心资源。   </p><h3 id="内核态"><a href="#内核态" class="headerlink" title="内核态"></a>内核态</h3><p>内核态是进程执行时的特权状态，进程在内核态下拥有访问操作系统核心资源和执行特权操作的权限。在内核态下，进程可以执行任意指令，包括访问所有硬件设备、执行特权指令、直接操作内存等。内核态的代码通常是操作系统内核代码。  </p><h2 id="软中断与硬中断"><a href="#软中断与硬中断" class="headerlink" title="软中断与硬中断"></a>软中断与硬中断</h2><p><strong>中断</strong>指当出现需要时，CPU暂时停止当前程序的执行转而执行处理新情况的程序和执行过程。即在程序运行过程中，系统出现了一个必须由CPU立即处理的情况，此时，CPU暂时中止程序的执行转而处理这个新的情况的过程就叫做中断。  </p><h3 id="硬中断"><a href="#硬中断" class="headerlink" title="硬中断"></a>硬中断</h3><p>硬中断是由计算机硬件发出的中断信号，用于向处理器通知某个特定事件的发生，如外部设备请求处理、定时器中断、硬件故障等。硬件中断是异步的，即发生中断的时间点是不可预测的，处理器必须立即中止当前正在执行的任务并跳转到中断服务例程来处理中断请求。硬中断使用硬件中断向量来识别和处理不同类型的中断。<br>硬中断的触发可以由外部设备、CPU内部的定时器或其他硬件组件引起。处理器在接收到硬中断信号后，会根据硬件中断向量找到对应的中断处理程序，并在处理完中断后返回到被中断的程序。  </p><h3 id="软中断"><a href="#软中断" class="headerlink" title="软中断"></a>软中断</h3><p>软中断是由计算机软件（通常是运行在用户空间的程序或操作系统内核代码）主动触发的中断。软中断是通过特定的指令来引发的，例如在x86架构的CPU中，使用INT指令产生软中断。软中断通常用于实现系统调用（System Call）和在用户空间和内核空间之间传递消息或请求。<br>软中断是同步的，即由程序主动发起，因此它们不会像硬中断那样随机发生。软中断的使用可以在用户态和内核态之间切换，并允许用户程序请求操作系统的服务和资源。</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg">  </p><span id="more"></span><h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><p><img src="/2023/07/27/Linux/%E6%A6%82%E5%BF%B5%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.png">  </p><h2 id="用户态与内核态"><a href="#用户态与内核态" class="headerlink" title="用户态与内核态"></a>用户态与内核态</h2><p>用户态和内核态是两种不同的特权级别，用于区分进程执行时的权限和资源访问的范围，这是操作系统的核心概念之一，有助于保护系统的稳定性和安全性。  </p><h3 id="用户态"><a href="#用户态" class="headerlink" title="用户态"></a>用户态</h3><p>用户态是进程执行时的一种受限状态，进程在用户态下运行时，只能访问受限的资源和执行受限的操作。在用户态下，进程不能直接访问操作系统的底层资源，如内存管理单元，硬件设备、中断处理等。如果进程需要执行需要更高权限的操作或访问受限资源，它必须通过系统调用来请求内核的帮助。<br>在用户态下，进程运行的代码通常是应用程序代码，如用户编写的应用程序或库。用户态的代码执行速度较快，但受到操作系统的限制，无法直接操作硬件设备或访问核心资源。   </p><h3 id="内核态"><a href="#内核态" class="headerlink" title="内核态"></a>内核态</h3><p>内核态是进程执行时的特权状态，进程在内核态下拥有访问操作系统核心资源和执行特权操作的权限。在内核态下，进程可以执行任意指令，包括访问所有硬件设备、执行特权指令、直接操作内存等。内核态的代码通常是操作系统内核代码。  </p><h2 id="软中断与硬中断"><a href="#软中断与硬中断" class="headerlink" title="软中断与硬中断"></a>软中断与硬中断</h2><p><strong>中断</strong>指当出现需要时，CPU暂时停止当前程序的执行转而执行处理新情况的程序和执行过程。即在程序运行过程中，系统出现了一个必须由CPU立即处理的情况，此时，CPU暂时中止程序的执行转而处理这个新的情况的过程就叫做中断。  </p><h3 id="硬中断"><a href="#硬中断" class="headerlink" title="硬中断"></a>硬中断</h3><p>硬中断是由计算机硬件发出的中断信号，用于向处理器通知某个特定事件的发生，如外部设备请求处理、定时器中断、硬件故障等。硬件中断是异步的，即发生中断的时间点是不可预测的，处理器必须立即中止当前正在执行的任务并跳转到中断服务例程来处理中断请求。硬中断使用硬件中断向量来识别和处理不同类型的中断。<br>硬中断的触发可以由外部设备、CPU内部的定时器或其他硬件组件引起。处理器在接收到硬中断信号后，会根据硬件中断向量找到对应的中断处理程序，并在处理完中断后返回到被中断的程序。  </p><h3 id="软中断"><a href="#软中断" class="headerlink" title="软中断"></a>软中断</h3><p>软中断是由计算机软件（通常是运行在用户空间的程序或操作系统内核代码）主动触发的中断。软中断是通过特定的指令来引发的，例如在x86架构的CPU中，使用INT指令产生软中断。软中断通常用于实现系统调用（System Call）和在用户空间和内核空间之间传递消息或请求。<br>软中断是同步的，即由程序主动发起，因此它们不会像硬中断那样随机发生。软中断的使用可以在用户态和内核态之间切换，并允许用户程序请求操作系统的服务和资源。</p><h2 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h2><h2 id="内存相关概念"><a href="#内存相关概念" class="headerlink" title="内存相关概念"></a>内存相关概念</h2>]]></content>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/08/02/cX51yi4KrLYRfJU.jpg&quot;&gt;  &lt;/p&gt;</summary>
@@ -61,7 +116,7 @@
     <link href="http://example.com/2023/04/12/Linux/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%88%A9%E5%99%A8Croc/"/>
     <id>http://example.com/2023/04/12/Linux/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%88%A9%E5%99%A8Croc/</id>
     <published>2023-04-12T07:32:54.000Z</published>
-    <updated>2023-06-12T07:24:57.104Z</updated>
+    <updated>2023-10-12T03:13:54.831Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://s2.loli.net/2023/04/12/sbYWUPAVv9o6uyn.jpg" alt="croc.jpg">  </p><span id="more"></span><h1 id="Croc"><a href="#Croc" class="headerlink" title="Croc"></a>Croc</h1><p><a href="https://gitee.com/weidong1987/croc/">https://gitee.com/weidong1987/croc/</a><br>Croc是允许任意两台计算机简单安全的传输文件和文件夹的工具，由于此工具是通过 relay server 方式来进行传送，所以指令会预设连到官方所搭建的服务器  </p><h2 id="安装以及使用"><a href="#安装以及使用" class="headerlink" title="安装以及使用"></a>安装以及使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> linux中安装</span></span><br><span class="line">curl https://getcroc.schollz.com | bash</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 发送端：注意不要关闭进程，等待文件接收端接受，接收完毕后自动关闭</span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> croc send <span class="built_in">test</span></span> </span><br><span class="line">Sending &#x27;test&#x27; (0 B)             </span><br><span class="line">Code is: 7042-solo-sharp-flex</span><br><span class="line">On the other computer run</span><br><span class="line"></span><br><span class="line">croc 7042-solo-sharp-flex   #文件接收命令</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">接收端</span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> croc 7042-solo-sharp-flex</span></span><br><span class="line">Accept &#x27;test&#x27; (0 B)? (Y/n) y</span><br><span class="line"></span><br><span class="line">Receiving (&lt;-127.0.0.1:43692)</span><br><span class="line">test 100% |████████████████████| ( 0/ 1 B)</span><br></pre></td></tr></table></figure><h2 id="本地部署Relay-Server"><a href="#本地部署Relay-Server" class="headerlink" title="本地部署Relay Server"></a>本地部署Relay Server</h2><p>执行croc relay，会在当前主机多个端口启动TCP server。可指定单一Port：croc relay –ports 3001</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">croc relay --ports 3001  #指定单一端口3001</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 传输文件</span></span><br><span class="line"><span class="meta">~]#</span><span class="bash"> croc --relay 127.0.0.1:3001 send <span class="built_in">test</span></span></span><br><span class="line">Sending &#x27;test&#x27; (0 B)             </span><br><span class="line">Code is: 6067-diesel-filter-sample</span><br><span class="line">On the other computer run</span><br><span class="line"></span><br><span class="line">croc --relay 127.0.0.1:3001 6067-diesel-filter-sample  #文件接收命令，在其他终端中使用时需要将IP修改为发送者的IP</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -368,69 +423,6 @@
     
     
     <category term="grafana告警配置" scheme="http://example.com/tags/grafana%E5%91%8A%E8%AD%A6%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>5-panel可视化</title>
-    <link href="http://example.com/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    <id>http://example.com/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
-    <published>2022-11-24T18:00:18.000Z</published>
-    <updated>2022-11-25T06:25:58.348Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg">  </p><span id="more"></span><h1 id="panel"><a href="#panel" class="headerlink" title="panel"></a>panel</h1><h2 id="panel预览"><a href="#panel预览" class="headerlink" title="panel预览"></a>panel预览</h2><p><img src="/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/panel%E9%A2%84%E8%A7%88.png"><br>Table view:试图转换为表格<br>Fill：在编辑界面中图表自动填充，并不是dashboard中的实际大小<br>Actual：编辑界面中预览的与实际dashboard中的大小一致，或者按照实际比例缩小  </p><h2 id="数据部分"><a href="#数据部分" class="headerlink" title="数据部分"></a>数据部分</h2><p><strong>Query（查询选项卡）</strong><br><img src="/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/Query.png">  </p><p><strong>Transform（转换选项卡）</strong><br>使用转换方法对返回的数据进行操作，转换是有顺序的，转换方法当有多个时，每个转换都会创建一个结果集，然后传递给处理管道中的下一个转换。<br>相关转换方法的解释以及使用查看<a href="https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/#transform-data">官网Transform data文档</a>  </p><p><strong>Alert（告警选项卡）</strong><br>创建告警</p><h2 id="panel显示配置"><a href="#panel显示配置" class="headerlink" title="panel显示配置"></a>panel显示配置</h2><p>图例相关配置，不同的可视化panel有不同的配置，具体查看<a href="https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/">官网Visualizations文档</a><br><img src="/2022/11/25/grafana/5-panel%E5%8F%AF%E8%A7%86%E5%8C%96/%E6%98%BE%E7%A4%BA%E9%85%8D%E7%BD%AE.png">  </p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg&quot; alt=&quot;grafana.jpg&quot;&gt;  &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="grafana" scheme="http://example.com/categories/grafana/"/>
-    
-    
-    <category term="panel可视化" scheme="http://example.com/tags/panel%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>4-dashboard</title>
-    <link href="http://example.com/2022/11/22/grafana/4-dashboard/"/>
-    <id>http://example.com/2022/11/22/grafana/4-dashboard/</id>
-    <published>2022-11-22T07:35:05.000Z</published>
-    <updated>2022-11-24T17:54:23.186Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg"> </p><span id="more"></span><h1 id="添加数据源"><a href="#添加数据源" class="headerlink" title="添加数据源"></a>添加数据源</h1><p>在创建dashboard之前需要先添加数据源。<br>Configuration–Data sources–Add data source，添加数据源，如没有要添加的数据源可以在plugins中查看对应的插件进行安装，安装后在添加数据源。<br>这里添加一个prometheus数据源，添加prometheus数据源只需要填写URL（prometheus web页面地址）即可，其他根据需求进行填写，添加后可以点击<code>save&amp;test</code>进行保存并测试。  </p><h1 id="dashboard"><a href="#dashboard" class="headerlink" title="dashboard"></a>dashboard</h1><h2 id="创建dashboard"><a href="#创建dashboard" class="headerlink" title="创建dashboard"></a>创建dashboard</h2><p><code>+ New dashboard</code>–<code>Add a new panel</code>，可以为新的dashboard创建一个新的panel<br><img src="/2022/11/22/grafana/4-dashboard/%E5%88%9B%E5%BB%BAdashboard.png">  </p><h2 id="dashboard设置"><a href="#dashboard设置" class="headerlink" title="dashboard设置"></a>dashboard设置</h2><h3 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h3><p>变量在dashboard内定义后在仪表盘左上角行程可选项，对应的在panel中定义图表中可进行使用变量<br><img src="/2022/11/22/grafana/4-dashboard/Variables.png"><br><strong>General</strong><br>Name：变量名称<br>Label:在仪表盘中显示的标签名<br>Hide：隐藏Label（标签名）、变量<br>Type：变量的类型，有多种变量  </p><ul><li>Interval：间隔，查询的时间跨度  </li><li>Query：查询，编写数据源查询，通常返回度量名称、标签值等，如主机、主机组等  </li><li>Datasource：指定数据源，如有多个同类型数据源，可以使用该变量在多个同类数据源中选择  </li><li>Custom：用户自定义的变量  </li><li>Constant：常量  </li><li>Ad hoc filters：只适用于部分数据源，InfluxDB、Prometheus、Elasticsearch，  </li><li>Text Box：文本，提供一个可以自由输入的文本框  </li></ul><p><strong>Query Options （查询选项）</strong><br>Data source:数据源<br>Refresh：刷新方式，On Dashboard load（仪表盘加载时）、On time range changed（时间范围发生变化）<br>Regex：正则，使用正则表达式类匹配对应的值<br>Sort：排序方式  </p><p><strong>Selection Options</strong><br>Multi-value:允许多选，即在Dashboard变量可以选择多个值可以同时勾选多个<br><img src="/2022/11/22/grafana/4-dashboard/Multi-value.png"><br>Include All option：所有，即在Dashboard变量中可以有一个All的选项，允许勾选<br><img src="/2022/11/22/grafana/4-dashboard/ALL.png">  </p><h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><p>dashboard link显示在dashboard右上角，在dashboard中进行设置，可以设置外部网站的链接或者其他dashboard的下拉菜单。<br><img src="/2022/11/22/grafana/4-dashboard/dashboard-link.png"><br>dashboard link有两种类型，dashboards是grafana中其他dashboard，link是代表添加的其他URL。<br><img src="/2022/11/22/grafana/4-dashboard/dashboard.png"><br><img src="/2022/11/22/grafana/4-dashboard/link.png"><br><img src="/2022/11/22/grafana/4-dashboard/%E6%95%88%E6%9E%9C.png">  因为在dashboard类型link中选择了<code>show as dropdown</code>，所以点击new link会显示下拉列表  </p><h2 id="导入dashboard"><a href="#导入dashboard" class="headerlink" title="导入dashboard"></a>导入dashboard</h2><p>可以从<a href="https://grafana.com/grafana/dashboards/?plcmt=footer">官网</a>找到适合的dashboard通过<code>+Import</code>使用对应的JSON或者外网状态下使用dashboard ID进行导入。<br><strong>dashboard推荐</strong><br>Node Exporter Full（1860）：prometheus node-exporter  </p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg&quot; alt=&quot;grafana.jpg&quot;&gt; &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="grafana" scheme="http://example.com/categories/grafana/"/>
-    
-    
-    <category term="dashboard" scheme="http://example.com/tags/dashboard/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>3-grafana界面介绍</title>
-    <link href="http://example.com/2022/11/13/grafana/3-grafana%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://example.com/2022/11/13/grafana/3-grafana%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D/</id>
-    <published>2022-11-13T06:59:54.000Z</published>
-    <updated>2022-11-25T05:21:17.849Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg" alt="grafana.jpg"> </p><span id="more"></span><h1 id="grafana界面"><a href="#grafana界面" class="headerlink" title="grafana界面"></a>grafana界面</h1><p>根据grafana web界面左侧菜单介绍一下相关功能  </p><h2 id="home"><a href="#home" class="headerlink" title="home"></a>home</h2><p>grafana logo，此处为界面的home page，从任何界面点击都会跳转到home page页，这个页面的各个模块也可以进行设置修改  </p><h2 id="Search-dashboards"><a href="#Search-dashboards" class="headerlink" title="Search dashboards"></a>Search dashboards</h2><p>搜索当前用户可以查看的dashboard  </p><h2 id="starred"><a href="#starred" class="headerlink" title="starred"></a>starred</h2><p>给dashboard添加星标后，会展示在该页面   </p><h2 id="dashboards"><a href="#dashboards" class="headerlink" title="dashboards"></a>dashboards</h2><p>仪表盘菜单</p><ul><li>browse：可以再次界面创建folder、dashboard  </li><li>playlists：可以将多个dashboard组成播放列表循环轮播，可以作为监控大屏轮播  </li><li>snapshots  </li><li>library panels：面板库，可以将设置好的面板添加到面板库中，创建时可直接选取  </li><li>+New dashboard ：创建dashboard  </li><li>+New folder：创建文件夹  </li><li>+Import：导入，可以将panel、dashboard的JSON文件导入，也可以在现网状态下直接将<a href="https://grafana.com/grafana/dashboards/?plcmt=footer">官网</a>中dashboard导入  </li></ul><h2 id="Explore"><a href="#Explore" class="headerlink" title="Explore"></a>Explore</h2><p>可以选择数据源进行临时查询，查询后的表可以添加到dashboard中  </p><h2 id="Alerting"><a href="#Alerting" class="headerlink" title="Alerting"></a>Alerting</h2><p>告警配置  </p><ul><li>Alert rules ：告警规则配置  </li><li>Contact points：告警消息模板、告警发送方式  </li><li>Notification policies：告警默认发送方式以及发送告警的时间设置，根据告警的标签设置不通的发送方式  </li><li>Silences：根据告警规则标签屏蔽告警  </li><li>Alert groups:告警组  </li><li>Admin:</li><li>+New alert rule:创建告警规则</li></ul><h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><ul><li>Data sources:grafana数据源，可以添加多种、多个数据源  </li><li>users：grafana用户，,admin、可编辑、只读用户三种角色，创建用户时会给给出一个链接，需要访问链接进行创建用户  </li><li>Teams：团队，可以创建对应的团队，并设置团队的主dashboard  </li><li>plugins：插件，对应在前面章节中界面安装插件方式  </li><li>Organization profile：当前用户所在的组织，不同的组织的dashboard是不共享的，可以在用户-Switch Organization切换用户   </li></ul><h2 id="server-admin"><a href="#server-admin" class="headerlink" title="server admin"></a>server admin</h2><p>管理所有用户和组织</p><ul><li>users：grafana中所有的用户信息，点击用户可以查看详细信息  </li><li>Organizations：grafana中所有的组织，可以创建组织，一个用户可以属于多个组织  </li><li>setting：grafana服务相关配置信息  </li><li>Statistics and licensing：统计信息，包含仪表盘、标签、数据源、报警、用户、组织数量信息  </li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/11/10/OfHeuAsG8yhmkY5.jpg&quot; alt=&quot;grafana.jpg&quot;&gt; &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="grafana" scheme="http://example.com/categories/grafana/"/>
-    
-    
-    <category term="grafana界面介绍" scheme="http://example.com/tags/grafana%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D/"/>
     
   </entry>
   
