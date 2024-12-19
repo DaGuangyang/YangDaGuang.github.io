@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/%E5%AE%B9%E5%99%A8%E7%94%9F%E6%80%81%E6%8A%80%E6%9C%AF.png">
 <meta property="og:image" content="http://example.com/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/container-selinux%E9%94%99%E8%AF%AF.png">
 <meta property="article:published_time" content="2019-04-10T16:56:27.000Z">
-<meta property="article:modified_time" content="2024-07-09T08:16:40.955Z">
+<meta property="article:modified_time" content="2024-12-05T12:32:27.805Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="docker基础及安装">
 <meta name="twitter:card" content="summary">
@@ -169,12 +169,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -250,7 +250,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-09 16:16:40" itemprop="dateModified" datetime="2024-07-09T16:16:40+08:00">2024-07-09</time>
+      <time title="修改时间：2024-12-05 20:32:27" itemprop="dateModified" datetime="2024-12-05T20:32:27+08:00">2024-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -278,23 +278,19 @@
 <h2 id="Docker基本概念"><a href="#Docker基本概念" class="headerlink" title="Docker基本概念"></a>Docker基本概念</h2><p>Docker的大部分操作都围绕：<strong>镜像、容器和仓库</strong>。</p>
 <h3 id="Docker镜像（Image）"><a href="#Docker镜像（Image）" class="headerlink" title="Docker镜像（Image）"></a>Docker镜像（Image）</h3><p>&emsp;&emsp;对于Linux而言，内核启动后会挂载根文件系统提供用户空间支持。Docker镜像相当于一个根文件系统，比如官方镜像 ubuntu:18.04 就包含了完整的一套 Ubuntu 18.04 最小系统的 root 文件系统。Docker镜像是一个特殊的文件系统，除了提供容器运行时的所需的程序、库、资源、配置等文件，还包含了一些为运行时准备的参数配置（匿名卷、环境变量、用户等），镜像不包含任何动态数据，其内容在构建之后也不会被改变。docker镜像类似于虚拟机镜像，可以将它理解为一个只读的模板。  </p>
 <h4 id="分层存储"><a href="#分层存储" class="headerlink" title="分层存储"></a>分层存储</h4><p>&emsp;&emsp;因为镜像包含操作系统的完整的根文件系统，其体积往往是庞大的，因此将其设计为分层存储的架构。 镜像只是一个虚拟的概念，其实际体现并非由一个文件系统组成，而是由多层文件系统组成。<br>&emsp;&emsp;镜像构建时，会一层一层构建，前一层是后一层的基础。每一层构建完成后不会在改变，后一层上的任何改变只发生在当前层。比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会一直跟随镜像。因此，在构建镜像的时候，需要额外小心，每一层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。<br>&emsp;&emsp;分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容，构建新的镜像。<br>&emsp;&emsp;当容器启动时，一个新的可写层被加载到镜像的顶部。这一层通常被称作“容器层”，“容器层”之下的都叫“镜像层”。所有对容器的改动 - 无论添加、删除、还是修改文件都只会发生在容器层中。只有容器层是可写的，容器层下面的所有镜像层都是只读的。  </p>
-<h3 id="Docker容器（Container）"><a href="#Docker容器（Container）" class="headerlink" title="Docker容器（Container）"></a>Docker容器（Container）</h3><p>&emsp;&emsp;容器是从镜像创建的运行实例。镜像与容器的关系就像是面向对象程序设计中的<strong>类</strong>与<strong>实例</strong>，镜像是静态的定义，容器是镜像运行时的实体，可以被启动、停止、删除等。每个容器是相互隔离的。<br>&emsp;&emsp;容器的实质是进程，但与直接在宿主机器执行的进程不同，容器进程属于自己的独立的命名空间。因此容器可以拥有自己的根文件系统、自己的网络配置、自己的进程空间。容器内的进程是运行在一个隔离的环境里，使用起来就像在独立于宿主的系统中操作一样。<br>&emsp;&emsp;每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层，我们可以称这个为容器运行时读写而准备的存储层为容器存储层。<br>&emsp;&emsp;容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。<br>&emsp;&emsp;按照Docker最佳实践的要求，容器不应该向其存储层内写入数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用 <strong>数据卷</strong>、或者绑定宿主目录。数据卷的生存周期独立于容器，容器消亡，数据卷不会消失。  </p>
+<h3 id="Docker容器（Container）"><a href="#Docker容器（Container）" class="headerlink" title="Docker容器（Container）"></a>Docker容器（Container）</h3><p>&emsp;&emsp;容器是从镜像创建的运行实例。镜像与容器的关系就像是面向对象程序设计中的<strong>类</strong>与<strong>实例</strong>，镜像是静态的定义，容器是镜像运行时的实体，可以被启动、停止、删除等。每个容器是相互隔离的。<br>&emsp;&emsp;容器的实质是进程，但与直接在宿主机器执行的进程不同，容器进程属于自己的独立的命名空间。因此容器可以拥有自己的根文件系统、自己的网络配置、自己的进程空间。容器内的进程是运行在一个隔离的环境里，使用起来就像在独立于宿主的系统中操作一样。<br>&emsp;&emsp;每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层，我们可以称这个为容器运行时读写而准备的存储层为容器存储层。<br>&emsp;&emsp;容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。<br>&emsp;&emsp;按照Docker最佳实践的要求，容器不应该向其存储层内写入数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用 <strong>数据卷</strong>、或者绑定宿主目录。数据卷的生存周期独立于容器，容器消亡，数据卷不会消失。<br>&emsp;&emsp;Docker使用分层存储机制，每个镜像由多个只读层（read-only layer）组成，这些层可以共享和复用。每个容器基于镜像添加一个读写层（writable layer），所有对容器的修改都发生在这个层上。</p>
 <h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><h4 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h4><p>&emsp;&emsp;Docker Registry是一个集中的存储、分发镜像的服务，仓库注册服务器。<br>&emsp;&emsp;一个<strong>Docker Registry</strong>中可以包含多个仓库（Repository）；每个仓库可以包含多个标签（Tag）；每个标签对应一个镜像。<br>&emsp;&emsp;通常一个仓库中会包含一个软件的不同版本，而标签就常用于对应软件的各个版本。可以通过&lt;仓库名&gt;:&lt;标签&gt;的格式来制定具体是什么软件的什么版本镜像。<br>&emsp;&emsp;jwilder/nginx-proxy，这种仓库名前者是多用户环境下的用户名，后者是对应软件名。  </p>
 <h4 id="Docker-Registry-公开服务"><a href="#Docker-Registry-公开服务" class="headerlink" title="Docker Registry 公开服务"></a>Docker Registry 公开服务</h4><p>&emsp;&emsp;Docker Registry 公开服务是公开给用户使用的、允许用户管理镜像的Registry服务。最常使用的 Registry 公开服务是官方的 <a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker Hub</a>，这也是默认的 Registry，国内访问速度会比较慢，所以一些云服务商就提供了针对Docker Hub的镜像服务，被称为加速器，例如阿里云加速器。<br>&emsp;&emsp;国内也有类似于Docker Hub的公开服务，比如阿里云镜像库。  </p>
 <h4 id="私有-Docker-Registry"><a href="#私有-Docker-Registry" class="headerlink" title="私有 Docker Registry"></a>私有 Docker Registry</h4><p>&emsp;&emsp;除了公开服务外，用户还可以在本地搭建私有Docker Registry。  </p>
 <h4 id="repository"><a href="#repository" class="headerlink" title="repository"></a>repository</h4><p>&emsp;&emsp;由具有某个功能的docker镜像的所有迭代版本构成的镜像组。registry是repository的集合，repository是镜像的集合。</p>
 <h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><p>&emsp;&emsp;Docker要求CentOS系统的内核版本高于3.10且是64位系统，可以使用<code>uname -r</code>进行查看。 </p>
 <ul>
-<li><p>使用脚本进行安装  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">修改dns，/etc/resolv.conf，在该文件种添加</span></span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">curl -fsSL https://get.docker.com/ | sh </span><br><span class="line"><span class="meta">#</span><span class="bash"> 推荐使用阿里云安装脚本</span></span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
-<p>在使用阿里云安装脚本时，可能会报错<br><img src="/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/container-selinux%E9%94%99%E8%AF%AF.png" alt="container-selinux错误"><br>添加阿里源后在进行安装docker即可  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure></li>
-<li><p>开启Docker服务  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">开启服务</span></span><br><span class="line">service docker start</span><br></pre></td></tr></table></figure></li>
-<li><p>安装校验  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure></li>
-<li><p>普通用户加入到docker用户组<br>如果想使用普通用户执行docker命令，将该用户加入到docker用户组即可</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -aG docker USER_NAME</span><br></pre></td></tr></table></figure>
+<li>手动安装  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 3</span></span><br><span class="line">sudo sed -i &#x27;s+download.docker.com+mirrors.aliyun.com/docker-ce+&#x27; /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 4: 更新并安装Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 4: 开启Docker服务</span></span><br><span class="line">systemctl start docker</span><br><span class="line">systemctl enable docker</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li>使用脚本进行安装  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">修改dns，/etc/resolv.conf，在该文件种添加</span></span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">curl -fsSL https://get.docker.com/ | sh </span><br><span class="line"><span class="meta">#</span><span class="bash"> 推荐使用阿里云安装脚本</span></span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line"></span><br><span class="line">systemctl start docker</span><br><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure>
+在使用阿里云安装脚本时，可能会报错<br><img src="/2019/04/11/docker/1.%E5%88%9D%E8%AF%86Docker/container-selinux%E9%94%99%E8%AF%AF.png" alt="container-selinux错误"><br>添加阿里源后在进行安装docker即可  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.rep</span><br></pre></td></tr></table></figure></li>
+<li>普通用户加入到docker用户组<br>如果想使用普通用户执行docker命令，将该用户加入到docker用户组即可<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -aG docker USER_NAME</span><br></pre></td></tr></table></figure>
 <h2 id="Docker子命令"><a href="#Docker子命令" class="headerlink" title="Docker子命令"></a>Docker子命令</h2><table>
 <thead>
 <tr>

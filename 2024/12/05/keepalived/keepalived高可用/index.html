@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="keepalived高可用">
+<meta property="og:url" content="http://example.com/2024/12/05/keepalived/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/12/05/JTH7A9gMoL5Vqby.png">
+<meta property="article:published_time" content="2024-12-05T02:49:05.000Z">
+<meta property="article:modified_time" content="2024-12-05T08:43:37.117Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="keepalived高可用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/12/05/JTH7A9gMoL5Vqby.png">
+
+
+<link rel="canonical" href="http://example.com/2024/12/05/keepalived/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/12/05/keepalived/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/","path":"2024/12/05/keepalived/keepalived高可用/","title":"keepalived高可用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>keepalived高可用 | DaGuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DaGuang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#keepalived"><span class="nav-number">1.</span> <span class="nav-text">keepalived</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VRRP%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">VRRP相关概念以及工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keepalived%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">keepalived工作模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keepalived%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">keepalived相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">配置文件实例</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/05/keepalived/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="keepalived高可用 | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          keepalived高可用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-12-05 10:49:05 / 修改时间：16:43:37" itemprop="dateCreated datePublished" datetime="2024-12-05T10:49:05+08:00">2024-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/keepalived/" itemprop="url" rel="index"><span itemprop="name">keepalived</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://s2.loli.net/2024/12/05/JTH7A9gMoL5Vqby.png"></p>
+<span id="more"></span>
+
+<h1 id="keepalived"><a href="#keepalived" class="headerlink" title="keepalived"></a>keepalived</h1><p>Keepalived是一个开源的路由软件，主要用于提供高可用性（HA）解决方案，通过VRRP（Virtual Router Redundancy Protocol）协议实现负载均衡和故障转移。  </p>
+<ol>
+<li>高可用（HA）：Keepalived通过VRRP协议实现高可用性，允许一组路由器（或服务器）共享一个虚拟IP地址（VIP）。当主服务器（Master）故障时，备用服务器（Backup）可以自动接管这个VIP，确保服务不中断。  </li>
+<li>VRRP：VRRP是一种网络协议，设计用于在多台路由器之间实现冗余。Keepalived利用VRRP来检测和管理服务器或路由器的健康状态。  </li>
+<li>Keepalived提供健康检查机制，可以监控服务或服务器的健康状态。如果检测到故障，它可以自动进行故障转移，确保服务的高可用性。  </li>
+<li>故障转移：当主服务器检测到故障或停止响应时，Keepalived会自动将VIP转移到备用服务器，从而实现无缝的服务转移。  </li>
+<li>自定义脚本执行：支持在状态变更时执行自定义脚本，进行特定的操作，如通知管理员、启动或停止服务等。  </li>
+</ol>
+<h2 id="VRRP相关概念以及工作原理"><a href="#VRRP相关概念以及工作原理" class="headerlink" title="VRRP相关概念以及工作原理"></a>VRRP相关概念以及工作原理</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><strong>虚拟路由器冗余协议（VRRP）</strong>：VRRP是一种网络协议，设计用于在多台路由器或服务器之间提供冗余，以提高网络的可靠性和可用性。<br><strong>虚拟IP（VIP）</strong>：VIP是一个共享的IP地址，被配置在VRRP组内的所有路由器或服务器上。客户端使用这个VIP来访问服务，而不直接访问具体的物理设备。<br><strong>VRRP组</strong>：一个VRRP组由一个或多个路由器组成，其中一个被选为主路由器（Master），其余为备用路由器（Backup）。<br><strong>Master路由器</strong>：在VRRP组中，优先级最高的路由器或被指定为Master，它负责处理流量和响应ARP请求。<br><strong>Backup路由器</strong>：如果Master路由器发生故障，Backup路由器中优先级最高的会接管成为新的Master。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ul>
+<li>选举：<ul>
+<li>VRRP通过选举机制确定Master。选举基于以下几个因素：</li>
+<li>优先级：每个VRRP实例都有一个优先级，优先级高的路由器被选为Master。</li>
+<li>IP地址：如果优先级相同，则选择拥有最高IP地址的路由器为Master。</li>
+<li>VRRP通告（Advertisement）：Master路由器会定期发送VRRP通告信息（VRRP Advertisement），告知其他备用路由器自己是活跃的。  </li>
+</ul>
+</li>
+<li>故障转移：<ul>
+<li>当Master路由器停止发送VRRP通告（可能是由于故障或网络问题），Backup路由器会检测到此情况并启动选举过程：备用路由器等待一个预设的间隔（Master Down Interval）后，如果没有收到通告，则认为Master已下线。优先级最高的备用路由器将接管Master角色，接管VIP，并开始处理流量。</li>
+</ul>
+</li>
+<li>VRRP报文：<ul>
+<li>VRRP使用组播地址224.0.0.18发送VRRP报文，包括：<ul>
+<li>VRRP Advertisement：由Master发送，用于告知状态。</li>
+<li>VRRP Request：由新加入的或重启的路由器发送，用于请求当前的VRRP状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>认证：<ul>
+<li>VRRP支持简单的密码认证（如使用auth_type PASS），以防止非法节点加入VRRP组。</li>
+</ul>
+</li>
+<li>负载均衡：<ul>
+<li>VRRP本身不提供负载均衡，但可以与LVS（Linux Virtual Server）等负载均衡技术结合使用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="keepalived工作模式"><a href="#keepalived工作模式" class="headerlink" title="keepalived工作模式"></a>keepalived工作模式</h2><ul>
+<li>抢占模式：keepalived默认为抢占模式，在该模式下，如果一个优先级更高的备用节点（BACKUP）启动或者恢复，它会立即接管master</li>
+<li>非抢占模式：在非抢占模式下，即使一个优先级更高的备用节点启动或恢复，它也不会主动接管Master角色，除非当前的Master节点出现故障。通过在VRRP实例配置中添加<code>nopreempt</code>选项来启用非抢占模式。</li>
+</ul>
+<h2 id="keepalived相关命令"><a href="#keepalived相关命令" class="headerlink" title="keepalived相关命令"></a>keepalived相关命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动停止重启服务</span></span><br><span class="line">systemctl start|stop|restart keepalived</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置文件检查</span></span><br><span class="line">keepalived -f /etc/keepalived/keepalived.conf -t</span><br></pre></td></tr></table></figure>
+<p>启动keepalived后可以抓包查看多播信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ]tcpdump -i ens160 -nn|grep 224.0.0.18</span></span><br><span class="line">dropped privs to tcpdump</span><br><span class="line">tcpdump: verbose output suppressed, use -v[v]... for full protocol decode</span><br><span class="line">listening on ens160, link-type EN10MB (Ethernet), snapshot length 262144 bytes</span><br><span class="line">15:44:21.201129 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">15:44:22.201379 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">15:44:23.201802 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">15:44:24.201961 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">15:44:25.202133 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">15:44:26.202372 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">15:44:27.202754 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">15:44:28.202836 IP 192.168.27.8 &gt; 224.0.0.18: VRRPv2, Advertisement, vrid 51, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line"><span class="meta">#</span><span class="bash"> 192.168.27.8 &gt; 224.0.0.18 源地址&gt;组播地址</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> VRRPv2, Advertisement 协议和类型</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vrid 51 VRRP实例ID为51</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> prio 100 节点优先级为100</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> authtype simple 使用简单的密码认证</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> intvl 1s 表示VRRP广告报文的发送间隔为1秒</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> length 20表示这个VRRP报文的长度为20字节</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="配置文件实例"><a href="#配置文件实例" class="headerlink" title="配置文件实例"></a>配置文件实例</h2><p>keepalived配置文件为/etc/keepalived/keepalived.conf  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"># Keepalived配置文件示例</span><br><span class="line"></span><br><span class="line">global_defs &#123;</span><br><span class="line">    # 路由id：当前安装keepalived的节点主机标识符，确保全局唯一</span><br><span class="line">    router_id MASTER_1  # 对于备用节点，修改为BACKUP_1或其他唯一标识符</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 业务应用检测脚本（可选）</span><br><span class="line">#vrrp_script check_component &#123;</span><br><span class="line">#    # 业务应用检测脚本路径</span><br><span class="line">#    script &quot;/etc/keepalived/check_component.sh&quot;</span><br><span class="line">#    # 每隔两秒运行一次脚本</span><br><span class="line">#    interval 2</span><br><span class="line">#    # 脚本运行的超时时间</span><br><span class="line">#    timeout 5</span><br><span class="line">#    # 配置几次检测失败才认为服务异常</span><br><span class="line">#    fall 2</span><br><span class="line">#    # 优先级变化幅度，如果script中的指令执行失败，那么相应的vrrp_instance的优先级会减少10个点。</span><br><span class="line">#    weight -10</span><br><span class="line">#&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    # 表示状态是MASTER主机还是备用机BACKUP</span><br><span class="line">    state MASTER  # 对于备用节点，修改为BACKUP,主要还是依靠priority来确定哪一个是master</span><br><span class="line">    # 该实例绑定的网卡,如：eth0</span><br><span class="line">    interface ens160</span><br><span class="line">    # 保证主备节点一致即可</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    # 权重[1-255]，master权重一般高于backup，如果有多个，那就是选举，谁的权重高，谁就当选</span><br><span class="line">    priority 100  # 对于备用节点，设置一个较低的优先级，如70</span><br><span class="line">    # 主备之间同步检查时间间隔，单位秒</span><br><span class="line">    advert_int 1</span><br><span class="line">    # 认证权限密码，防止非法节点进入</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass password  # 替换为实际的密码,支持最多8个字符</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 如果需要非抢占模式，可以添加以下行,默认使用抢占模式</span><br><span class="line">    # nopreempt</span><br><span class="line"></span><br><span class="line">    # 业务应用检测脚本在本VRRP实例中使用</span><br><span class="line">#    track_script &#123;</span><br><span class="line">#        check_component</span><br><span class="line">#    &#125;</span><br><span class="line"></span><br><span class="line">    # 虚拟出来的ip，可以有多个（vip）</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        # 注意：主备两台的vip都是一样的，绑定到同一个vip,设置别名</span><br><span class="line">        192.168.27.100/24 dev ens160 label ens160:0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 如果需要多个VRRP实例，可以添加更多vrrp_instance块</span><br><span class="line"># vrrp_instance VI_2 &#123;</span><br><span class="line">#     ...</span><br><span class="line"># &#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/" rel="tag"># keepalived高可用</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/11/27/Nginx/8-nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="prev" title="8-nginx负载均衡">
+                  <i class="fa fa-chevron-left"></i> 8-nginx负载均衡
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/code-unfold.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="容器运行时">
+<meta property="og:url" content="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6.jpg">
+<meta property="og:image" content="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/2024-09-11-15-04-48.png">
+<meta property="og:image" content="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/2024-09-11-15-09-27.png">
+<meta property="og:image" content="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/2024-09-11-15-11-31.png">
+<meta property="article:published_time" content="2024-09-10T15:40:35.000Z">
+<meta property="article:modified_time" content="2024-10-22T07:19:52.300Z">
+<meta property="article:author" content="DaGuang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6.jpg">
+
+
+<link rel="canonical" href="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/","path":"2024/09/10/K8s/容器运行时/","title":"容器运行时"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>容器运行时 | DaGuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DaGuang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">容器运行时是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6%E7%A7%8D%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">容器运行时种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFOCI"><span class="nav-number">3.</span> <span class="nav-text">什么是OCI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCRI"><span class="nav-number">4.</span> <span class="nav-text">什么是CRI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6"><span class="nav-number">5.</span> <span class="nav-text">docker容器运行时</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="容器运行时 | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          容器运行时
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-10 23:40:35" itemprop="dateCreated datePublished" datetime="2024-09-10T23:40:35+08:00">2024-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-10-22 15:19:52" itemprop="dateModified" datetime="2024-10-22T15:19:52+08:00">2024-10-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6.jpg">  </p>
+<span id="more"></span>
+<h2 id="容器运行时是什么"><a href="#容器运行时是什么" class="headerlink" title="容器运行时是什么"></a>容器运行时是什么</h2><p>容器运行时（Container Runtime）是容器化技术中的关键组件之一，它负责运行容器。容器运行时管理容器的生命周期，包括创建、启动、停止以及销毁容器等操作。  </p>
+<h2 id="容器运行时种类"><a href="#容器运行时种类" class="headerlink" title="容器运行时种类"></a>容器运行时种类</h2><p><strong>docker</strong>：这可能是最为人所知的容器运行时。Docker 通过简化容器的创建和管理，使得容器技术变得更加易用。<br><strong>containerd</strong>：是从 Docker 中分离出来的一个项目，可以作为一个底层容器运行时，现在它成了Kubernete 容器运行时更好的选择。containerd 是一个高级的容器运行时，它强调简单性、稳定性和可移植性，可以直接被用于Docker和其他系统。containerd 是真正管控容器的一个进程，执行容器的时候用的是 runc。<br><strong>runc</strong>：runc：是一个轻量级的工具，它是containerd的一部分，用于根据OCI（Open Container Initiative）标准创建和运行容器。runc 直接在操作系统上运行容器，是containerd和CRI-O等更高级运行时的底层运行时。<br><strong>CRI-O</strong>：也是CNCF的一个项目，它是一个轻量级的容器运行时，专门用于Kubernetes。CRI-O 直接实现了Kubernetes的容器运行时接口（CRI），不依赖于Docker或其他容器引擎。  </p>
+<h2 id="什么是OCI"><a href="#什么是OCI" class="headerlink" title="什么是OCI"></a>什么是OCI</h2><p>OCI 是一个开放的容器标准，定义了容器的运行时规范（runtime specification）和映像规范（image specification）。Docker 以及其他一些容器平台实际上使用的都是 runc 或其他兼容 OCI 规范的工具来创建和运行容器。</p>
+<h2 id="什么是CRI"><a href="#什么是CRI" class="headerlink" title="什么是CRI"></a>什么是CRI</h2><p>CRI本质上就是 Kubernetes 定义的一组与容器运行时进行交互的接口，所以只要实现了这套接口的容器运行时都可以对接到 Kubernetes 平台上来。不过 Kubernetes 推出 CRI 这套标准的时候还没有现在的统治地位，所以有一些容器运行时可能不会自身就去实现 CRI 接口，于是就有了 shim（垫片）， 一个 shim 的职责就是作为适配器将各种容器运行时本身的接口适配到 Kubernetes 的 CRI 接口上，其中 dockershim 就是 Kubernetes 对接 Docker 到 CRI 接口上的一个垫片实现。  </p>
+<p>Kubernetes最新版本(v1.24+)宣布弃用 dockershim，移除了对Docker作为容器运行时的原生支持,但这并不意味着完全不支持Docker。<br>Kubernetes仍然支持使用Docker镜像。所有现有的Docker镜像可以直接用在k8s集群中,不需要修改。<br>Kubernetes已经全面拥抱容器运行时接口(CRI)。最新版本的kubelet将通过CRI管理容器,而不是直接通过Docker API。<br>用户可以继续使用Docker作为CRI运行时。只需要安装并配置Docker的CRI插件,即docker-containerd插件,kubelet就可以通过CRI控制Docker。<br>推荐的容器运行时是containerd。它功能丰富,性能好,资源消耗少。docker-containerd确保它可以与Docker镜像兼容。<br>切换到containerd后,节点上仍可以同时运行Docker引擎,用于构建镜像等场景。<br>Kubernetes移除Docker的依赖可以使其支持更多类型的容器运行时,提高其可移植性。</p>
+<h2 id="docker容器运行时"><a href="#docker容器运行时" class="headerlink" title="docker容器运行时"></a>docker容器运行时</h2><p>在 Docker 中，当你运行一个容器时（例如使用 docker run 命令），Docker 会调用 runc（或 Docker 的默认运行时）来实际创建和启动容器。runc 是一个底层的工具，对于大多数 Docker 用户来说，通常不需要直接与 runc 交互。<br><img src="/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/2024-09-11-15-04-48.png">  </p>
+<p>当我们要创建一个容器的时候，现在 Docker Daemon 并不能直接帮我们创建了，而是请求 containerd 来创建一个容器，containerd 收到请求后，也并不会直接去操作容器，而是创建一个叫做 containerd-shim 的进程，让这个进程去操作容器，我们指定容器进程是需要一个父进程来做状态收集、维持 stdin 等 fd 打开等工作的，假如这个父进程就是 containerd，那如果 containerd 挂掉的话，整个宿主机上所有的容器都得退出了，而引入 containerd-shim 这个垫片就可以来规避这个问题了。  </p>
+<p>然后创建容器需要做一些 namespaces 和 cgroups 的配置，以及挂载 root 文件系统等操作，这些操作其实已经有了标准的规范，那就是 OCI（开放容器标准），runc 就是它的一个参考实现（Docker 被逼无耐将 libcontainer 捐献出来改名为 runc 的），这个标准其实就是一个文档，主要规定了容器镜像的结构、以及容器需要接收哪些操作指令，比如 create、start、stop、delete 等这些命令。runc 就可以按照这个 OCI 文档来创建一个符合规范的容器，既然是标准肯定就有其他 OCI 实现，比如 Kata、gVisor 这些容器运行时都是符合 OCI 标准的。  </p>
+<p>所以真正启动容器是通过 containerd-shim 去调用 runc 来启动容器的，runc 启动完容器后本身会直接退出，containerd-shim 则会成为容器进程的父进程，负责收集容器进程的状态，上报给 containerd, 并在容器中 pid 为 1 的进程退出后接管容器中的子进程进行清理，确保不会出现僵尸进程。</p>
+<p><img src="/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/2024-09-11-15-09-27.png">  </p>
+<p>现在如果我们使用的是 Docker 的话，当我们在 Kubernetes 中创建一个 Pod 的时候，首先就是 kubelet 通过 CRI 接口调用 dockershim，请求创建一个容器，kubelet 可以视作一个简单的 CRI Client, 而 dockershim 就是接收请求的 Server，不过他们都是在 kubelet 内置的。  </p>
+<p>dockershim 收到请求后，转化成 Docker Daemon 能识别的请求，发到 Docker Daemon 上请求创建一个容器，请求到了 Docker Daemon 后续就是 Docker 创建容器的流程了，去调用 containerd，然后创建 containerd-shim 进程，通过该进程去调用 runc 去真正创建容器。  </p>
+<p>其实我们仔细观察也不难发现使用 Docker 的话其实是调用链比较长的，真正容器相关的操作其实 containerd 就完全足够了，Docker 太过于复杂笨重了，当然 Docker 深受欢迎的很大一个原因就是提供了很多对用户操作比较友好的功能，但是对于 Kubernetes 来说压根不需要这些功能，因为都是通过接口去操作容器的，所以自然也就可以将容器运行时切换到 containerd 来。<br><img src="/2024/09/10/K8s/%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%B6/2024-09-11-15-11-31.png">  </p>
+<p>在 k8s v1.24 以后需要额外安装 cri-dockerd, k8s 才能够正常识别到 Docker。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/03/Linux/PXE%E6%89%B9%E9%87%8F%E9%83%A8%E7%BD%B2/" rel="prev" title="PXE批量部署">
+                  <i class="fa fa-chevron-left"></i> PXE批量部署
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/10/14/Linux/%E4%BF%AE%E6%94%B9IP/" rel="next" title="修改IP">
+                  修改IP <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/code-unfold.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

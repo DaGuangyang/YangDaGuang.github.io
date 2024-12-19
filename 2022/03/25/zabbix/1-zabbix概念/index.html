@@ -28,9 +28,8 @@
 <meta property="og:site_name" content="DaGuang">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg">
-<meta property="og:image" content="http://example.com/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/%E4%B8%8E%E7%9B%91%E6%8E%A7%E8%AE%BE%E5%A4%87%E7%9A%84%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F.png">
 <meta property="article:published_time" content="2022-03-25T12:45:46.000Z">
-<meta property="article:modified_time" content="2022-05-24T04:47:58.233Z">
+<meta property="article:modified_time" content="2024-11-12T11:43:35.584Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="zabbix概念">
 <meta name="twitter:card" content="summary">
@@ -147,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zabbix%E6%94%AF%E6%8C%81%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">zabbix支持的通信方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zabbix%E7%BB%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">zabbix组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zabbix%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">zabbix工作模式</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zabbix%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">zabbix进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zabbix-server"><span class="nav-number">1.1.</span> <span class="nav-text">zabbix server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zabbix-agent"><span class="nav-number">1.2.</span> <span class="nav-text">zabbix agent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E5%8A%A8%E5%92%8C%E4%B8%BB%E5%8A%A8%E6%A3%80%E6%9F%A5"><span class="nav-number">1.2.1.</span> <span class="nav-text">被动和主动检查</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zabbix-agent2"><span class="nav-number">1.3.</span> <span class="nav-text">zabbix agent2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zabbix-proxy"><span class="nav-number">1.4.</span> <span class="nav-text">zabbix proxy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zabbix-sender"><span class="nav-number">1.5.</span> <span class="nav-text">zabbix sender</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zabbix-get"><span class="nav-number">1.6.</span> <span class="nav-text">zabbix get</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zabbix-get%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">zabbix-get安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,12 +167,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -249,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-24 12:47:58" itemprop="dateModified" datetime="2022-05-24T12:47:58+08:00">2022-05-24</time>
+      <time title="修改时间：2024-11-12 19:43:35" itemprop="dateModified" datetime="2024-11-12T19:43:35+08:00">2024-11-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,23 +272,17 @@
     <div class="post-body" itemprop="articleBody">
         <p><img src="https://s2.loli.net/2022/03/25/BC4LOAv1sp89SnY.jpg" alt="zabbix.jpg">  </p>
 <span id="more"></span>
-<p>&emsp;&emsp;zabbix可以监控的硬件理论上是与我们的业务有关的硬件资源都可以被监控，比如：主机、交换机、路由器等。这就要求zabbix可以与这些监控对象能够进行通信。  </p>
-<h2 id="zabbix支持的通信方式"><a href="#zabbix支持的通信方式" class="headerlink" title="zabbix支持的通信方式"></a>zabbix支持的通信方式</h2><ul>
-<li>agent<br>通过专用的代理程序进行监控，与常见的master/agent模型类似，如果被监控对象支持对应的agent，推荐首先该形式。  </li>
-<li>ssh/telnet<br>通过远程控制协议进行通讯，比如：ssh、telnet。  </li>
-<li>SNMP<br>通过SNMP协议与被监控对象进行通信，SNMNP协议的全称是“简单网络管理协议”。  </li>
-<li>IPMI<br>通过IPMI接口进行监控，我们可以通过标准的IPMI硬件接口，监控被监控对象的物理特征，比如电压，温度，风扇状态，电源状态等。  </li>
-<li>JMX<br>JMX即java管理扩展，监控JVM时，可以使用这种方法也是很不错的。<br><img src="/2022/03/25/zabbix/1-zabbix%E6%A6%82%E5%BF%B5/%E4%B8%8E%E7%9B%91%E6%8E%A7%E8%AE%BE%E5%A4%87%E7%9A%84%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F.png" alt="通信方式">  </li>
-</ul>
-<p>&emsp;&emsp;当监控规模变得庞大时，可能有成千上万台设备需要监控时。zabbix支持分布式监控，我们可以把所有的被监控对象分成不同的区域，每个区域中设置一台代理主机，区域内的每个被监控对象的信息被agent采集，提交给代理主机，在这个区域内，在理主机的作用就相当于是zabbix server，我们将代理主机为zabbix proxy，代理主机再将收集到的监控对象的信息统一提交给真正的zabbix server处理，这样zabbix proxy分摊了zabbix server的压力，还能通过统一的监控入口，监控所有的对象。  </p>
-<h2 id="zabbix组件"><a href="#zabbix组件" class="headerlink" title="zabbix组件"></a>zabbix组件</h2><ul>
-<li>zabbix agent<br>部署在被监控主机上，负责被监控主机的数据，并加数据发送给zabbix server。</li>
-<li>zabbix server<br>负责接受agent发送的报告信息，并且负责组织配置信息、统计信息、操作数据等。</li>
-<li>zabbix database<br>用于存储所有zabbix的配置信息、监控数据的数据库。</li>
-<li>zabbix web<br>zabbix的web界面，管理员通过web界面管理zabbix配置以及查看zabbix相关监控信息，可以单独部署在独立的服务器上。  </li>
-<li>zabbix proxy<br>可选组件，用于分布式监控环境中，zabbix proxy代表server端，完成局部区域内的信息收集，最终统一发往server端。采用中间代理将大大提高监控服务器端的处理速度，从而支撑构建大型分布式监控环境，从架构上支持异地多机房的需求。  </li>
-</ul>
-<h2 id="zabbix工作模式"><a href="#zabbix工作模式" class="headerlink" title="zabbix工作模式"></a>zabbix工作模式</h2><p>&emsp;&emsp;agent端会将采集完的数据主动发送给server端，这种模式称之为<strong>主动模式</strong>（对于agent端来说是主动的）；agent端也可以不发送数据，而是等待server端来拉取数据，这种模式称之为<strong>被动模式</strong>。一般来说，被动模式对监控控制端服务器的开销较大，适合小规模的监控环境；主动模式对监控控制端服务器的开销较小，适合大规模的监控环境。<br>&emsp;&emsp;可以在<strong>agent端使用zabbix_sender</strong>工具，测试是否能够向server端发送数据。<br>&emsp;&emsp;可以在<strong>server端使用zabbix_get</strong>工具，测试是否能够向agent端发送数据。<br>&emsp;&emsp;两种模式可以同时存在，并不会冲突。  </p>
+<h2 id="zabbix进程"><a href="#zabbix进程" class="headerlink" title="zabbix进程"></a>zabbix进程</h2><h3 id="zabbix-server"><a href="#zabbix-server" class="headerlink" title="zabbix server"></a>zabbix server</h3><p>zabbix server 是整个zabbix软件的核心程序，是所有配置、统计、操作数据的中央存储，也是zabbix监控系统的告警中心。最基础的zabbix server功能分解成三个不同的组件：zabbix server、web前端、数据库。</p>
+<h3 id="zabbix-agent"><a href="#zabbix-agent" class="headerlink" title="zabbix agent"></a>zabbix agent</h3><p>zabbix agent部署在被监控目标上，agent收集本地的操作信息并将数据报告给zabbix server 用于进一步处理，一旦出现异常，zabbix server会主动警告管理员制定机器上的异常。zabbix agent的极高效率源于它可以利用本地系统调用来完成数据的采集。  </p>
+<h4 id="被动和主动检查"><a href="#被动和主动检查" class="headerlink" title="被动和主动检查"></a>被动和主动检查</h4><p>在被动检查模式中agent相应数据请求，zabbix server（或proxy）请求数据。<br>主动检查处理过程相对复杂。agent必须首先从zabbix server获取监控项列表以进行独立处理，然后会定期发送采集到的新值给zabbix server。</p>
+<h3 id="zabbix-agent2"><a href="#zabbix-agent2" class="headerlink" title="zabbix agent2"></a>zabbix agent2</h3><p>agent2是新一代agent，可以减少TCP连接数量、提高并发性、容易扩展。agent2是用Go语言编写的，在安装是需要配置Go环境。无守护进程。</p>
+<h3 id="zabbix-proxy"><a href="#zabbix-proxy" class="headerlink" title="zabbix proxy"></a>zabbix proxy</h3><p>proxy是一个可以从一个或多个监控设备采集数据并将信息发送到server的进程，可以减少server CPU、I/O的开销。它需要使用独立的数据库。  </p>
+<h3 id="zabbix-sender"><a href="#zabbix-sender" class="headerlink" title="zabbix sender"></a>zabbix sender</h3><p>sender是一个用来推送数据给server处理的程序，如果自定义的脚本需要很长时间执行，则可以将监控类型为trapper（zabbix 采集器），配合sender直接给server发送数据。  </p>
+<h3 id="zabbix-get"><a href="#zabbix-get" class="headerlink" title="zabbix get"></a>zabbix get</h3><p>get是一个命令行工具，可以用于server从agent检索所需信息。  </p>
+<h2 id="zabbix-get安装"><a href="#zabbix-get安装" class="headerlink" title="zabbix-get安装"></a>zabbix-get安装</h2><p>在zabbix server进行安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y zabbix-get </span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zabbix_get -s Agent-IP -k item-key</span><br></pre></td></tr></table></figure>
+<p>最简单的使用方式，若agent端口不是默认的10050，则需要使用-p参数指定端口号</p>
 
     </div>
 
