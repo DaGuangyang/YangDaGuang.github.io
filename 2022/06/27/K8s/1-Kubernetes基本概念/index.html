@@ -28,9 +28,10 @@
 <meta property="og:site_name" content="DaGuang">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/06/27/5UbYtS64yAIPXzM.jpg">
-<meta property="og:image" content="http://example.com/2022/06/27/K8s/1-Kubernetes%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/k8s%E6%9E%B6%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="http://example.com/2022/06/27/K8s/1-Kubernetes%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/2025-01-15-00-20-33.png">
+<meta property="og:image" content="http://example.com/2022/06/27/K8s/1-Kubernetes%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/2025-01-15-17-13-30.png">
 <meta property="article:published_time" content="2022-06-26T16:30:20.000Z">
-<meta property="article:modified_time" content="2022-08-08T08:30:16.730Z">
+<meta property="article:modified_time" content="2025-01-16T14:00:42.540Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="K8s基本概念">
 <meta name="twitter:card" content="summary">
@@ -147,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">K8S概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">K8S特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E9%9B%86%E7%BE%A4%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">K8S集群架构组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#master%E7%BB%84%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">master组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">node组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%8F%92%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="nav-number">3.3.</span> <span class="nav-text">其他插件说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">K8S核心概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">完整流程</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">K8S概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E6%BC%94%E8%BF%9B"><span class="nav-number">1.1.</span> <span class="nav-text">部署演进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k8s%E5%8F%AF%E4%BB%A5%E6%8F%90%E4%BE%9B%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.</span> <span class="nav-text">k8s可以提供什么</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k8s%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">k8s核心组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E9%9D%A2%E7%BB%84%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">控制面组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E8%8A%82%E7%82%B9%E7%BB%84%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">工作节点组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k8s%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">k8s对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%AE%A1%E7%90%86"><span class="nav-number">3.1.</span> <span class="nav-text">对象管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%90%8D%E7%A7%B0%E5%92%8CID"><span class="nav-number">3.2.</span> <span class="nav-text">对象名称和ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#namespace"><span class="nav-number">3.3.</span> <span class="nav-text">namespace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E4%B8%8E%E6%B3%A8%E8%A7%A3"><span class="nav-number">3.4.</span> <span class="nav-text">标签与注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.5.</span> <span class="nav-text">字段选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#finalizers%E7%BB%88%E7%BB%93%E5%99%A8"><span class="nav-number">3.6.</span> <span class="nav-text">finalizers终结器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E4%B8%BB%E4%B8%8E%E9%99%84%E5%B1%9E"><span class="nav-number">3.7.</span> <span class="nav-text">属主与附属</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E4%B8%BB%E5%85%B3%E7%B3%BB%E4%B8%8E-Finalizer"><span class="nav-number">3.7.1.</span> <span class="nav-text">属主关系与 Finalizer</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,18 +163,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -249,7 +250,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-08 16:30:16" itemprop="dateModified" datetime="2022-08-08T16:30:16+08:00">2022-08-08</time>
+      <time title="修改时间：2025-01-16 22:00:42" itemprop="dateModified" datetime="2025-01-16T22:00:42+08:00">2025-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,107 +274,221 @@
     <div class="post-body" itemprop="articleBody">
         <p><img src="https://s2.loli.net/2022/06/27/5UbYtS64yAIPXzM.jpg" alt="k8s.jpg">  </p>
 <span id="more"></span>
-<h1 id="K8S概述"><a href="#K8S概述" class="headerlink" title="K8S概述"></a>K8S概述</h1><p>k8s是谷歌开源的容器化集群管理系统<br>使用k8s进行容器化应用部署<br>使用k8s利于应用扩展<br>k8s目标是让部署容器化应用更加简洁和高效  </p>
-<h1 id="K8S特性"><a href="#K8S特性" class="headerlink" title="K8S特性"></a>K8S特性</h1><ol>
-<li>自动装箱：基于容器对应用运行环境的资源配置要求自动化部署应用容器  </li>
-<li>自我修复（自愈能力）：当容器失败时，会对容器进行重启  </li>
-<li>水平扩展：对应用容器进行规模扩大或者规模剪裁  </li>
-<li>服务发现：通过K8S自身实现服务发现和负载均衡  </li>
-<li>滚动更新：进行一次性或者批量式更新  </li>
-<li>版本回退：历史版本即时回退  </li>
-<li>秘钥和配置管理：在不需要重新构建镜像的情况下，可以部署和更新秘钥和应用配置，类似热部署  </li>
-<li>存储编排：自动实现存储系统挂载和应用，存储系统可以来自于本地目录、网络存储、公有云存储服务  </li>
-<li>批处理：一次性任务、定时任务</li>
+<h1 id="K8S概述"><a href="#K8S概述" class="headerlink" title="K8S概述"></a>K8S概述</h1><p>Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化。</p>
+<h2 id="部署演进"><a href="#部署演进" class="headerlink" title="部署演进"></a>部署演进</h2><p><img src="/2022/06/27/K8s/1-Kubernetes%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/2025-01-15-00-20-33.png"><br>容器类似于 VM，但是更宽松的隔离特性，使容器之间可以共享操作系统（OS）。 因此，容器比起 VM 被认为是更轻量级的。且与 VM 类似，每个容器都具有自己的文件系统、CPU、内存、进程空间等。 由于它们与基础架构分离，因此可以跨云和 OS 发行版本进行移植。<br>K8s优点：  </p>
+<ol>
+<li><strong>敏捷应用程序的创建和部署</strong>：与使用 VM 镜像相比，提高了容器镜像创建的简便性和效率。</li>
+<li><strong>持续开发、集成和部署</strong>：通过快速简单的回滚（由于镜像不可变性）， 提供可靠且频繁的容器镜像构建和部署。</li>
+<li><strong>关注开发与运维的分离</strong>：在构建、发布时创建应用程序容器镜像，而不是在部署时， 从而将应用程序与基础架构分离。</li>
+<li><strong>可观察性</strong>：不仅可以显示 OS 级别的信息和指标，还可以显示应用程序的运行状况和其他指标信号。</li>
+<li><strong>跨开发、测试和生产的环境一致性</strong>：在笔记本计算机上也可以和在云中运行一样的应用程序。</li>
+<li><strong>跨云和操作系统发行版本的可移植性</strong>：可在 Ubuntu、RHEL、CoreOS、本地、 Google Kubernetes Engine 和其他任何地方运行。</li>
+<li><strong>以应用程序为中心的管理</strong>：提高抽象级别，从在虚拟硬件上运行 OS 到使用逻辑资源在 OS 上运行应用程序。</li>
+<li><strong>松散耦合、分布式、弹性、解放的微服务</strong>：应用程序被分解成较小的独立部分， 并且可以动态部署和管理 - 而不是在一台大型单机上整体运行。</li>
+<li><strong>资源隔离</strong>：可预测的应用程序性能。</li>
+<li><strong>资源利用</strong>：高效率和高密度。</li>
 </ol>
-<h1 id="K8S集群架构组件"><a href="#K8S集群架构组件" class="headerlink" title="K8S集群架构组件"></a>K8S集群架构组件</h1><p><img src="/2022/06/27/K8s/1-Kubernetes%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/k8s%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="K8s架构图">  </p>
-<h2 id="master组件"><a href="#master组件" class="headerlink" title="master组件"></a>master组件</h2><ol>
-<li>APIserver：集群统一入口，以restful方式，交给etcd存储  </li>
-<li>scheduler：资源调度，选择node节点部署应用  </li>
-<li>controller-manager：处理集群中常规后台任务，一个资源对应一个控制器  </li>
-<li>etcd：存储系统，用于保存集群相关的数据   </li>
-</ol>
-<h2 id="node组件"><a href="#node组件" class="headerlink" title="node组件"></a>node组件</h2><ol>
-<li>kubelet：master在node中的代表，管理本机容器  </li>
-<li>kube-proxy：提供网络代理，负载均衡  </li>
-</ol>
-<h2 id="其他插件说明"><a href="#其他插件说明" class="headerlink" title="其他插件说明"></a>其他插件说明</h2><ol>
-<li>COREDNS：可以为集群中的SVC创建一个域名IP的对应关系解析</li>
-<li>DASHBOARD：给 K8S 集群提供一个 B/S 结构访问体系</li>
-<li>INGRESS CONTROLLER：官方只能实现四层代理，INGRESS 可以实现七层代理</li>
-<li>FEDERATION：提供一个可以跨集群中心多K8S统一管理功能</li>
-<li>PROMETHEUS：提供K8S集群的监控能力</li>
-<li>ELK：提供 K8S 集群日志统一分析介入平台</li>
-<li>Flannel：网络插件，Flannel可分配的IP地址段资源保存在ETCD中，监控ETCD中每个pod的实际地址，并在内存中建立维护pod节点路由表  </li>
-</ol>
-<h1 id="K8S核心概念"><a href="#K8S核心概念" class="headerlink" title="K8S核心概念"></a>K8S核心概念</h1><ol>
-<li>pod  </li>
+<h2 id="k8s可以提供什么"><a href="#k8s可以提供什么" class="headerlink" title="k8s可以提供什么"></a>k8s可以提供什么</h2><ul>
+<li><strong>服务发现和负载均衡</strong><br>Kubernetes 可以使用 DNS 名称或自己的 IP 地址来暴露容器。 如果进入容器的流量很大， Kubernetes 可以负载均衡并分配网络流量，从而使部署稳定</li>
+<li><strong>存储编排</strong><br>Kubernetes 允许自动挂载你选择的存储系统，例如本地存储、公共云提供商等。</li>
+<li><strong>自动部署和回滚</strong><br>使用 Kubernetes 描述已部署容器的所需状态， 它可以以受控的速率将实际状态更改为期望状态。 例如，你可以自动化 Kubernetes 来为你的部署创建新容器， 删除现有容器并将它们的所有资源用于新容器。  </li>
+<li><strong>自动完成装箱计算</strong><br>为 Kubernetes 提供许多节点组成的集群，在这个集群上运行容器化的任务。 你告诉 Kubernetes 每个容器需要多少 CPU 和内存 (RAM)。 Kubernetes 可以将这些容器按实际情况调度到你的节点上，以最佳方式利用你的资源。</li>
+<li><strong>自我修复</strong><br>Kubernetes 将重新启动失败的容器、替换容器、杀死不响应用户定义的运行状况检查的容器， 并且在准备好服务之前不将其通告给客户端。</li>
+<li><strong>密钥与配置管理</strong><br>Kubernetes 允许你存储和管理敏感信息，例如密码、OAuth 令牌和 SSH 密钥。 你可以在不重建容器镜像的情况下部署和更新密钥和应用程序配置，也无需在堆栈配置中暴露密钥。</li>
+<li><strong>批处理执行</strong><br>除了服务外，Kubernetes 还可以管理你的批处理和 CI（持续集成）工作负载，如有需要，可以替换失败的容器。</li>
+<li><strong>水平扩缩</strong><br>使用简单的命令、用户界面或根据 CPU 使用率自动对你的应用进行扩缩。</li>
+<li><strong>IPv4/IPv6 双栈</strong><br>为 Pod（容器组）和 Service（服务）分配 IPv4 和 IPv6 地址。</li>
+<li><strong>为可扩展性设计</strong><br>在不改变上游源代码的情况下为你的 Kubernetes 集群添加功能。</li>
+</ul>
+<h1 id="k8s核心组件"><a href="#k8s核心组件" class="headerlink" title="k8s核心组件"></a>k8s核心组件</h1><p>k8s是由控制平面和一个或者多个工作节点组成。<br><img src="/2022/06/27/K8s/1-Kubernetes%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/2025-01-15-17-13-30.png"></p>
+<h2 id="控制面组件"><a href="#控制面组件" class="headerlink" title="控制面组件"></a>控制面组件</h2><ul>
+<li>kube-apiserver：提供了资源操作的唯一入口，并提供认证、授权、访问控制、API注册和发现等机制。  </li>
+<li>etcd：存储系统，APIserver将请求的数据存储到etcd中</li>
+<li>kube-scheduler：负责资源的调度，按照预定的调度策略将 Pod 调度到相应的节点上。</li>
+<li>kube-controller-manager：运行控制器来实现k8s API的行为，例如故障检测、自动扩展和滚动更新。</li>
+<li>cloud-controller-manager：通过云提供商的 API 管理云平台上的集群。</li>
+</ul>
+<h2 id="工作节点组件"><a href="#工作节点组件" class="headerlink" title="工作节点组件"></a>工作节点组件</h2><ul>
+<li>kubelet：是工作节点上运行的代理，它确保容器在 Pod 中运行。kubelet 接收一组通过各类机制提供给它的 PodSpecs，并确保这些 PodSpecs 中描述的容器处于运行状态且健康。  </li>
+<li>kube-proxy：在节点上运行的网络代理，实现 Kubernetes 服务（Service） 概念的一部分。kube-proxy 维护节点上的一些网络规则，这些网络规则允许从集群内部或外部访问 Pod 中运行的服务。  </li>
+<li>容器运行时：负责运行容器。</li>
+</ul>
+<h1 id="k8s对象"><a href="#k8s对象" class="headerlink" title="k8s对象"></a>k8s对象</h1><p>Kubernetes 对象就像是你在 Kubernetes 集群中写的一张“任务清单”。你通过创建这些对象来告诉 Kubernetes：</p>
+<ul>
+<li>你想运行什么应用（比如一个网站或数据库）。</li>
+<li>这些应用需要多少资源（比如 CPU 和内存）。</li>
+<li>这些应用应该怎么运行（比如出错时自动重启，或者如何更新）。</li>
+</ul>
+<p>当创建了一个对象时，Kubernetes 会记住你写的“任务清单”（也就是你期望的状态）。然后，Kubernetes 会不断检查集群的实际状态，确保它和你写的“任务清单”一致。任务清单中包含spec（规约，希望对象所具有的期望状态）。status描述了对象的当前状态，k8s会不断检查实际情况，并更新status，使其与spec一致。<br>清单中的必须字段：</p>
+<ul>
+<li>apiVersion - 创建该对象所使用的 Kubernetes API 的版本</li>
+<li>kind - 想要创建的对象的类别</li>
+<li>metadata - 帮助唯一标识对象的一些数据，包括一个 name 字符串、UID 和可选的 namespace</li>
+<li>spec - 你所期望的该对象的状态<br>对于不同的对象，spec 部分的内容会有所不同。详细查看官网<a target="_blank" rel="noopener" href="https://kubernetes.io/zh-cn/docs/reference/kubernetes-api/">Kubernetes API 参考</a></li>
+</ul>
+<h2 id="对象管理"><a href="#对象管理" class="headerlink" title="对象管理"></a>对象管理</h2><table>
+<thead>
+<tr>
+<th align="center">特性</th>
+<th align="center">指令式命令</th>
+<th align="center">指令式对象配置</th>
+<th align="center">声明式对象配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作方式</td>
+<td align="center">直接运行命令操作资源。</td>
+<td align="center">通过 YAML 文件明确指定操作（创建、更新、删除）。</td>
+<td align="center">通过 YAML 文件描述期望状态，Kubernetes 自动处理。</td>
+</tr>
+<tr>
+<td align="center">命令示例</td>
+<td align="center">kubectl run/create/delete</td>
+<td align="center">kubectl create/replace/delete -f</td>
+<td align="center">kubectl apply -f</td>
+</tr>
+<tr>
+<td align="center">是否需要</td>
+<td align="center">YAML 文件</td>
+<td align="center">不需要。</td>
+<td align="center">需要。</td>
+</tr>
+<tr>
+<td align="center">适用场景</td>
+<td align="center">快速测试、临时操作。</td>
+<td align="center">简单操作、临时测试。</td>
+<td align="center">生产环境、持续管理。</td>
+</tr>
+<tr>
+<td align="center">幂等性</td>
+<td align="center">不是幂等的（多次运行可能导致错误）。</td>
+<td align="center">不是幂等的（多次运行可能导致错误）。</td>
+<td align="center">幂等的（多次运行结果一致）。</td>
+</tr>
+<tr>
+<td align="center">变更管理</td>
+<td align="center">需要手动处理变更。</td>
+<td align="center">需要手动处理变更。</td>
+<td align="center">Kubernetes 自动处理变更。</td>
+</tr>
+</tbody></table>
+<h2 id="对象名称和ID"><a href="#对象名称和ID" class="headerlink" title="对象名称和ID"></a>对象名称和ID</h2><p>名称：  在同一个命名空间中，每一个对象都有一个名称来标识在同类资源中的唯一性，不同类型的资源可以同名。<br>UID：  在集群中全局唯一，用来区分同一个命名空间中的不同对象。</p>
+<ul>
+<li>Kubernetes 资源的唯一性由 API 组、资源类型、名字空间 和 名称 决定。</li>
+<li>API 版本 不会影响资源的唯一性。</li>
+<li>删除资源后，可以创建同名的新对象。</li>
+<li>在同一资源类型和名字空间中，名称必须是唯一的。</li>
+</ul>
+<h2 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h2><p>Namespace 是 Kubernetes 中用于将资源逻辑分组和隔离的机制。它可以将一个物理集群划分为多个虚拟集群，每个 Namespace 中的资源名称是唯一的，但不同 Namespace 中的资源可以重名。Kubernetes 控制面会为所有名字空间设置一个不可变更的标签 <code>kubernetes.io/metadata.name</code>。 标签的值是名字空间的名称。<br>Namespace 的作用:</p>
+<ul>
+<li>资源隔离：将不同的项目、团队或环境（如开发、测试、生产）的资源隔离开。</li>
+<li>权限控制：通过 RBAC（基于角色的访问控制）为不同的 Namespace 设置不同的权限。</li>
+<li>资源管理：可以为每个 Namespace 设置资源配额（Resource Quota），限制其资源使用量。</li>
+</ul>
+<table>
+  <tr>
+    <td>default</td>
+    <td>如果没有指定 Namespace，资源会默认创建到这里。</td>
+  </tr>
+  <tr>
+    <td>kube-system</td>
+    <td>存放 Kubernetes 系统组件的资源（如 kube-proxy、CoreDNS 等）。</td>
+  </tr>
+  <tr>
+    <td>kube-public</td>
+    <td>存放公共资源，通常对所有用户可见。</td>
+  </tr>
+  <tr>
+    <td>kube-node-lease</td>
+    <td>用于节点心跳机制，与节点健康检查相关。</td>
+  </tr>
+</table>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出所有命名空间</span></span><br><span class="line">kubectl get namespaces</span><br><span class="line"><span class="comment"># 列出指定空间的指定资源</span></span><br><span class="line">kubectl get pod --namespace=kube-system</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改默认的namespace</span></span><br><span class="line">kubectl config set-context --current --namespace=&lt;名字空间名称&gt;</span><br><span class="line"><span class="comment"># 验证，若没有输出，则默认namespace为default</span></span><br><span class="line">kubectl config view --minify | grep namespace:</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有资源类型和它们的缩写名称，以及它们是否在namespace中的。</span></span><br><span class="line">kubectl api-resources</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="标签与注解"><a href="#标签与注解" class="headerlink" title="标签与注解"></a>标签与注解</h2><p><strong>标签</strong>是附加到 Kubernetes 对象（如 Pod、Service、Node 等）上的键值对（key-value pairs）。用于标识和选择对象，通常用于筛选、分组或关联资源。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 标签示例</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">key2:</span> <span class="string">value2</span></span><br><span class="line">    <span class="attr">key3:</span> <span class="string">value3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签筛选,筛选app=my-app且enc≠prod的pod</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">get</span> <span class="string">pods</span> <span class="string">-l</span> <span class="string">app=my-app,env!=prod</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签更新</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">label</span> <span class="string">pod</span> <span class="string">my-pod</span> <span class="string">env=prod</span> <span class="comment">#</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>注解</strong>也是附加到 Kubernetes 对象上的键值对，但它用于存储非标识性的元数据，注解通常用于存储额外的信息，如配置、说明、工具链信息等。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">key2:</span> <span class="string">value2</span></span><br><span class="line">    <span class="attr">key3:</span> <span class="string">value3</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="center">特性</th>
+<th align="center">标签（Labels）</th>
+<th align="center">注解（Annotations）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">用途</td>
+<td align="center">用于标识和选择资源。</td>
+<td align="center">用于存储非标识性的元数据。</td>
+</tr>
+<tr>
+<td align="center">键值对长度</td>
+<td align="center">较短，通常用于快速识别。</td>
+<td align="center">可以较长，适合存储详细信息。</td>
+</tr>
+<tr>
+<td align="center">是否可用于选择器</td>
+<td align="center">是，可以通过选择器筛选资源。</td>
+<td align="center">否，不能用于筛选资源。</td>
+</tr>
+<tr>
+<td align="center">示例</td>
+<td align="center">app: my-app, env: prod</td>
+<td align="center">description: “Production frontend”</td>
+</tr>
+<tr>
+<td align="center">使用场景</td>
+<td align="center">资源分组、服务选择、节点调度。</td>
+<td align="center">存储构建信息、工具链集成、说明文档。</td>
+</tr>
+</tbody></table>
+<h2 id="字段选择器"><a href="#字段选择器" class="headerlink" title="字段选择器"></a>字段选择器</h2><p>字段选择器（Field Selector）是 Kubernetes 中用于根据资源的字段值筛选资源的一种机制。它允许你通过指定资源的特定字段值来过滤资源。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用字段选择器筛选资源</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">get</span> <span class="string">pods</span> <span class="string">--field-selector</span> <span class="string">metadata.name=my-pod</span></span><br><span class="line"><span class="comment">#常用的字段选择器</span></span><br><span class="line"><span class="string">metadata.name=my-pod</span> <span class="comment">#资源名称</span></span><br><span class="line"><span class="string">status.phase=</span>   <span class="comment">#资源状态，不同资源的状态不一样，比如pod有Pending、Running、Succeeded、Failed</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="finalizers终结器"><a href="#finalizers终结器" class="headerlink" title="finalizers终结器"></a>finalizers终结器</h2><ol>
+<li>Finalizers 是 Kubernetes 中一种用于控制资源删除行为的机制。存储在资源的 metadata.finalizers 字段中。本质上就是一个 标记，用于告诉 Kubernetes：“这个资源还不能删除，需要先完成某些操作”。这个标记的添加和移除是由你自定义的逻辑控制的，通常通过编写控制器或外部系统来完成。逻辑上就是在删除这个资源时暂时不能删除，要等完成一些自定义的操作后，删除finalizers标记，然后才能删除资源。</li>
+<li>Finalizers 的主要作用是确保在删除资源之前，完成一些必要的清理操作。</li>
 </ol>
 <ul>
-<li>最小部署单元  </li>
-<li>一组容器的集合  </li>
-<li>pod内共享网络  </li>
-<li>生命周期是短暂的（服务器重启后就找不到了）  </li>
+<li>释放外部资源（如云存储、数据库连接等）。</li>
+<li>确保依赖资源的正确删除顺序。</li>
+<li>防止资源被意外删除。<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">finalizers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">my-finalizer</span></span><br></pre></td></tr></table></figure>
+<h2 id="属主与附属"><a href="#属主与附属" class="headerlink" title="属主与附属"></a>属主与附属</h2></li>
+</ul>
+<ol>
+<li>什么是属主和附属？<br>在 Kubernetes 中，属主（Owner） 和 附属（Dependent） 是一种资源之间的从属关系。属主资源拥有一个或多个附属资源，Kubernetes 通过这种关系来管理资源的生命周期。</li>
+</ol>
+<ul>
+<li>属主（Owner）：通常是更高级别的资源，例如 Deployment、StatefulSet、ReplicaSet 等。</li>
+<li>附属（Dependent）：通常是由属主创建或管理的资源，例如 Pod。</li>
 </ul>
 <ol start="2">
-<li>controller  </li>
+<li>属主和附属的关系<br>属主和附属之间的关系通过资源的 metadata.ownerReferences 字段来定义。每个附属资源都会在其 <code>metadata.ownerReferences</code> 字段中记录其属主资源的信息。<br>示例：一个由 Deployment 创建的 Pod 的 metadata.ownerReferences 字段可能如下所示：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">复制</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">ownerReferences:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">my-deployment</span></span><br><span class="line">    <span class="attr">uid:</span> <span class="number">12345678</span><span class="number">-1234</span><span class="number">-1234</span><span class="number">-1234</span><span class="number">-123456789012</span></span><br><span class="line">    <span class="attr">controller:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+<li>属主和附属的作用<br>属主和附属的关系在 Kubernetes 中有以下作用：</li>
 </ol>
 <ul>
-<li>确保预期的pod副本数量（replicaSet）  </li>
-<li>一次性任务和定时任务（job和cronjob）  </li>
-<li>有状态应用部署（statefulSet）与无状态应用部署（Depoltment）（无状态应用部署即无部署或使用条件，有条件应用部署反之）  </li>
-<li>确保所有的node同时运行一个pod（DaemonSet）  </li>
+<li>生命周期管理<br>当属主资源被删除时，Kubernetes 会自动删除其所有附属资源。<br>例如，删除一个 Deployment 时，Kubernetes 会自动删除由该 Deployment 创建的所有 Pod。</li>
+<li>垃圾回收<br>Kubernetes 的垃圾回收器（Garbage Collector）会检查资源的 metadata.ownerReferences 字段。如果属主资源被删除，垃圾回收器会自动删除所有附属资源。</li>
+<li>资源关联<br>通过属主和附属的关系，可以清晰地表示资源之间的依赖关系。<br>例如，一个 Service 可以通过标签选择器关联到由 Deployment 创建的 Pod。\</li>
 </ul>
-<ol start="3">
-<li>service  </li>
+<h3 id="属主关系与-Finalizer"><a href="#属主关系与-Finalizer" class="headerlink" title="属主关系与 Finalizer"></a>属主关系与 Finalizer</h3><ol>
+<li><p>属主关系与 Finalizer 的作用<br>属主关系和 Finalizer 都是 Kubernetes 中用于管理资源生命周期的机制，但它们的作用不同：<br>属主关系：用于表示资源之间的从属关系（如 Deployment 和 Pod），并控制资源的级联删除。<br>Finalizer：用于在删除资源之前执行清理操作，防止资源被意外删除。</p>
+</li>
+<li><p>级联删除与 Finalizer<br>Kubernetes 支持两种级联删除策略：前台删除（Foreground） 和 后台删除（Background）。在前台删除中，Kubernetes 会为属主资源添加 Finalizer，以确保删除顺序。</p>
+</li>
 </ol>
 <ul>
-<li>定义一组pod的访问规则  </li>
-<li>pod的负载均衡，提供一个或多个pod的稳定的访问地址  </li>
+<li><p>前台删除（Foreground）:先删除附属资源，再删除属主资源。<br>Kubernetes 会为属主资源添加 <code>foreground</code> Finalizer。<br>控制器必须删除所有 <code>ownerReferences.blockOwnerDeletion=true</code> 的附属资源后，才能删除属主资源。<br>这种策略确保属主资源在删除之前，所有依赖它的附属资源都被清理。<br><code>kubectl delete deployment my-deployment --cascade=foreground</code></p>
+</li>
+<li><p>后台删除（Background）:立即删除属主资源，然后异步删除附属资源。默认的删除方式<br>Kubernetes 会立即删除属主资源，然后由垃圾回收器异步删除附属资源。<br>这种策略不会为属主资源添加 Finalizer。</p>
+</li>
+<li><p>孤立删除（Orphan）<br>Kubernetes 会为属主资源添加 <code>orphan</code> Finalizer。<br>删除属主资源后，附属资源会被保留，不再被属主资源管理。<br><code>kubectl delete deployment my-deployment --cascade=orphan</code><br>至于为什么属主添加了<code>orphan</code> Finalizer还是会被删除，是因为这个 Finalizer 的作用是告诉 Kubernetes：“在删除属主资源之前，先解除它与附属资源（如 Pod）的属主关系”。也就是执行这条命令的流程：属主添加 orphan Finalizer–&gt;解除属主关系(将附属<code>metadata.ownerReferences</code> 字段中指向属主资源的条目移除)–&gt;删除属主资源。</p>
+</li>
 </ul>
-<ol start="4">
-<li>volume  </li>
-</ol>
-<ul>
-<li>声明在pod中可以访问的文件目录  </li>
-<li>可以被挂载到一个或多个容器指定路径下</li>
-<li>支持多种后端存储  </li>
-</ul>
-<ol start="5">
-<li>deployment  </li>
-</ol>
-<ul>
-<li>定义一组pod副本数目，版本等  </li>
-<li>通过控制器controller维持pod数目  </li>
-<li>通过控制器以指定的策略控制版本  </li>
-</ul>
-<ol start="6">
-<li>label  </li>
-</ol>
-<ul>
-<li>标签，用于对对象资源查询、筛选  </li>
-</ul>
-<ol start="7">
-<li>namespace  </li>
-</ol>
-<ul>
-<li>命名空间，逻辑隔离  </li>
-<li>一个集群内部的逻辑隔离机制（鉴权、资源）  </li>
-<li>每一个资源都属于一个namespace  </li>
-<li>同一个namespace中所有资源不能重复  </li>
-<li>不同namespace中的资源名可以重复  </li>
-</ul>
-<h1 id="完整流程"><a href="#完整流程" class="headerlink" title="完整流程"></a>完整流程</h1><ol>
-<li>通过kubectl提交一个创建replication controller（RC），亲通过APIserver写入到etcd中  </li>
-<li>controller-manager通过APIserver监听到此RC  </li>
-<li>分析之后发现集群中还没有它对应的pod  </li>
-<li>根据RC中的pod模板定义一个生成pod对象，通过APIserver写入到etcd中  </li>
-<li>此事件被scheduler发现，立即执行一个复杂的调度流程，为这个pod选定一个node，然后通过APIserver将这一事件写入到etcd中  </li>
-<li>目标node上云心给的kubelet进程通过APIserver检测到这个新的pod，并按照他的定义启动该pod，并进行管理  </li>
-<li>随后通过kubectl提交一个新的映射到该pod的service的创建请求  </li>
-<li>controller-manager通过label标签查询到关联的pod实例，然后生成service的endpoints信息，并通过APIserver写入到etcd中  </li>
-<li>所有node上运行的proxy进程通过APIserver查询并监听service对象与对应的endpoints信息，建立一个软件方式的负载均衡来实现service访问到后端pod的流量转发功能  </li>
-</ol>
-<p>endpoints：endpoint是k8s集群中的一个资源对象，存储在etcd中，用来记录一个service对应的所有pod的访问地址。service配置selector，endpoint controller才会自动创建对应的endpoint对象；否则，不会生成endpoint对象  </p>
 
     </div>
 
@@ -390,8 +505,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/26/mongoDB/2-MongoDB%E5%9F%BA%E7%A1%80/" rel="prev" title="2-MongoDB基础">
-                  <i class="fa fa-chevron-left"></i> 2-MongoDB基础
+                <a href="/2022/03/28/zabbix/3-zabbix%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" rel="prev" title="3-zabbix配置">
+                  <i class="fa fa-chevron-left"></i> 3-zabbix配置
                 </a>
             </div>
             <div class="post-nav-item">
@@ -418,7 +533,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

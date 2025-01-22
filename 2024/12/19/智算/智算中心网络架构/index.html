@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="学习资料：《百度智能云 智算中心网络架构白皮书》NVIDIA MLNX_OFEDNVIDIA Firmware Tools (MFT)RedHat 配置 InfiniBand 和 RDMA 网络NVIDIA MFT文档RedHat 安装配置OpenSM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智算中心网络架构">
+<meta property="og:url" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/index.html">
+<meta property="og:site_name" content="DaGuang">
+<meta property="og:description" content="学习资料：《百度智能云 智算中心网络架构白皮书》NVIDIA MLNX_OFEDNVIDIA Firmware Tools (MFT)RedHat 配置 InfiniBand 和 RDMA 网络NVIDIA MFT文档RedHat 安装配置OpenSM">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-14-16-37.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-14-22-38.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-14-34-32.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-15-14-19.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-32-50.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-39-24.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-39-37.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-43-42.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-47-19.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-48-09.png">
+<meta property="og:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-48-27.png">
+<meta property="article:published_time" content="2024-12-19T07:24:39.000Z">
+<meta property="article:modified_time" content="2025-01-22T02:16:42.259Z">
+<meta property="article:author" content="DaGuang">
+<meta property="article:tag" content="智算网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-14-16-37.png">
+
+
+<link rel="canonical" href="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/","path":"2024/12/19/智算/智算中心网络架构/","title":"智算中心网络架构"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>智算中心网络架构 | DaGuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="DaGuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DaGuang</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E9%9B%86%E7%BE%A4%E7%9A%84%E7%BD%91%E7%BB%9C%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">大模型训练集群的网络要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDMA"><span class="nav-number">2.</span> <span class="nav-text">RDMA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InfiniBand"><span class="nav-number">2.1.</span> <span class="nav-text">InfiniBand</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IB%E7%AB%AF%E5%8F%A3%E9%80%9F%E7%8E%87"><span class="nav-number">2.1.1.</span> <span class="nav-text">IB端口速率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IB%E7%BD%91%E5%8D%A1"><span class="nav-number">2.1.2.</span> <span class="nav-text">IB网卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IB-Switch%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="nav-number">2.1.3.</span> <span class="nav-text">IB Switch交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E4%BB%B6"><span class="nav-number">2.1.4.</span> <span class="nav-text">连接件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subnet-Manager"><span class="nav-number">2.1.5.</span> <span class="nav-text">Subnet Manager</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">2.1.5.1.</span> <span class="nav-text">相关命令</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">物理网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E7%AE%97%E7%BD%91%E7%BB%9C%E5%8F%AF%E5%AE%B9%E7%BA%B3%E7%9A%84GPU%E5%8D%A1%E7%9A%84%E8%A7%84%E6%A8%A1"><span class="nav-number">3.1.</span> <span class="nav-text">智算网络可容纳的GPU卡的规模</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E5%B1%82%E8%83%96%E6%A0%91%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.1.</span> <span class="nav-text">两层胖树架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%B1%82%E8%83%96%E6%A0%91%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.2.</span> <span class="nav-text">三层胖树架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E5%B1%82%E4%B8%8E%E4%B8%89%E5%B1%82%E8%83%96%E6%A0%91%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.3.</span> <span class="nav-text">两层与三层胖树对比</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DaGuang"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">DaGuang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="DaGuang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="智算中心网络架构 | DaGuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          智算中心网络架构
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-19 15:24:39" itemprop="dateCreated datePublished" datetime="2024-12-19T15:24:39+08:00">2024-12-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-01-22 10:16:42" itemprop="dateModified" datetime="2025-01-22T10:16:42+08:00">2025-01-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%99%BA%E7%AE%97%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">智算网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>学习资料：<br>《百度智能云 智算中心网络架构白皮书》<br><a target="_blank" rel="noopener" href="https://docs.nvidia.com/networking/display/mlnxofedv581121lts/opensm">NVIDIA MLNX_OFED</a><br><a target="_blank" rel="noopener" href="https://network.nvidia.com/products/adapter-software/firmware-tools/">NVIDIA Firmware Tools (MFT)</a><br><a target="_blank" rel="noopener" href="https://docs.redhat.com/zh-cn/documentation/red_hat_enterprise_linux/9/html-single/configuring_infiniband_and_rdma_networks/index#configuring-the-core-rdma-subsystem_configuring-infiniband-and-rdma-networks">RedHat 配置 InfiniBand 和 RDMA 网络</a><br><a target="_blank" rel="noopener" href="https://docs.nvidia.com/networking/display/mftv4300/linux">NVIDIA MFT文档</a><br><a target="_blank" rel="noopener" href="https://access.redhat.com/articles/7087953?extIdCarryOver=true&sc_cid=701f2000001Css5AAC">RedHat 安装配置OpenSM</a></p>
+</blockquote>
+<span id="more"></span>
+<h2 id="大模型训练集群的网络要求"><a href="#大模型训练集群的网络要求" class="headerlink" title="大模型训练集群的网络要求"></a>大模型训练集群的网络要求</h2><p>大模型训练中的大规模参数对算力和显存都有较高的要求，为了缩短训练时间，需要通过分布式训练的方式，将模型参数和计算任务分配到多个计算节点上。<br>分布式训练系统的整体算力并不是简单的随着智算节点的增加而线性增加，而是存在加速比，且加速比小于1。存在加速比的原因是：在分布式训练中，计算节点之间需要频繁的进行通信，包括参数的同步、梯度的同步等，这些通信延迟会降低训练速度。<br>降低多机多卡间端到端通信时延的关键技术是 RDMA 技术。 RDMA 可以绕过操作系统内核， 让一台主机可以直接访问另外一台主机的内存。</p>
+<h2 id="RDMA"><a href="#RDMA" class="headerlink" title="RDMA"></a>RDMA</h2><p>RDMA是一种新的直接内存访问技术，RDMA让计算机可以直接存取其他计算机的内存，而不需要经过处理器的处理。RDMA将数据从一个系统快速移动到远程系统的内存中，而不对操作系统造成任何影响。<br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-14-16-37.png"><br>实 现 RDMA 的 方 式 有 InfiniBand、 RoCEv1、 RoCEv2、 i WARP 四 种。 其 中 RoCEv1 技 术 当 前 已 经 被 淘 汰，<br>iWARP 使用较少。 当前 RDMA 技术主要采用的方案为 InfiniBand 和 RoCEv2 两种。<br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-14-22-38.png"></p>
+<h3 id="InfiniBand"><a href="#InfiniBand" class="headerlink" title="InfiniBand"></a>InfiniBand</h3><p>InfiniBand（直译为“无限带宽”技术，缩写为IB）是一个用于高性能计算的计算机网络通信标准，它具有极高的吞吐量和极低的延迟，用于计算机与计算机之间的数据互连。InfiniBand也用作服务器与存储系统之间的直接或交换互连，以及存储系统之间的互连。<br>InfiniBand网络的关键组成包括Subnet Manager（ SM）、 InfiniBand 网卡、 InfiniBand交换机和InfiniBand连接线缆。  </p>
+<h4 id="IB端口速率"><a href="#IB端口速率" class="headerlink" title="IB端口速率"></a>IB端口速率</h4><p><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-14-34-32.png"><br>IB（InfiniBand）端口速率对应不同的网卡、连接件和交换机。不同的IB网卡、线缆和交换机支持不同的数据传输速率</p>
+<h4 id="IB网卡"><a href="#IB网卡" class="headerlink" title="IB网卡"></a>IB网卡</h4><p>IB网卡通常被称为HCA（Host Channel Adapter）。HCA是InfiniBand网络中的主机通道适配器，它连接主机系统（如服务器）和InfiniBand网络。HCA负责处理InfiniBand网络的数据传输，并提供高性能、低延迟的网络通信。HCA通常集成在服务器的主板或作为独立适配器安装。</p>
+<h4 id="IB-Switch交换机"><a href="#IB-Switch交换机" class="headerlink" title="IB Switch交换机"></a>IB Switch交换机</h4><p>IB Switch（InfiniBand Switch）是InfiniBand网络中的核心设备，用于连接多个HCA（Host Channel Adapter）和设备，实现数据的高效传输。IB Switch具有高性能、低延迟和高度可扩展性等特点。</p>
+<h4 id="连接件"><a href="#连接件" class="headerlink" title="连接件"></a>连接件</h4><p>InfiniBand 网络需要专用的线缆和光模块做交换机间的互联以及交换机和网卡的互联。<br>例如NDR交换机在Spine-Leaf层之间布线方式为双端使用800Gb光模块，Leaf到GPU服务器之间，Leaf交换机侧使用800Gb光模块，GPU服务器侧连接两个400Gb光模块。<br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-20-15-14-19.png">  </p>
+<h4 id="Subnet-Manager"><a href="#Subnet-Manager" class="headerlink" title="Subnet Manager"></a>Subnet Manager</h4><p>InfiniBand 交换机上不运行任何路由协议。 整个网络的转发表是由集中式的子网管理器（ Subnet Manager， 简称 SM）<br>进行计算并统一下发的。SM 有 OpenSM（ 开源） 和 UFM（ 收费） 两种模式。  </p>
+<ul>
+<li><strong>部署</strong>：SM 通常部署在接入 InfiniBand 子网的一台服务器上， 可以把子网管理器理解为 InfiniBand 网络的控制器。一个子网内同时只能有一个 SM 工作， 如有多个设备配置成为 SM， 则只有一个 SM 能成为主 SM。 </li>
+<li><strong>控制机制</strong>：SM 可以控制整个子网内所有的 InfiniBand 交换机和 InfiniBand 网卡， 控制信令也通过InfiniBand 网络带内下发和上传（ 统称 MAD， Management Datagram） 。 所有 InfiniBand 网卡端口和交换芯片都有一个子网内唯一的身份标识 LID（ Local ID） ， 由 SM 赋予。 SM 会计算每个交换芯片的路由表并下发。 SM 控制 InfiniBand 网卡， 并不需要 InfiniBand 网卡所在服务器的协助。  </li>
+</ul>
+<h5 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h5><p>OpenSM 是 InfiniBand 网络中的一个开源子网管理器（Subnet Manager），用于管理和配置 InfiniBand 子网。<br>需要使用 <strong>rdma-core、libibverbs-utils、infiniband-diags</strong>包支持，</p>
+<ul>
+<li>配置IPoIB<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MST工具查看网卡与以太网卡标识</span></span><br><span class="line">mst status -v   </span><br><span class="line">------------</span><br><span class="line">DEVICE_TYPE             MST                           PCI       RDMA            NET                       NUMA  </span><br><span class="line">ConnectX6(rev:0)        /dev/mst/mt4123_pciconf0      98:00.0   mlx5_4          net-ib0                   1 </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> centos中配置/etc/sysconfig/network-scripts/ifcfg-&lt;interface_name&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置完成后重启网络服务或者启用接口</span></span><br><span class="line">systemctl restart network</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">ifup ib0</span><br></pre></td></tr></table></figure></li>
+<li>ibstat查看IB网卡状态<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CA &#x27;mlx5_0&#x27;  # 网卡名称</span><br><span class="line">    CA type: MT41170    # 网卡类型</span><br><span class="line">    Number of ports: 1 # 网卡端口数量</span><br><span class="line">    Firmware version: 16.28.1000 # 网卡固件版本</span><br><span class="line">    Hardware version: a0    # 网卡硬件版本</span><br><span class="line">    Node GUID: 0x00155d0300d1a9e0 # 网卡GUID</span><br><span class="line">    System image GUID: 0x00155d0300d1a9e0 # 网卡系统GUID</span><br><span class="line">    Port 1:</span><br><span class="line">        State: Active # 网卡端口状态</span><br><span class="line">        Physical state: LinkUp  # 网卡物理状态</span><br><span class="line">        Rate: 100  # 网卡速率</span><br><span class="line">        Base lid: 0 # 网卡基础LID</span><br><span class="line">        SM lid: 0</span><br><span class="line">        Port GUID: 0x00155d0300d1a9e1</span><br><span class="line">        Link layer: InfiniBand # 网卡链路层协议</span><br></pre></td></tr></table></figure></li>
+<li>ibswitches获取当前子网的所有交换机的信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~]# ibswitches</span><br><span class="line">Switch	: 0x946dae030016474e ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 25 lmc 0</span><br><span class="line">Switch	: 0x946dae030016488e ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 8 lmc 0</span><br><span class="line">Switch	: 0x946dae0300164ace ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 39 lmc 0</span><br><span class="line">Switch	: 0x946dae030016476e ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 31 lmc 0</span><br><span class="line">Switch	: 0x946dae03000ca39a ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 35 lmc 0</span><br><span class="line">Switch	: 0x946dae0300095e9a ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 33 lmc 0</span><br><span class="line">Switch	: 0x946dae0300095f1a ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 22 lmc 0</span><br><span class="line">Switch	: 0x946dae030016482e ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 23 lmc 0</span><br><span class="line">Switch	: 0x946dae0300095c9a ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 32 lmc 0</span><br><span class="line">Switch	: 0x946dae0300095eda ports 41 &quot;Quantum Mellanox Technologies&quot; base port 0 lid 45 lmc 0</span><br></pre></td></tr></table></figure></li>
+<li>ofed_info检测ofed驱动版本<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ofed_info -s</span><br></pre></td></tr></table></figure></li>
+<li>iblinkinfo 查看IB网卡连接信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Switch: 0x946dae030016494e Quantum Mellanox Technologies:</span><br><span class="line">          #lid  port  state  rate  link</span><br><span class="line">          26    1[  ] ==( 4X        53.125 Gbps Active/  LinkUp)==&gt;      40    1[  ] &quot;Quantum Mellanox Technologies&quot; ( )</span><br><span class="line">          26    2[  ] ==( 4X        53.125 Gbps Active/  LinkUp)==&gt;      40    2[  ] &quot;Quantum Mellanox Technologies&quot; ( )</span><br><span class="line">          26    3[  ] ==( 4X        53.125 Gbps Active/  LinkUp)==&gt;      24    1[  ] &quot;Quantum Mellanox Technologies&quot; ( )</span><br><span class="line">          26    4[  ] ==( 4X        53.125 Gbps Active/  LinkUp)==&gt;      24    2[  ] &quot;Quantum Mellanox Technologies&quot; ( )</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>sminfo获取当前节点的子网管理器的信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~]# sminfo </span><br><span class="line">sminfo: sm lid 1 sm guid 0x946dae0300146a70, activity count 117783369 priority 0 state 3 SMINFO_MASTER</span><br></pre></td></tr></table></figure></li>
+<li>ibswitches获取当前子网的所有交换机的信息</li>
+<li>ibhosts取当前子网的所有HCA的信息</li>
+<li>ibnodes获取当前子网的所有交换机和HCA的信息</li>
+<li>ibnetdiscover 获取 当前子网的所有交换机和HCA的信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vendid=0x2c9    # 网卡厂商ID</span><br><span class="line">devid=0xcf09    # 网卡设备ID</span><br><span class="line">sysimgguid=0x946dae03000c9c9a # 网卡系统GUID</span><br><span class="line">caguid=0x946dae03000c9ca2   # 网卡GUID</span><br><span class="line">Ca	1 &quot;H-946dae03000c9ca2&quot;		# &quot;Mellanox Technologies Aggregation Node&quot; </span><br><span class="line">[1](946dae03000c9ca2) 	&quot;S-946dae03000c9c9a&quot;[41]		# lid 305 lmc 0 &quot;Quantum Mellanox Technologies&quot; lid 34 4xHDR  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="物理网络架构"><a href="#物理网络架构" class="headerlink" title="物理网络架构"></a>物理网络架构</h2><p>在智算场景中，当前比较好的实践是独立建一张高性能网络来承载智算业务， 满足大带宽， 低时延， 无损的需求。  </p>
+<ul>
+<li> 大带宽设计<br>智算服务器可以满配 8 张 GPU 卡， 并预留 8 个 PCIe 网卡插槽。 在多机组建 GPU 集群时， 两个 GPU 跨机互通的突发带宽有可能会大于 50Gbps。 因此， 一般会给每个 GPU 关联一个至少 100Gbps 的网络端口。 在这种场景下可以配置 4张 2<em>100Gbps 的网卡， 也可以配置 8 张 1</em>100Gbps 的网卡， 当然也可以配置 8 张单端口 200/400Gbps 的网卡。<br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-32-50.png"></li>
+<li>无阻塞设计<br>无阻塞网络设计的关键是采用 Fat-Tree（ 胖树） 网络架构。 交换机下联和上联带宽采用 1： 1 无收敛设计， 即如果下联有64 个 100Gbps 的端口， 那么上联也有 64 个 100Gbps 的端口。</li>
+<li>低时延设计 AI-Pool<br>8 个接入交换机为一组， 构成一个 AI-Pool。 以两层交换机组网架构为例， 这种网络架构能做到同 AI-Pool 的不同智算节点的 GPU 互访仅需一跳。在 AI-Pool 网络架构中， 不同智算节点间相同编号的网口需要连接到同一台交换机。 如智算节点 1 的 1 号 RDMA 网口，智算节点 2 的 1 号 RDMA 网口直到智算节点 P/2 的 1 号 RDMA 网口都连到 1 号交换机。</li>
+</ul>
+<p><strong>在智算节点内部</strong>， 上层通信库基于机内网络拓扑进行网络匹配， 让相同编号的 GPU 卡和相同编号的网口关联。 这样相同GPU 编号的两台智算节点间仅一跳就可互通。<br><strong>不同GPU编号的智算节点间</strong>， 借助NCCL通信库中的Rail Local技术， 可以充分利用主机内GPU间的NVSwitch的带宽，将多机间的跨卡号互通转换为跨机间的同GPU卡号的互通。<br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-39-24.png"><br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-39-37.png"></p>
+<h3 id="智算网络可容纳的GPU卡的规模"><a href="#智算网络可容纳的GPU卡的规模" class="headerlink" title="智算网络可容纳的GPU卡的规模"></a>智算网络可容纳的GPU卡的规模</h3><p>网络可承载的 GPU 卡的规模和所采用交换机的端口密度、 网络架构相关。 网络的层次多， 承载的 GPU 卡的规模会变大，但转发的跳数和时延也会变大， 需要结合实际业务情况进行权衡。</p>
+<h4 id="两层胖树架构"><a href="#两层胖树架构" class="headerlink" title="两层胖树架构"></a>两层胖树架构</h4><p>8 台接入交换机组成一个智算资源池 AI-Pool。 图中 P 代表单台交换机的端口数。 单台交换机最大可下联和上联的端口为P/2 个， 即单台交换机最多可以下联 P/2 台服务器和 P/2 台交换机。 两层胖树网络可以接入 P*P/2 张 GPU 卡。<br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-43-42.png">  </p>
+<h4 id="三层胖树架构"><a href="#三层胖树架构" class="headerlink" title="三层胖树架构"></a>三层胖树架构</h4><p>三层网络架构中会新增汇聚交换机组和核心交换机组。 每个组里面的最大交换机数量为 P/2。 汇聚交换机组最大数量为 8，核心交换机组的最大数量为 P/2。 三层胖树网络可以接入 P*(P/2)*(P/2)=P*P*P/4 张 GPU 卡。<br>在三层胖树组网中， InfiniBand 的 40 端口的 200Gbps HDR 交换机能容纳的最多 GPU 数量是 16000。<br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-47-19.png"></p>
+<h4 id="两层与三层胖树对比"><a href="#两层与三层胖树对比" class="headerlink" title="两层与三层胖树对比"></a>两层与三层胖树对比</h4><p><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-48-09.png"><br><img src="/2024/12/19/%E6%99%BA%E7%AE%97/%E6%99%BA%E7%AE%97%E4%B8%AD%E5%BF%83%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/2024-12-25-14-48-27.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%99%BA%E7%AE%97%E7%BD%91%E7%BB%9C/" rel="tag"># 智算网络</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/12/05/keepalived/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/" rel="prev" title="keepalived高可用">
+                  <i class="fa fa-chevron-left"></i> keepalived高可用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/01/02/%E6%99%BA%E7%AE%97/Nvidia-Container-Toolkit/" rel="next" title="Nvidia-Container-Toolkit">
+                  Nvidia-Container-Toolkit <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DaGuang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/code-unfold.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

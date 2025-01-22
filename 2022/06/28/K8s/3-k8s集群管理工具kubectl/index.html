@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/06/27/5UbYtS64yAIPXzM.jpg">
 <meta property="article:published_time" content="2022-06-28T14:45:32.000Z">
-<meta property="article:modified_time" content="2024-09-10T07:44:01.049Z">
+<meta property="article:modified_time" content="2025-01-16T12:46:34.259Z">
 <meta property="article:author" content="DaGuang">
 <meta property="article:tag" content="K8S集群管理工具kubectl">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kubectl%E4%B8%AD%E7%9A%84%E7%AE%80%E5%86%99"><span class="nav-number">2.1.</span> <span class="nav-text">kubectl中的简写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">获取帮助信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">2.3.</span> <span class="nav-text">基础命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create"><span class="nav-number">2.4.</span> <span class="nav-text">create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4"><span class="nav-number">2.5.</span> <span class="nav-text">部署命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">集群管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E5%92%8C%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4"><span class="nav-number">2.7.</span> <span class="nav-text">故障和调试命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">2.8.</span> <span class="nav-text">其他命令</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF"><span class="nav-number">2.1.</span> <span class="nav-text">获取帮助信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">2.2.</span> <span class="nav-text">基础命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create"><span class="nav-number">2.3.</span> <span class="nav-text">create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">部署命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="nav-number">2.5.</span> <span class="nav-text">集群管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E5%92%8C%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">故障和调试命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">2.7.</span> <span class="nav-text">其他命令</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -161,18 +161,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -248,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-10 15:44:01" itemprop="dateModified" datetime="2024-09-10T15:44:01+08:00">2024-09-10</time>
+      <time title="修改时间：2025-01-16 20:46:34" itemprop="dateModified" datetime="2025-01-16T20:46:34+08:00">2025-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -275,7 +275,6 @@
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>kubectl是k8s集群的命令行工具，通过kubectl能够对集群本身进行管理，并能够在集群上进行容器化应用的安装和部署  </p>
 <h1 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl [command] [type] [name] [flags]</span><br></pre></td></tr></table></figure>
 <p><strong>参数</strong><br><strong>command</strong>：指定要对资源执行的操作，例如：create、get、describe、delete<br><strong>type</strong>：指定资源类型，资源类型是大小写敏感的，可以使用单数、复数、缩略的形式<br><strong>name</strong>：资源的名称，大小写敏感，且可以省略，省略则会显示所有的资源<br><strong>flags</strong>：指定可选参数  </p>
-<h2 id="kubectl中的简写"><a href="#kubectl中的简写" class="headerlink" title="kubectl中的简写"></a>kubectl中的简写</h2><p>certificatesigningrequests (缩写 csr)<br>componentstatuses (缩写 cs)<br>configmaps (缩写 cm)<br>customresourcedefinition (缩写 crd)<br><strong>daemonsets (缩写 ds)</strong><br><strong>deployments (缩写 deploy)</strong><br>endpoints (缩写 ep)<br>events (缩写 ev)<br>horizontalpodautoscalers (缩写 hpa)<br>ingresses (缩写 ing)<br>limitranges (缩写 limits)<br>namespaces (缩写 ns)<br>networkpolicies (缩写 netpol)<br><strong>nodes (缩写 no)</strong><br>persistentvolumeclaims (缩写 pvc)<br>persistentvolumes (缩写 pv)<br>poddisruptionbudgets (缩写 pdb)<br><strong>pods (缩写 po)</strong><br>podsecuritypolicies (缩写 psp)<br><strong>replicasets (缩写 rs)</strong><br>replicationcontrollers (缩写 rc)<br>resourcequotas (缩写 quota)<br>serviceaccounts (缩写 sa)<br><strong>services (缩写 svc)</strong><br><strong>statefulsets (缩写 sts)</strong><br>storageclasses (缩写 sc)</p>
 <h2 id="获取帮助信息"><a href="#获取帮助信息" class="headerlink" title="获取帮助信息"></a>获取帮助信息</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 获取kubectl帮助信息</span></span><br><span class="line">kubectl --help</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取某个命令的介绍和使用</span>  </span><br><span class="line">kubectl get --help</span><br></pre></td></tr></table></figure>
 
 <h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><table>
@@ -314,10 +313,7 @@
 <td align="center">通过文件名、标准输入、资源名、标签来删除资源</td>
 </tr>
 </tbody></table>
-<h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f FILENAEM  #使用yaml文件创建资源</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f FILENAEM  #使用yaml文件创建资源</span><br></pre></td></tr></table></figure>
 <h2 id="部署命令"><a href="#部署命令" class="headerlink" title="部署命令"></a>部署命令</h2><table>
 <thead>
 <tr>
@@ -386,7 +382,7 @@
 <td align="center">显示特定资源或资源组的详细信息</td>
 </tr>
 <tr>
-<td align="center">log</td>
+<td align="center">logs</td>
 <td align="center">输出容器在 pod 中的日志</td>
 </tr>
 <tr>
@@ -422,6 +418,10 @@
 </tr>
 </thead>
 <tbody><tr>
+<td align="center">diff</td>
+<td align="center">比较当前在线配置与本地配置的差异</td>
+</tr>
+<tr>
 <td align="center">apply</td>
 <td align="center">通过文件名或标准输入对资源应用的配置</td>
 </tr>
@@ -506,7 +506,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
